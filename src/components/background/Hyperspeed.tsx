@@ -16,7 +16,7 @@ interface Colors {
   roadColor: number;
   islandColor: number;
   background: number;
-  shoulderLines: number;
+  shoulderLines: number; 
   brokenLines: number;
   leftCars: number[];
   rightCars: number[];
