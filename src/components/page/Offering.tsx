@@ -67,13 +67,30 @@ export default function Offering() {
     return (
         <div>
             <h1 className="font-semibold">—— Need Services?</h1>
-            <h1 className="font-bold text-5xl uppercase">
+            <h1 className="mt-7 mb-15 font-bold text-5xl uppercase">
                 What I'm <br />Offering
             </h1>
-            <div className="grid grid-cols-3">
-                <div></div>
-                <div className="col-span-2">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div className="flex gap-24 mx-15">
+                <div className="flex justify-center items-center">
+                    <div>
+                        <center>
+                            <span className="text-xs tracking-widest text-black writing-vertical">
+                                EXPLORE
+                            </span>
+                        </center>
+                        <center className="my-3">
+                            <span className="block w-px h-30 bg-black"></span>
+                        </center>
+                        <div className="bg-black text-white rounded-full p-4 w-fit down-arrow">
+                            <svg width="20" height="20" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
+                                <path d="M11.7547 20.9888C11.8923 21.1495 12.0966 21.2514 12.3247 21.2514L12.3264 21.2514C12.5188 21.2518 12.7113 21.1786 12.8581 21.0319L18.8583 15.0359C19.1513 14.7431 19.1514 14.2682 18.8586 13.9752C18.5659 13.6822 18.091 13.6821 17.798 13.9749L13.0747 18.6948L13.0747 4.5C13.0747 4.08579 12.7389 3.75 12.3247 3.75C11.9105 3.75 11.5747 4.08579 11.5747 4.5L11.5747 18.6883L6.85829 13.9749C6.5653 13.6821 6.09043 13.6822 5.79763 13.9752C5.50483 14.2682 5.50498 14.7431 5.79796 15.0359L11.7547 20.9888Z" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div className="flex items-center gap-6">
                         {cards.map((card, index) => (
                             <CardSpotlight key={index} className="h-75 w-75">
                                 <p className="text-xl font-bold relative z-20 mt-2 text-white">
@@ -95,6 +112,15 @@ export default function Offering() {
                             </CardSpotlight>
                         ))}
                     </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-3">
+                <div className="">
+
+                </div>
+                <div className="col-span-2">
+
 
                 </div>
             </div>
