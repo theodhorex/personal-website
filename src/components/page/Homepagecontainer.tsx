@@ -15,7 +15,7 @@ export default function Homepagecontainer() {
             <div className="left">
                 <h1 className="font-bold text-5xl">
                     <img className="w-20 h-fit" src="https://cdn.dribbble.com/userupload/22732842/file/original-9d65e9da6a39ca17442a9ef0c55fd442.gif" alt="" />
-                    <span className="font-thin">Hello!</span> I'm Theodhore
+                    <span className="font-thin">Hello!</span> I'm Theodhore Riyanto
                 </h1>
                 <div className="flex items-center my-4">
                     <p className="me-6">—————————— Fullstack Web Developer.</p>
