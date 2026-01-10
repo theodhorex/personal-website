@@ -1,5 +1,4 @@
-import { CardSpotlight } from "../ui/card/card-spotlight"
-
+import CardFlip from "../ui/card/flip-card"
 
 
 const Step = ({ title }: { title: string }) => {
@@ -31,97 +30,137 @@ const CheckIcon = () => {
     );
 };
 
+// Icon components (sesuaikan dengan icon yang Anda gunakan)
+const UXIcon = () => (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+    </svg>
+);
+
+const VisualIcon = () => (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+    </svg>
+);
+
+const StrategyIcon = () => (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 16v-4"/>
+        <path d="M12 8h.01"/>
+    </svg>
+);
+
 type CardData = {
+    frontIcon: React.ReactNode
+    frontTitle: string
+    frontSubtitle: string
     title: string
     steps: string[]
     description: string
+    color: string
 }
 
 const cards: CardData[] = [
     {
-        title: "Authentication steps",
+        frontIcon: <UXIcon />,
+        frontTitle: "UI-UX",
+        frontSubtitle: "CREATIVE DESIGN",
+        title: "UI/UX Creative Design",
         steps: [
-            "Enter your email address",
-            "Create a strong password",
-            "Set up two-factor authentication",
-            "Verify your identity",
+            "User research & analysis",
+            "Wireframing & prototyping",
+            "Visual design system",
+            "Usability testing",
         ],
         description:
-            "Ensuring your account is properly secured helps protect your personal information and data.",
+            "Create intuitive and engaging user experiences that delight your customers and drive conversions.",
+        color: "#3b82f6"
     },
     {
-        title: "Onboarding process",
+        frontIcon: <VisualIcon />,
+        frontTitle: "VISUAL",
+        frontSubtitle: "GRAPHIC DESIGN",
+        title: "Visual Graphic Design",
         steps: [
-            "Create an account",
-            "Complete your profile",
-            "Choose your preferences",
-            "Start using the platform",
+            "Brand identity design",
+            "Marketing materials",
+            "Social media graphics",
+            "Print & digital assets",
         ],
         description:
-            "A smooth onboarding helps you get started quickly and efficiently.",
+            "Stunning visual designs that communicate your brand message effectively and leave a lasting impression.",
+        color: "#8b5cf6"
+    },
+    {
+        frontIcon: <StrategyIcon />,
+        frontTitle: "STRATEGY &",
+        frontSubtitle: "DIGITAL MARKETING",
+        title: "Strategy & Digital Marketing",
+        steps: [
+            "Market research",
+            "SEO optimization",
+            "Content strategy",
+            "Performance analytics",
+        ],
+        description:
+            "Data-driven strategies that help your business grow and reach the right audience at the right time.",
+        color: "#ec4899"
     },
 ]
 
 
 export default function Offering() {
     return (
-        <div>
+        <div className="py-20 px-8">
             <h1 className="font-semibold">—— Need Services?</h1>
             <h1 className="mt-7 mb-15 font-bold text-5xl uppercase">
                 What I'm <br />Offering
             </h1>
 
-            <div className="flex gap-24 mx-15">
+            <div className="flex gap-24 mx-13 mt-16">
                 <div className="flex justify-center items-center">
                     <div>
                         <center>
-                            <span className="text-xs tracking-widest text-black writing-vertical">
+                            <span className="text-xs tracking-widest writing-vertical">
                                 EXPLORE
                             </span>
                         </center>
                         <center className="my-3">
                             <span className="block w-px h-30 bg-black"></span>
                         </center>
-                        <div className="bg-black text-white rounded-full p-4 w-fit down-arrow">
+                        <div className="bg-black text-white rounded-full p-4 w-fit down-arrow cursor-pointer hover:scale-110 transition-transform">
                             <svg width="20" height="20" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
-                                <path d="M11.7547 20.9888C11.8923 21.1495 12.0966 21.2514 12.3247 21.2514L12.3264 21.2514C12.5188 21.2518 12.7113 21.1786 12.8581 21.0319L18.8583 15.0359C19.1513 14.7431 19.1514 14.2682 18.8586 13.9752C18.5659 13.6822 18.091 13.6821 17.798 13.9749L13.0747 18.6948L13.0747 4.5C13.0747 4.08579 12.7389 3.75 12.3247 3.75C11.9105 3.75 11.5747 4.08579 11.5747 4.5L11.5747 18.6883L6.85829 13.9749C6.5653 13.6821 6.09043 13.6822 5.79763 13.9752C5.50483 14.2682 5.50498 14.7431 5.79796 15.0359L11.7547 20.9888Z" fill="#ffffff" />
+                                <path d="M11.7547 20.9888C11.8923 21.1495 12.0966 21.2514 12.3247 21.2514L12.3264 21.2514C12.5188 21.2518 12.7113 21.1786 12.8581 21.0319L18.8583 15.0359C19.1513 14.7431 19.1514 14.2682 18.8586 13.9752C18.5659 13.6822 18.091 13.6821 17.798 13.9749L13.0747 18.6948L13.0747 4.5C13.0747 4.08579 12.7389 3.75 12.3247 3.75C11.9105 3.75 11.5747 4.08579 11.5747 4.5L11.5747 18.6883L6.85829 13.9749C6.5653 13.6821 6.09043 13.6822 5.79763 13.9752C5.50483 14.2682 5.50498 14.7431 5.79796 15.0359L11.7547 20.9888Z" fill="currentColor" />
                             </svg>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div className="flex items-center gap-6">
-                        {cards.map((card, index) => (
-                            <CardSpotlight key={index} className="h-75 w-75">
-                                <p className="text-xl font-bold relative z-20 mt-2 text-white">
-                                    {card.title}
-                                </p>
-
-                                <div className="text-neutral-200 mt-4 relative z-20">
-                                    Follow these steps:
-                                    <ul className="list-none mt-2">
-                                        {card.steps.map((step, i) => (
-                                            <Step key={i} title={step} />
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-                                    {card.description}
-                                </p>
-                            </CardSpotlight>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="grid grid-cols-3">
-                <div className="">
-
-                </div>
-                <div className="col-span-2">
-
-
+                
+                <div className="flex items-center gap-6 flex-wrap">
+                    {cards.map((card, index) => (
+                        <CardFlip 
+                            key={index}
+                            // Front side props (minimalist style seperti gambar)
+                            frontIcon={card.frontIcon}
+                            frontTitle={card.frontTitle}
+                            frontSubtitle={card.frontSubtitle}
+                            
+                            // Back side props
+                            title={card.title}
+                            description={card.description}
+                            features={card.steps}
+                            
+                            // Styling
+                            color={card.color}
+                            buttonText="Learn More"
+                            className="h-[400px] w-[320px]"
+                        />
+                    ))}
                 </div>
             </div>
         </div>
