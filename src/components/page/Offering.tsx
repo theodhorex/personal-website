@@ -1,3 +1,4 @@
+// Component
 import CardFlip from "../ui/card/flip-card"
 
 
@@ -33,25 +34,25 @@ const CheckIcon = () => {
 // Icon components (sesuaikan dengan icon yang Anda gunakan)
 const UXIcon = () => (
     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M2 17l10 5 10-5" />
+        <path d="M2 12l10 5 10-5" />
     </svg>
 );
 
 const VisualIcon = () => (
     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-        <circle cx="8.5" cy="8.5" r="1.5"/>
-        <polyline points="21 15 16 10 5 21"/>
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
     </svg>
 );
 
 const StrategyIcon = () => (
     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 16v-4"/>
-        <path d="M12 8h.01"/>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 16v-4" />
+        <path d="M12 8h.01" />
     </svg>
 );
 
@@ -117,10 +118,26 @@ const cards: CardData[] = [
 export default function Offering() {
     return (
         <div className="py-20 px-8">
-            <h1 className="font-semibold">—— Need Services?</h1>
-            <h1 className="mt-7 mb-15 font-bold text-5xl uppercase">
-                What I'm <br />Offering
-            </h1>
+            <div className="flex justify-between items-center ">
+                {/* KIRI */}
+                <div className="">
+                    <h1 className="font-semibold">—— Need Services?</h1>
+                    <h1 className="mt-7 mb-15 font-bold text-5xl uppercase">
+                        What I'm <br />Offering
+                    </h1>
+                </div>
+
+                {/* KANAN */}
+                <div className="flex items-center gap-6 max-w-md ">
+                    <p className="text-sm">
+                        Lorem ipsum dolor sit amet. molestiae perferendis voluptatem omnis illum distinctio!
+                    </p>
+                    <button className="bg-black text-white rounded-xs px-7 py-2 uppercase whitespace-nowrap">
+                        All Service
+                    </button>
+                </div>
+            </div>
+
 
             <div className="flex gap-24 mx-13 mt-16">
                 <div className="flex justify-center items-center">
@@ -140,21 +157,21 @@ export default function Offering() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="flex items-center gap-6 flex-wrap">
                     {cards.map((card, index) => (
-                        <CardFlip 
+                        <CardFlip
                             key={index}
                             // Front side props (minimalist style seperti gambar)
                             frontIcon={card.frontIcon}
                             frontTitle={card.frontTitle}
                             frontSubtitle={card.frontSubtitle}
-                            
+
                             // Back side props
                             title={card.title}
                             description={card.description}
                             features={card.steps}
-                            
+
                             // Styling
                             color={card.color}
                             buttonText="Learn More"

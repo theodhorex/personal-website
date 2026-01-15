@@ -1,8 +1,12 @@
 
 import Image from "next/image";
 import PillNav from "../components/navbar/PillNav"
+
+// Page
 import Homepage from "../components/page/Homepagecontainer"
 import Offering from "@/components/page/Offering";
+import Experience from "../components/page/Experience";
+import CaseStudy from "@/components/page/CaseStudy";
 
 // Component
 import Divider from "@/components/ui/divider/Divider";
@@ -47,6 +51,9 @@ export default function Home() {
 
 
       <Offering />
+      <Experience />
+      
+      <CaseStudy />
 
     </div>
   );

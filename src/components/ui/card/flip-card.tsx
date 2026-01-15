@@ -86,7 +86,7 @@ export default function CardFlip({
           <div className={cn(
             'absolute inset-0 h-full w-full',
             '[backface-visibility:hidden]',
-            'rounded-2xl',
+            'rounded-xs',
           )}>
             {children}
           </div>
@@ -102,7 +102,7 @@ export default function CardFlip({
         <div className={cn(
           'absolute inset-0 h-full w-full',
           '[transform:rotateY(0deg)] [backface-visibility:hidden]',
-          'rounded-2xl',
+          'rounded-xs',
           frontClassName,
         )}>
           {frontContent}
@@ -117,7 +117,7 @@ export default function CardFlip({
           className={cn(
             'absolute inset-0 h-full w-full',
             '[transform:rotateY(0deg)] [backface-visibility:hidden]',
-            'overflow-hidden rounded-2xl',
+            'overflow-hidden rounded-xs',
             'bg-gradient-to-br from-zinc-900 via-zinc-900/98 to-zinc-800',
             'border border-zinc-800/50',
             'shadow-lg',
@@ -179,7 +179,7 @@ export default function CardFlip({
       className={cn(
         'absolute inset-0 h-full w-full',
         '[transform:rotateY(0deg)] [backface-visibility:hidden]',
-        'overflow-hidden rounded-2xl',
+        'overflow-hidden rounded-xs',
         'bg-gradient-to-br from-white via-slate-50 to-slate-100',
         'dark:from-zinc-900 dark:via-zinc-900/95 dark:to-zinc-800',
         'border border-slate-200 dark:border-zinc-800/50',
@@ -215,7 +215,7 @@ export default function CardFlip({
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className={cn(
-                'h-12 w-12 rounded-xl',
+                'h-12 w-12 rounded-xs',
                 'from-primary via-primary/90 to-primary/80 bg-gradient-to-br',
                 'flex items-center justify-center',
                 'shadow-primary/25 shadow-lg',
@@ -261,7 +261,7 @@ export default function CardFlip({
         <div className={cn(
           'absolute inset-0 h-full w-full',
           '[transform:rotateY(180deg)] [backface-visibility:hidden]',
-          'rounded-2xl',
+          'rounded-xs',
           backClassName,
         )}>
           {backContent}
@@ -278,7 +278,7 @@ export default function CardFlip({
       className={cn(
         'absolute inset-0 h-full w-full',
         '[transform:rotateY(180deg)] [backface-visibility:hidden]',
-        'rounded-2xl p-5',
+        'rounded-xs p-5',
         'bg-gradient-to-br from-white via-slate-50 to-slate-100',
         'dark:from-zinc-900 dark:via-zinc-900/95 dark:to-zinc-800',
         'border border-slate-200 dark:border-zinc-800',
@@ -291,7 +291,7 @@ export default function CardFlip({
         backClassName,
       )}
     >
-      <div className="from-primary/5 dark:from-primary/10 absolute inset-0 rounded-2xl bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
+      <div className="from-primary/5 dark:from-primary/10 absolute inset-0 rounded-xs bg-gradient-to-br via-transparent to-blue-500/5 dark:to-blue-500/10" />
 
       <div className="relative z-10 flex-1 space-y-5">
         <div className="space-y-2">

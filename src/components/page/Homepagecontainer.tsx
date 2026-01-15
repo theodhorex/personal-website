@@ -37,13 +37,13 @@ export default function Homepagecontainer() {
                 </ul>
 
                 <div className="cta flex gap-3">
-                    <button className="bg-black text-white rounded-full px-7 py-2">Let's Talk</button>
+                    <button className="bg-black text-white rounded-xs px-7 py-2">Let's Talk</button>
                     <button className="border-b-2 h-fit border-black font-semibold px-7 py-2 flex items-center gap-2">Download Cv <img className="w-4 h-3" src="https://static.vecteezy.com/system/resources/previews/019/879/209/non_2x/download-button-on-transparent-background-free-png.png" alt="" /></button>
                 </div>
             </div>
 
             <div className="right-poster block m-auto">
-                <div className="w-[35em] h-[35em] relative overflow-hidden">
+                <div className="w-[35em] h-[35em] relative overflow-hidden rounded-xs">
                     <Waves
                         className="w-full h-full"
                         lineColor="#000000"
