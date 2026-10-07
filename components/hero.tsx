@@ -14,24 +14,23 @@ export function Hero() {
         <div className="flex items-center gap-2 mb-6 animate-fade-in">
           <span className="font-mono text-xs uppercase tracking-wider text-[#75758a] bg-[#eeece7] px-3 py-1 rounded-[4px] border border-[#d9d9dd] inline-flex items-center gap-1.5 shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1863dc]"></span>
-            <span>SYSTEM PERSPECTIVE // 2026</span>
+            <span>PORTFOLIO // 2026</span>
           </span>
           <span className="text-xs text-[#93939f] font-mono hidden sm:inline">
-            {"// RESILIENT INFRASTRUCTURE"}
+            {"// THEO DHORE"}
           </span>
         </div>
 
         {/* Monumental Display Headline */}
         <div className="max-w-5xl">
-          <h1 className="hero-display text-4xl sm:text-6xl md:text-7xl lg:text-[82px] text-[#17171c] font-normal tracking-[-0.035em] leading-[1.02] animate-fade-in-up">
-            Architecting intelligent systems with mathematical precision and editorial clarity.
+          <h1 className="hero-display text-4xl sm:text-6xl md:text-7xl lg:text-[80px] text-[#17171c] font-normal tracking-[-0.035em] leading-[1.02] animate-fade-in-up">
+            Building high-performance software, intelligent agents, and sleek web experiences.
           </h1>
 
-          {/* Lead Paragraph inspired by bouayaben concrete depth */}
-          <p className="mt-8 text-lg sm:text-xl text-[#616161] max-w-3xl font-sans leading-relaxed animate-fade-in-up delay-200">
-            I engineer production systems handling high-concurrency workloads — distributed multi-agent runtimes,
-            sub-40ms edge platforms on Next.js 16, and deterministic tool verification layers. Turning non-deterministic
-            foundation models into observable, fault-tolerant infrastructure.
+          {/* Punchy Lede */}
+          <p className="mt-8 text-lg sm:text-xl text-[#616161] max-w-2xl font-sans leading-relaxed animate-fade-in-up delay-200">
+            I’m Theo — full-stack engineer and AI systems builder. I turn ambitious ideas into fast,
+            production-grade applications with mathematical precision and clean design.
           </p>
 
           {/* Actions Bar */}
@@ -40,15 +39,15 @@ export function Hero() {
               href="#work"
               className="inline-flex items-center gap-2 bg-[#17171c] hover:bg-[#000000] text-white text-sm font-medium px-7 py-3.5 rounded-[32px] transition-all shadow-none group active:scale-95"
             >
-              <span>Explore Selected Work</span>
+              <span>Explore My Work</span>
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
             <a
-              href="#architecture"
+              href="#contact"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-[#212121] hover:text-[#1863dc] underline underline-offset-4 transition-colors group"
             >
-              <span>Inspect Systems Architecture</span>
+              <span>Get in Touch</span>
               <ArrowUpRight className="w-4 h-4 inline group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
