@@ -39,35 +39,35 @@ export function BouayabenHero() {
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-5">
               <a
                 href="#work"
-                className="inline-flex items-center justify-center gap-2 bg-[#17171c] hover:bg-black text-white text-xs sm:text-sm font-medium px-6 py-3.5 sm:py-3 rounded-[32px] transition-all active:scale-95 shadow-none group"
+                className="btn-pill-interactive inline-flex items-center justify-center gap-2.5 bg-[#17171c] hover:bg-black text-white text-xs sm:text-sm font-medium px-6 py-3.5 sm:py-3 rounded-[32px] group"
               >
                 <span>Selected Work (05)</span>
-                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-1 transition-transform duration-200" />
               </a>
 
               <a
                 href="#about"
-                className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-medium text-[#212121] hover:text-[#1863dc] underline underline-offset-4 transition-colors py-2 sm:py-0"
+                className="link-hover-underline group inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-medium text-[#212121] hover:text-[#1863dc] transition-colors py-2 sm:py-0"
               >
                 <span>About &amp; Principles</span>
-                <ArrowUpRight className="w-3.5 h-3.5 inline" />
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
             </div>
           </div>
 
           {/* Foot Stats / Invariants Bar */}
           <div className="mt-12 sm:mt-20 md:mt-24 pt-6 sm:pt-8 border-t border-[#e5e7eb] grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 font-mono text-xs">
-            <div className="p-3.5 sm:p-0 rounded-[12px] sm:rounded-none bg-[#fbfbfa] sm:bg-transparent border border-[#e5e7eb] sm:border-0">
-              <div className="text-[#93939f] text-[10px] sm:text-[11px] uppercase mb-1">01 // WEB3 ARCHITECTURE</div>
-              <div className="text-[#17171c] font-medium text-xs sm:text-[13px]">Sub-second RPC latency &amp; verified smart contract state</div>
+            <div className="group p-4 sm:p-4 rounded-[14px] bg-[#fbfbfa] sm:bg-[#fafaf8]/80 hover:bg-white border border-[#e5e7eb] hover:border-[#1863dc]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-sm cursor-default">
+              <div className="text-[#93939f] group-hover:text-[#1863dc] text-[10px] sm:text-[11px] uppercase mb-1 transition-colors">01 // WEB3 ARCHITECTURE</div>
+              <div className="text-[#17171c] font-medium text-xs sm:text-[13px] leading-relaxed">Sub-second RPC latency &amp; verified smart contract state</div>
             </div>
-            <div className="p-3.5 sm:p-0 rounded-[12px] sm:rounded-none bg-[#fbfbfa] sm:bg-transparent border border-[#e5e7eb] sm:border-0">
-              <div className="text-[#93939f] text-[10px] sm:text-[11px] uppercase mb-1">02 // EDGE WEB PERFORMANCE</div>
-              <div className="text-[#17171c] font-medium text-xs sm:text-[13px]">&lt;25ms global TTFB edge streaming on Next.js 16</div>
+            <div className="group p-4 sm:p-4 rounded-[14px] bg-[#fbfbfa] sm:bg-[#fafaf8]/80 hover:bg-white border border-[#e5e7eb] hover:border-[#1863dc]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-sm cursor-default">
+              <div className="text-[#93939f] group-hover:text-[#1863dc] text-[10px] sm:text-[11px] uppercase mb-1 transition-colors">02 // EDGE WEB PERFORMANCE</div>
+              <div className="text-[#17171c] font-medium text-xs sm:text-[13px] leading-relaxed">&lt;25ms global TTFB edge streaming on Next.js 16</div>
             </div>
-            <div className="p-3.5 sm:p-0 rounded-[12px] sm:rounded-none bg-[#fbfbfa] sm:bg-transparent border border-[#e5e7eb] sm:border-0">
-              <div className="text-[#93939f] text-[10px] sm:text-[11px] uppercase mb-1">03 // DEV TOOLING RELIABILITY</div>
-              <div className="text-[#17171c] font-medium text-xs sm:text-[13px]">Zero-config developer workflows &amp; type-safe toolchains</div>
+            <div className="group p-4 sm:p-4 rounded-[14px] bg-[#fbfbfa] sm:bg-[#fafaf8]/80 hover:bg-white border border-[#e5e7eb] hover:border-[#1863dc]/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-sm cursor-default">
+              <div className="text-[#93939f] group-hover:text-[#1863dc] text-[10px] sm:text-[11px] uppercase mb-1 transition-colors">03 // DEV TOOLING RELIABILITY</div>
+              <div className="text-[#17171c] font-medium text-xs sm:text-[13px] leading-relaxed">Zero-config developer workflows &amp; type-safe toolchains</div>
             </div>
           </div>
         </Reveal>
