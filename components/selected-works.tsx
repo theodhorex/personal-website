@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, ExternalLink, GitBranch, Layers } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
 export function SelectedWorks() {
   const projects = [
