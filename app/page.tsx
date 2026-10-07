@@ -4,6 +4,7 @@ import { Hero } from "@/components/hero";
 import { TrustStrip } from "@/components/trust-strip";
 import { SelectedWorks } from "@/components/selected-works";
 import { DarkFeatureBand } from "@/components/dark-feature-band";
+import { AboutCapabilities } from "@/components/about-capabilities";
 import { ResearchTable } from "@/components/research-table";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <TrustStrip />
         <SelectedWorks />
         <DarkFeatureBand />
+        <AboutCapabilities />
         <ResearchTable />
         <ContactSection />
       </main>
