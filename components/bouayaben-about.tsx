@@ -34,28 +34,34 @@ export function BouayabenAbout() {
   return (
     <section id="about" className="bg-white dark:bg-[#0e0e12] py-14 sm:py-20 md:py-28 border-b border-[#e5e7eb] dark:border-[#2e2e38] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start">
-            {/* Left Column: Sticky Label matching bouayaben.com .about-sticky */}
-            <div className="lg:col-span-3 lg:sticky lg:top-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start">
+          {/* Left Column: Sticky Label matching bouayaben.com .about-sticky */}
+          <div className="lg:col-span-3 lg:sticky lg:top-28">
+            <Reveal delay={50} distance={16}>
               <h2 className="font-mono text-xs uppercase tracking-wider text-[#17171c] dark:text-[#f4f4f7] font-semibold pb-4 lg:pb-0 border-b lg:border-none border-[#17171c] dark:border-[#2e2e38] transition-colors">
                 {t("about_section_title")}
               </h2>
-            </div>
+            </Reveal>
+          </div>
 
-            {/* Right Column: Lede, Body, Capabilities, Recognition */}
-            <div className="lg:col-span-9 space-y-8 sm:space-y-10 md:space-y-12">
-              {/* Lede */}
+          {/* Right Column: Lede, Body, Capabilities, Recognition */}
+          <div className="lg:col-span-9 space-y-8 sm:space-y-10 md:space-y-12">
+            {/* Lede */}
+            <Reveal delay={120} distance={24}>
               <p className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-[#17171c] dark:text-[#f4f4f7] leading-[1.25] tracking-tight transition-colors">
                 {t("about_lede")}
               </p>
+            </Reveal>
 
-              {/* Body */}
+            {/* Body */}
+            <Reveal delay={220} distance={20}>
               <p className="text-sm sm:text-base md:text-lg text-[#616161] dark:text-[#93939f] font-sans leading-relaxed max-w-3xl transition-colors">
                 {t("about_body")}
               </p>
+            </Reveal>
 
-              {/* Capabilities List matching bouayaben.com .about-capabilities */}
+            {/* Capabilities List matching bouayaben.com .about-capabilities */}
+            <Reveal delay={300} distance={20}>
               <div className="pt-2">
                 <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] dark:text-[#93939f] mb-3 sm:mb-4 transition-colors">
                   {t("about_capabilities_title")}
@@ -71,13 +77,15 @@ export function BouayabenAbout() {
                   ))}
                 </ul>
               </div>
+            </Reveal>
 
-              {/* Recognition & Notes matching bouayaben.com .about-notes */}
+            {/* Recognition & Notes matching bouayaben.com .about-notes */}
+            <Reveal delay={380} distance={20}>
               <div className="pt-5 sm:pt-6 border-t border-[#e5e7eb] dark:border-[#2e2e38] transition-colors">
                 <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] dark:text-[#93939f] mb-3 sm:mb-4 transition-colors">
                   {t("about_recognition_title")}
                 </h3>
-                <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm md:text-base text-[#212121] dark:text-[#d0d0d8] font-sans">
+                <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm md:text-base text-[#212121] dark:text-[#d0d0d8] font-sans">
                   {recognition.map((item, idx) => (
                     <li
                       key={idx}
@@ -93,9 +101,9 @@ export function BouayabenAbout() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
