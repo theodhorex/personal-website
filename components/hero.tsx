@@ -4,11 +4,11 @@ import { ProfileCard } from "./profile-card";
 
 export function Hero() {
   return (
-    <section id="overview" className="bg-white pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-[#e5e7eb]">
+    <section id="overview" className="bg-white pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-[#e5e7eb] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Eyebrow Tag */}
-        <div className="flex items-center gap-2 mb-6">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#75758a] bg-[#eeece7] px-3 py-1 rounded-[4px] border border-[#d9d9dd] inline-flex items-center gap-1.5">
+        <div className="flex items-center gap-2 mb-6 animate-fade-in">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#75758a] bg-[#eeece7] px-3 py-1 rounded-[4px] border border-[#d9d9dd] inline-flex items-center gap-1.5 shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1863dc]"></span>
             <span>SYSTEM PERSPECTIVE // 2026</span>
           </span>
@@ -19,22 +19,22 @@ export function Hero() {
 
         {/* Monumental Display Headline */}
         <div className="max-w-5xl">
-          <h1 className="hero-display text-4xl sm:text-6xl md:text-7xl lg:text-[82px] text-[#17171c] font-normal tracking-[-0.035em] leading-[1.02]">
+          <h1 className="hero-display text-4xl sm:text-6xl md:text-7xl lg:text-[82px] text-[#17171c] font-normal tracking-[-0.035em] leading-[1.02] animate-fade-in-up">
             Architecting intelligent systems with mathematical precision and editorial clarity.
           </h1>
 
           {/* Lead Paragraph */}
-          <p className="mt-8 text-lg sm:text-xl text-[#616161] max-w-3xl font-sans leading-relaxed">
+          <p className="mt-8 text-lg sm:text-xl text-[#616161] max-w-3xl font-sans leading-relaxed animate-fade-in-up delay-200">
             I design and build enterprise-grade agent runtimes, deterministic tool validation layers,
             and high-throughput web software on Next.js. Turning non-deterministic foundation models into
             observable, production-grade applications.
           </p>
 
           {/* Actions Bar */}
-          <div className="mt-10 flex flex-wrap items-center gap-5 sm:gap-6">
+          <div className="mt-10 flex flex-wrap items-center gap-5 sm:gap-6 animate-fade-in-up delay-300">
             <a
               href="#work"
-              className="inline-flex items-center gap-2 bg-[#17171c] hover:bg-[#000000] text-white text-sm font-medium px-7 py-3.5 rounded-[32px] transition-all shadow-none group"
+              className="inline-flex items-center gap-2 bg-[#17171c] hover:bg-[#000000] text-white text-sm font-medium px-7 py-3.5 rounded-[32px] transition-all shadow-none group active:scale-95"
             >
               <span>Explore Selected Work</span>
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -42,16 +42,16 @@ export function Hero() {
 
             <a
               href="#architecture"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#212121] hover:text-[#1863dc] underline underline-offset-4 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#212121] hover:text-[#1863dc] underline underline-offset-4 transition-colors group"
             >
               <span>Inspect Systems Architecture</span>
-              <ArrowUpRight className="w-4 h-4 inline" />
+              <ArrowUpRight className="w-4 h-4 inline group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         </div>
 
         {/* Two-Card Media Composition */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch animate-fade-in-up delay-400">
           <div className="lg:col-span-7 h-full">
             <AgentConsole />
           </div>
