@@ -1,11 +1,15 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { AgentConsole } from "./agent-console";
 import { ProfileCard } from "./profile-card";
+import { ParticleCanvas } from "./particle-canvas";
 
 export function Hero() {
   return (
-    <section id="overview" className="bg-white pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-[#e5e7eb] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="overview" className="relative bg-white pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-[#e5e7eb] overflow-hidden">
+      {/* Interactive Vector Particle Field */}
+      <ParticleCanvas />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Eyebrow Tag */}
         <div className="flex items-center gap-2 mb-6 animate-fade-in">
           <span className="font-mono text-xs uppercase tracking-wider text-[#75758a] bg-[#eeece7] px-3 py-1 rounded-[4px] border border-[#d9d9dd] inline-flex items-center gap-1.5 shadow-xs">
@@ -23,11 +27,11 @@ export function Hero() {
             Architecting intelligent systems with mathematical precision and editorial clarity.
           </h1>
 
-          {/* Lead Paragraph */}
+          {/* Lead Paragraph inspired by bouayaben concrete depth */}
           <p className="mt-8 text-lg sm:text-xl text-[#616161] max-w-3xl font-sans leading-relaxed animate-fade-in-up delay-200">
-            I design and build enterprise-grade agent runtimes, deterministic tool validation layers,
-            and high-throughput web software on Next.js. Turning non-deterministic foundation models into
-            observable, production-grade applications.
+            I engineer production systems handling high-concurrency workloads — distributed multi-agent runtimes,
+            sub-40ms edge platforms on Next.js 16, and deterministic tool verification layers. Turning non-deterministic
+            foundation models into observable, fault-tolerant infrastructure.
           </p>
 
           {/* Actions Bar */}
