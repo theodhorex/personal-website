@@ -22,26 +22,29 @@ export function SiteHeader() {
         <nav className="flex items-center gap-4 sm:gap-6 md:gap-8 text-xs font-mono uppercase tracking-wider text-[#75758a] flex-shrink-0">
           <a
             href="#work"
-            className="hover:text-[#17171c] transition-colors py-1.5 px-0.5 sm:px-1"
+            className="link-hover-underline hover:text-[#17171c] transition-colors py-1.5 px-0.5 sm:px-1"
           >
             Work
           </a>
           <a
             href="#about"
-            className="hover:text-[#17171c] transition-colors py-1.5 px-0.5 sm:px-1"
+            className="link-hover-underline hover:text-[#17171c] transition-colors py-1.5 px-0.5 sm:px-1"
           >
             About
           </a>
           <a
             href="#contact"
-            className="hover:text-[#17171c] transition-colors py-1.5 px-0.5 sm:px-1"
+            className="link-hover-underline hover:text-[#17171c] transition-colors py-1.5 px-0.5 sm:px-1"
           >
             Contact
           </a>
 
           {/* Status Pill */}
-          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-[30px] border border-[#d9d9dd] bg-[#edfce9] text-[#003c33] text-[11px]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#003c33] animate-pulse"></span>
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-[30px] border border-[#d9d9dd] bg-[#edfce9] text-[#003c33] text-[11px] hover:border-[#b0f5a7] hover:bg-[#ddfbd9] transition-all duration-200 cursor-default select-none shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#003c33]"></span>
+            </span>
             <span>Available 2026</span>
           </div>
         </nav>
