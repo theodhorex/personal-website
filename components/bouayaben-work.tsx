@@ -52,20 +52,20 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
               <li key={project.id} className="group">
                 <button
                   onClick={() => setActiveProject(project)}
-                  className="w-full text-left py-5 sm:py-7 md:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 transition-colors hover:text-[#1863dc] focus:outline-none"
+                  className="w-full text-left py-5 sm:py-7 md:py-8 -mx-3 sm:-mx-5 px-3 sm:px-5 rounded-[12px] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 transition-all duration-200 hover:bg-[#faf9f6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1863dc]"
                 >
                   <div className="flex items-baseline gap-3 sm:gap-8 min-w-0">
                     {/* Work Index */}
-                    <span className="font-mono text-xs text-[#93939f] w-5 sm:w-6 flex-shrink-0">
+                    <span className="font-mono text-xs text-[#93939f] group-hover:text-[#1863dc] transition-colors duration-200 w-5 sm:w-6 flex-shrink-0">
                       {project.index}
                     </span>
 
                     {/* Work Title & Meta */}
                     <div className="min-w-0">
-                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-[#17171c] group-hover:text-[#1863dc] transition-colors tracking-tight leading-tight">
+                      <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-[#17171c] group-hover:text-[#1863dc] transition-colors duration-200 tracking-tight leading-tight">
                         {project.title}
                       </h3>
-                      <p className="font-mono text-[11px] sm:text-xs text-[#75758a] mt-1 group-hover:text-[#616161]">
+                      <p className="font-mono text-[11px] sm:text-xs text-[#75758a] mt-1 group-hover:text-[#424242] transition-colors duration-200">
                         {project.meta}
                       </p>
                     </div>
@@ -73,10 +73,10 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
 
                   {/* Year & Arrow */}
                   <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-10 pl-8 sm:pl-0 flex-shrink-0 pt-1 sm:pt-0">
-                    <span className="font-mono text-xs text-[#93939f]">
+                    <span className="font-mono text-xs text-[#93939f] group-hover:text-[#616161] transition-colors duration-200">
                       {project.year}
                     </span>
-                    <span className="font-mono text-lg text-[#17171c] group-hover:text-[#1863dc] group-hover:translate-x-1.5 transition-all">
+                    <span className="font-mono text-lg text-[#17171c] group-hover:text-[#1863dc] group-hover:translate-x-2 transition-all duration-200">
                       →
                     </span>
                   </div>
@@ -93,11 +93,11 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
           {/* Backdrop Overlay */}
           <div
             onClick={() => setActiveProject(null)}
-            className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity animate-fade-in"
+            className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity animate-backdrop-fade"
           ></div>
 
           {/* Drawer Panel */}
-          <div className="relative w-full max-w-2xl bg-white h-full shadow-2xl z-10 overflow-y-auto flex flex-col justify-between p-5 sm:p-8 md:p-10 border-l border-[#d9d9dd] animate-fade-in">
+          <div className="relative w-full max-w-2xl bg-white h-full shadow-2xl z-10 overflow-y-auto flex flex-col justify-between p-5 sm:p-8 md:p-10 border-l border-[#d9d9dd] animate-slide-in-right">
             {/* Drawer Header */}
             <div>
               <div className="flex items-start sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-[#e5e7eb]">
@@ -113,7 +113,7 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
 
                 <button
                   onClick={() => setActiveProject(null)}
-                  className="p-1.5 -mr-1.5 rounded-full hover:bg-[#eeece7] text-[#17171c] transition-colors flex-shrink-0"
+                  className="p-1.5 -mr-1.5 rounded-full hover:bg-[#eeece7] text-[#17171c] hover:rotate-90 transition-all duration-200 flex-shrink-0"
                   aria-label="Close case study"
                 >
                   <X className="w-5 h-5" />
@@ -153,7 +153,7 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
                 </h4>
                 <div className="space-y-2.5 text-xs sm:text-sm text-[#212121] leading-relaxed">
                   {activeProject.constraint.map((c, i) => (
-                    <p key={i} className="p-3 sm:p-3.5 rounded-[12px] bg-zinc-50 border border-[#e5e7eb]">
+                    <p key={i} className="p-3 sm:p-3.5 rounded-[12px] bg-zinc-50 hover:bg-white border border-[#e5e7eb] hover:border-[#1863dc]/30 hover:shadow-xs transition-all duration-200">
                       {c}
                     </p>
                   ))}
@@ -167,7 +167,7 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
                 </h4>
                 <div className="space-y-3.5 sm:space-y-4">
                   {activeProject.decisions.map((d, i) => (
-                    <div key={i} className="border-l-2 border-[#003c33] pl-3.5 sm:pl-4 py-1">
+                    <div key={i} className="border-l-2 border-[#003c33] hover:border-[#1863dc] pl-3.5 sm:pl-4 py-1 hover:pl-5 transition-all duration-200 cursor-default">
                       <div className="font-display text-sm sm:text-base font-medium text-[#17171c]">
                         {d.title}
                       </div>
@@ -186,7 +186,7 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                   {activeProject.outcomes.map((o, i) => (
-                    <div key={i} className="p-3.5 sm:p-4 rounded-[12px] bg-[#eeece7] border border-[#d9d9dd] text-center">
+                    <div key={i} className="p-3.5 sm:p-4 rounded-[12px] bg-[#eeece7] hover:bg-white border border-[#d9d9dd] hover:border-[#1863dc]/40 hover:-translate-y-1 hover:shadow-xs text-center transition-all duration-200 cursor-default">
                       <div className="font-display text-xl sm:text-2xl font-medium text-[#17171c]">
                         {o.value}
                       </div>
@@ -207,7 +207,7 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
                   {activeProject.tech.map((t) => (
                     <span
                       key={t}
-                      className="font-mono text-[11px] sm:text-xs bg-white text-[#212121] px-2.5 py-1 rounded-[6px] border border-[#d9d9dd]"
+                      className="font-mono text-[11px] sm:text-xs bg-white text-[#212121] px-2.5 py-1 rounded-[6px] border border-[#d9d9dd] hover:bg-[#17171c] hover:text-white hover:border-[#17171c] hover:scale-105 active:scale-95 transition-all duration-150 cursor-default shadow-xs"
                     >
                       {t}
                     </span>
@@ -222,11 +222,11 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
                 href={activeProject.githubUrl || "https://github.com/theodhorex"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#17171c] hover:bg-black text-white text-xs font-medium px-5 py-3 sm:py-2.5 rounded-[32px] transition-all shadow-xs"
+                className="btn-pill-interactive inline-flex items-center justify-center gap-2 bg-[#17171c] hover:bg-black text-white text-xs font-medium px-5 py-3 sm:py-2.5 rounded-[32px] group"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>Source Repository</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
 
               <button
@@ -235,7 +235,6 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
               >
                 Close (Esc)
               </button>
-            </div>
           </div>
         </div>
       )}
