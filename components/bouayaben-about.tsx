@@ -71,7 +71,7 @@ export function BouayabenAbout() {
                   {recognition.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <span className="font-mono text-xs text-[#93939f] mt-1 flex-shrink-0">
-                        // 0{idx + 1}
+                        {"// 0" + (idx + 1)}
                       </span>
                       <span>{item}</span>
                     </li>
