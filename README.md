@@ -1,6 +1,6 @@
-# Theo Dhore — Personal Portfolio & Systems Showcase
+# Theodhore — Personal Portfolio & Engineering Showcase
 
-> Full-Stack Engineer & AI Systems Architect · Indonesia (UTC+7)  
+> Web Developer & Web3 Enthusiast · Indonesia (UTC+7)  
 > Built with Next.js 16, React 19, Tailwind CSS v4, and the Cohere 2026 Design System.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3.8-black?style=flat-square&logo=next.js)](https://nextjs.org/)
@@ -15,7 +15,7 @@
 
 A high-performance personal portfolio engineered from first principles. It synthesizes the editorial rhythm, interactive particle physics, and deep case study architecture of [bouayaben.com](https://bouayaben.com/) with the restrained enterprise aesthetic of the **Cohere 2026 Web Design System**.
 
-Designed to showcase real software systems, autonomous AI agent runtimes, and high-speed web platforms with uncompromising visual polish.
+Designed to showcase real software systems, reactive Web3 dApps, smart contract architectures, and high-leverage developer tooling with uncompromising visual polish.
 
 ---
 
@@ -49,11 +49,11 @@ Designed to showcase real software systems, autonomous AI agent runtimes, and hi
 
 ## Featured Projects Showcased
 
-1. **Nexus Agent Runtime (`01`)** — Distributed multi-agent orchestrator with deterministic Zod/Pydantic validation barriers and sub-35ms tool dispatch latency.
+1. **Solara DEX & Yield Aggregator (`01`)** — Decentralized exchange interface and yield aggregator with Multicall3 batching, Viem optimistic state, and zero-slippage routing.
 2. **Hyperion Edge Engine (`02`)** — Ultra-low latency headless web platform built on Next.js 16 and Cloudflare Workers, delivering `<25ms` global TTFB across 40+ regions.
-3. **Aura Latent 3D (`03`)** — In-browser WebGL neural embedding workbench rendering 500,000+ vector points at a sustained 60 FPS using instanced buffers and WebAssembly.
-4. **Kratos Telemetry Hub (`04`)** — High-density tracing daemon with in-process DuckDB columnar storage and sub-1ms collection overhead.
-5. **Cohere Command-R Invariant Sandbox (`05`)** — Enterprise AI runtime pairing speculative decoding with deterministic verification loops.
+3. **Kratos On-Chain Indexer (`03`)** — Ultra-fast EVM log indexer built in Rust that parses millions of block receipts per second into parquet files for sub-5ms analytical queries.
+4. **ChainForge Smart Contract Playground (`04`)** — Zero-install in-browser Solidity development sandbox running solc in WebAssembly with client-side EVM bytecode execution.
+5. **Aura Latent 3D Canvas (`05`)** — High-performance 3D canvas rendering 500,000+ interactive particles at 60 FPS using instanced WebGL shaders and WebAssembly.
 
 ---
 
@@ -129,7 +129,7 @@ personal_website/
 
 ## Author & Contact
 
-**Theodore (Theo)** — Full-Stack Engineer & AI Systems Architect  
+**Theodhore** — Web Developer & Web3 Enthusiast  
 - Email: [theodhore76@gmail.com](mailto:theodhore76@gmail.com)  
 - GitHub: [@theodhorex](https://github.com/theodhorex)  
 - Location: Indonesia (UTC+7)
@@ -139,3 +139,4 @@ personal_website/
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
