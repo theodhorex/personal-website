@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Theo — AI Systems & Software Engineering",
+  title: "Theodhore — Web Developer & Web3 Enthusiast",
   description:
-    "Personal website and portfolio of Theo. Architecting intelligent systems, autonomous agent runtimes, and high-performance web software.",
+    "Personal website and portfolio of Theodhore. Building high-performance web applications, decentralized protocols, smart contract interfaces, and developer tooling.",
 };
 
 export default function RootLayout({
