@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Check, Github, Mail, Terminal } from "lucide-react";
+import { ArrowRight, Check, Mail, Terminal } from "lucide-react";
+import { GithubIcon } from "./icons";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -111,7 +112,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors inline-flex items-center gap-1.5"
                 >
-                  <Github className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-3.5 h-3.5" />
                   <span>GitHub @theodhorex</span>
                 </a>
               </li>
