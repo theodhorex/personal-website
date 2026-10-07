@@ -14,7 +14,7 @@ export function ProfileCard() {
   };
 
   return (
-    <div className="bg-[#eeece7] text-[#212121] rounded-[22px] p-6 sm:p-7 border border-[#d9d9dd] flex flex-col justify-between h-full">
+    <div className="bg-[#eeece7] text-[#212121] rounded-[22px] p-6 sm:p-7 border border-[#d9d9dd] flex flex-col justify-between h-full cohere-card-lift">
       {/* Top Header */}
       <div>
         <div className="flex items-center justify-between pb-4 border-b border-[#d9d9dd]">
