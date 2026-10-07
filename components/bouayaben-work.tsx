@@ -235,6 +235,7 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
               >
                 Close (Esc)
               </button>
+            </div>
           </div>
         </div>
       )}
