@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Copy, ShieldCheck, MapPin, Terminal, Github, Linkedin, Mail } from "lucide-react";
+import { Check, Copy, ShieldCheck, MapPin, Github, Linkedin, Mail } from "lucide-react";
 
 export function ProfileCard() {
   const [copied, setCopied] = useState(false);
