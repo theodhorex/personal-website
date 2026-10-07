@@ -10,7 +10,7 @@ export default async function Home() {
   const projects = await getProjects();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white selection:bg-[#ff7759] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0e0e12] text-[#17171c] dark:text-[#f4f4f7] selection:bg-[#ff7759] selection:text-white transition-colors duration-300">
       <SiteHeader />
       <main className="flex-1">
         <BouayabenHero />
