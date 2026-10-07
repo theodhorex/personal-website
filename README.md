@@ -54,4 +54,4 @@ Website ini sudah mendukung **Sanity.io**:
 
 - **Theodhore**
 - GitHub: [@theodhorex](https://github.com/theodhorex)
-- Email: [theodhore76@gmail.com](mailto:theodhore76@gmail.com)
+- Email: [theodhore.dev@gmail.com](mailto:theodhore.dev@gmail.com)

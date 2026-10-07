@@ -8,7 +8,7 @@ export function ProfileCard() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("theodhore76@gmail.com");
+    navigator.clipboard.writeText("theodhore.dev@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -96,7 +96,7 @@ export function ProfileCard() {
               onClick={copyEmail}
               className="p-2 rounded-[8px] bg-white border border-[#d9d9dd] text-[#212121] hover:text-[#1863dc] hover:border-[#1863dc] transition-all"
               aria-label="Copy Email"
-              title="Copy theodhore76@gmail.com"
+              title="Copy theodhore.dev@gmail.com"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Mail className="w-4 h-4" />}
             </button>
@@ -114,7 +114,7 @@ export function ProfileCard() {
             ) : (
               <>
                 <Copy className="w-3.5 h-3.5" />
-                <span>theodhore76@gmail.com</span>
+                <span>theodhore.dev@gmail.com</span>
               </>
             )}
           </button>

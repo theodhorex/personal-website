@@ -9,7 +9,7 @@ export function AboutMinimal() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("theodhore76@gmail.com");
+    navigator.clipboard.writeText("theodhore.dev@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

@@ -20,7 +20,7 @@ export function ContactSection() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("theodhore76@gmail.com");
+    navigator.clipboard.writeText("theodhore.dev@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -145,12 +145,12 @@ export function ContactSection() {
                         {copied ? (
                           <>
                             <Check className="w-3.5 h-3.5 text-emerald-600" />
-                            <span>theodhore76@gmail.com</span>
+                            <span>theodhore.dev@gmail.com</span>
                           </>
                         ) : (
                           <>
                             <Mail className="w-3.5 h-3.5" />
-                            <span>Direct: theodhore76@gmail.com</span>
+                            <span>Direct: theodhore.dev@gmail.com</span>
                           </>
                         )}
                       </button>

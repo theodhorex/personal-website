@@ -38,7 +38,7 @@ export function Footer() {
             LinkedIn
           </a>
           <a
-            href="mailto:theodhore76@gmail.com"
+            href="mailto:theodhore.dev@gmail.com"
             className="link-hover-underline text-[#93939f] hover:text-white transition-colors py-1"
           >
             Email

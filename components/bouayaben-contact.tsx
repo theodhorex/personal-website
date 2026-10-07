@@ -9,7 +9,7 @@ export function BouayabenContact() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("theodhore76@gmail.com");
+    navigator.clipboard.writeText("theodhore.dev@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -46,12 +46,12 @@ export function BouayabenContact() {
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
-                    <span className="text-emerald-300">theodhore76@gmail.com (Copied!)</span>
+                    <span className="text-emerald-300">theodhore.dev@gmail.com (Copied!)</span>
                   </>
                 ) : (
                   <>
                     <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
-                    <span>theodhore76@gmail.com</span>
+                    <span>theodhore.dev@gmail.com</span>
                   </>
                 )}
               </button>
