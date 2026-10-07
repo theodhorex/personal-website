@@ -37,8 +37,8 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
   return (
     <section id="work" className="bg-white dark:bg-[#0e0e12] py-14 sm:py-20 md:py-28 border-b border-[#e5e7eb] dark:border-[#2e2e38] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          {/* Section Head matching bouayaben.com: Label Left, Count Right */}
+        {/* Section Head matching bouayaben.com: Label Left, Count Right */}
+        <Reveal delay={50} distance={16}>
           <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-[#17171c] dark:border-[#2e2e38] transition-colors">
             <h2 className="font-mono text-xs uppercase tracking-wider text-[#17171c] dark:text-[#f4f4f7] font-semibold">
               {t("work_section_title")}
@@ -47,11 +47,13 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
               ({String(displayProjects.length).padStart(2, "0")})
             </p>
           </div>
+        </Reveal>
 
-          {/* Work List matching bouayaben.com .work-list */}
-          <ul className="divide-y divide-[#d9d9dd] dark:divide-[#2e2e38] transition-colors">
-            {displayProjects.map((project) => (
-              <li key={project.id} className="group">
+        {/* Work List matching bouayaben.com .work-list */}
+        <ul className="divide-y divide-[#d9d9dd] dark:divide-[#2e2e38] transition-colors">
+          {displayProjects.map((project, idx) => (
+            <li key={project.id} className="group">
+              <Reveal delay={idx * 70} distance={20}>
                 <button
                   onClick={() => setActiveProject(project)}
                   className="w-full text-left py-5 sm:py-7 md:py-8 -mx-3 sm:-mx-5 px-3 sm:px-5 rounded-[12px] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 transition-all duration-200 hover:bg-[#faf9f6] dark:hover:bg-[#16161f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1863dc]"
@@ -83,10 +85,10 @@ export function BouayabenWork({ projects = defaultProjects }: BouayabenWorkProps
                     </span>
                   </div>
                 </button>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* Slide-over Case Study Drawer matching bouayaben.com depth */}
