@@ -1,10 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { TrustStrip } from "@/components/trust-strip";
 import { SelectedWorks } from "@/components/selected-works";
-import { DarkFeatureBand } from "@/components/dark-feature-band";
-import { AboutBrief } from "@/components/about-brief";
-import { ContactSection } from "@/components/contact-section";
+import { AboutMinimal } from "@/components/about-minimal";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -13,11 +10,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <TrustStrip />
         <SelectedWorks />
-        <DarkFeatureBand />
-        <AboutBrief />
-        <ContactSection />
+        <AboutMinimal />
       </main>
       <Footer />
     </div>
