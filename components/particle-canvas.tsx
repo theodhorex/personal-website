@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "./theme-provider";
 
 export function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -27,6 +29,20 @@ export function ParticleCanvas() {
       ? Math.min(45, Math.floor((width * height) / 12000))
       : Math.min(100, Math.floor((width * height) / 9000));
 
+    const lightColors = [
+      "rgba(23, 23, 28, ",    // Near-black ink
+      "rgba(0, 60, 51, ",     // Deep enterprise green
+      "rgba(117, 117, 138, ", // Slate
+      "rgba(255, 119, 89, ",  // Rare coral accent
+    ];
+
+    const darkColors = [
+      "rgba(244, 244, 247, ", // Light near-white
+      "rgba(59, 130, 246, ",  // Electric blue
+      "rgba(163, 243, 203, ", // Mint green
+      "rgba(255, 119, 89, ",  // Rare coral accent
+    ];
+
     const particles: Array<{
       x: number;
       y: number;
@@ -35,22 +51,15 @@ export function ParticleCanvas() {
       vx: number;
       vy: number;
       size: number;
-      color: string;
+      colorIndex: number;
       alpha: number;
     }> = [];
-
-    const colors = [
-      "rgba(23, 23, 28, ", // Near-black ink
-      "rgba(0, 60, 51, ",  // Deep enterprise green
-      "rgba(117, 117, 138, ", // Slate
-      "rgba(255, 119, 89, ", // Rare coral accent
-    ];
 
     for (let i = 0; i < particleCount; i++) {
       const x = Math.random() * width;
       const y = Math.random() * height;
       const isCoral = Math.random() > 0.94;
-      const colorBase = isCoral ? colors[3] : colors[Math.floor(Math.random() * 3)];
+      const colorIndex = isCoral ? 3 : Math.floor(Math.random() * 3);
       particles.push({
         x,
         y,
@@ -59,7 +68,7 @@ export function ParticleCanvas() {
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         size: Math.random() * 1.8 + 0.8,
-        color: colorBase,
+        colorIndex,
         alpha: Math.random() * 0.45 + 0.15,
       });
     }
@@ -133,10 +142,15 @@ export function ParticleCanvas() {
           p.y += Math.sin(angle) * force * 5;
         }
 
+        // Check current dark mode status dynamically
+        const isDark = document.documentElement.classList.contains("dark");
+        const activePalette = isDark ? darkColors : lightColors;
+        const filamentRgb = isDark ? "60, 60, 85" : "217, 217, 221";
+
         // Draw particle dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${p.alpha})`;
+        ctx.fillStyle = `${activePalette[p.colorIndex]}${p.alpha})`;
         ctx.fill();
 
         // Draw subtle connective filaments to nearby particles
@@ -150,7 +164,7 @@ export function ParticleCanvas() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(217, 217, 221, ${(1 - cdist / 65) * 0.25})`;
+            ctx.strokeStyle = `rgba(${filamentRgb}, ${(1 - cdist / 65) * 0.25})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -171,7 +185,7 @@ export function ParticleCanvas() {
       parent?.removeEventListener("touchmove", handleTouchMove);
       parent?.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
