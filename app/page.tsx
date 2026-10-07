@@ -1,17 +1,19 @@
-import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
-import { SelectedWorks } from "@/components/selected-works";
-import { AboutMinimal } from "@/components/about-minimal";
+import { SiteHeader } from "@/components/site-header";
+import { BouayabenHero } from "@/components/bouayaben-hero";
+import { BouayabenWork } from "@/components/bouayaben-work";
+import { BouayabenAbout } from "@/components/bouayaben-about";
+import { BouayabenContact } from "@/components/bouayaben-contact";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white selection:bg-[#ff7759] selection:text-white">
-      <Navbar />
+      <SiteHeader />
       <main className="flex-1">
-        <Hero />
-        <SelectedWorks />
-        <AboutMinimal />
+        <BouayabenHero />
+        <BouayabenWork />
+        <BouayabenAbout />
+        <BouayabenContact />
       </main>
       <Footer />
     </div>
