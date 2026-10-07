@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Copy, ShieldCheck, MapPin, Github, Linkedin, Mail } from "lucide-react";
+import { Check, Copy, ShieldCheck, MapPin, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
 
 export function ProfileCard() {
   const [copied, setCopied] = useState(false);
@@ -80,7 +81,7 @@ export function ProfileCard() {
               className="p-2 rounded-[8px] bg-white border border-[#d9d9dd] text-[#212121] hover:text-[#1863dc] hover:border-[#1863dc] transition-all"
               aria-label="GitHub Profile"
             >
-              <Github className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4" />
             </a>
             <a
               href="https://linkedin.com"
@@ -89,7 +90,7 @@ export function ProfileCard() {
               className="p-2 rounded-[8px] bg-white border border-[#d9d9dd] text-[#212121] hover:text-[#1863dc] hover:border-[#1863dc] transition-all"
               aria-label="LinkedIn Profile"
             >
-              <Linkedin className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <button
               onClick={copyEmail}
