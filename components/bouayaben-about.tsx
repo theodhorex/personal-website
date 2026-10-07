@@ -55,7 +55,7 @@ export function BouayabenAbout() {
                   {capabilities.map((cap) => (
                     <li
                       key={cap}
-                      className="font-mono text-[11px] sm:text-xs bg-[#eeece7] text-[#212121] px-3 py-1.5 rounded-[30px] border border-[#d9d9dd]"
+                      className="font-mono text-[11px] sm:text-xs bg-[#eeece7] hover:bg-[#17171c] hover:text-white text-[#212121] px-3.5 py-1.5 rounded-[30px] border border-[#d9d9dd] hover:border-[#17171c] hover:scale-105 active:scale-95 transition-all duration-200 cursor-default shadow-xs select-none"
                     >
                       {cap}
                     </li>
@@ -68,13 +68,18 @@ export function BouayabenAbout() {
                 <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] mb-3 sm:mb-4">
                   RECOGNITION &amp; INVARIANTS
                 </h3>
-                <ul className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm md:text-base text-[#212121] font-sans">
+                <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm md:text-base text-[#212121] font-sans">
                   {recognition.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 sm:gap-3">
-                      <span className="font-mono text-[11px] sm:text-xs text-[#93939f] mt-0.5 sm:mt-1 flex-shrink-0">
+                    <li
+                      key={idx}
+                      className="group flex items-start gap-2.5 sm:gap-3 p-2 -mx-2 rounded-[10px] hover:bg-[#faf9f6] transition-all duration-200"
+                    >
+                      <span className="font-mono text-[11px] sm:text-xs text-[#93939f] group-hover:text-[#1863dc] mt-0.5 sm:mt-1 flex-shrink-0 transition-colors duration-200">
                         {"// 0" + (idx + 1)}
                       </span>
-                      <span className="leading-relaxed">{item}</span>
+                      <span className="leading-relaxed group-hover:text-[#17171c] transition-colors duration-200">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
