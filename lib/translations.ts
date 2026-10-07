@@ -60,60 +60,60 @@ export const translations = {
   },
   id: {
     // Header
-    nav_work: "Proyek",
+    nav_work: "Portofolio",
     nav_about: "Tentang",
     nav_contact: "Kontak",
-    available_status: "Tersedia 2026",
-    role_subtitle: "Web Developer & Penggiat Web3",
+    available_status: "Tersedia untuk Proyek 2026",
+    role_subtitle: "Web Developer & Web3 Engineer",
 
     // Hero
     hero_eyebrow_badge: "THEODHORE // INDONESIA (UTC+7)",
-    hero_eyebrow_tag: "// WEB DEV & PENGGIAT WEB3",
+    hero_eyebrow_tag: "// WEB DEV & WEB3 ENTHUSIAST",
     hero_headline:
-      "Saya membangun aplikasi web berkinerja tinggi, protokol terdesentralisasi, dan developer tooling.",
+      "Mengembangkan aplikasi web performa tinggi, protokol terdesentralisasi, serta developer tooling modern.",
     hero_lede:
-      "Beroperasi di Indonesia dan berkolaborasi dengan tim secara global. Berfokus pada rekayasa web modern, dApp Web3 reaktif, dan developer tools berdaya guna tinggi berbasis Next.js 16, TypeScript, dan EVM.",
-    hero_cta_work: "Proyek Pilihan (05)",
-    hero_cta_about: "Tentang & Prinsip",
+      "Berbasis di Indonesia dan berkolaborasi secara global. Berfokus pada modern web engineering, dApp Web3 responsif berlatensi rendah, serta arsitektur berbasis Next.js 16, TypeScript, dan EVM.",
+    hero_cta_work: "Eksplorasi Proyek (05)",
+    hero_cta_about: "Tentang & Filosofi Rekayasa",
     hero_stat_1_title: "01 // ARSITEKTUR WEB3",
     hero_stat_1_desc: "Latensi RPC sub-detik & verifikasi status smart contract",
     hero_stat_2_title: "02 // PERFORMA EDGE WEB",
-    hero_stat_2_desc: "<25ms global TTFB edge streaming pada Next.js 16",
-    hero_stat_3_title: "03 // KEANDALAN DEV TOOLING",
+    hero_stat_2_desc: "<25ms global TTFB edge streaming di Next.js 16",
+    hero_stat_3_title: "03 // DEV TOOLING RELIABLE",
     hero_stat_3_desc: "Workflow developer zero-config & toolchain type-safe",
 
     // Work / Case Study Drawer
-    work_section_title: "Proyek Pilihan",
+    work_section_title: "Portofolio Terpilih",
     drawer_case_study: "STUDI KASUS",
-    drawer_context: "KONTEKS",
-    drawer_role: "PERAN",
-    drawer_timeline: "WAKTU",
-    drawer_constraint: "TANTANGAN & KENDALA TEKNIS",
-    drawer_decisions: "KEPUTUSAN ARSITEKTUR",
-    drawer_outcomes: "HASIL TERVERIFIKASI",
-    drawer_tech: "TEKNOLOGI & TOOLS",
+    drawer_context: "KLIEN & KONTEKS",
+    drawer_role: "PERAN UTAMA",
+    drawer_timeline: "PERIODE",
+    drawer_constraint: "TANTANGAN & KEBUTUHAN SISTEM",
+    drawer_decisions: "KEPUTUSAN ARSITEKTUR & REKAYASA",
+    drawer_outcomes: "IMPAK & HASIL PENGUJIAN",
+    drawer_tech: "STACK TEKNOLOGI",
     drawer_source_repo: "Repositori Kode",
     drawer_close: "Tutup (Esc)",
 
     // About
     about_section_title: "Tentang",
     about_lede:
-      "Saya adalah web developer dan penggiat Web3 yang membangun aplikasi web berkinerja tinggi, frontend protokol terdesentralisasi, dan developer tooling.",
+      "Web developer dan Web3 enthusiast yang berfokus membangun aplikasi web performa tinggi, frontend protokol desentralisasi, serta developer tooling.",
     about_body:
-      "Beroperasi di Indonesia (UTC+7) dan berkolaborasi dengan tim engineering global. Saya berfokus membangun aplikasi web modern yang tangguh, antarmuka Web3 reaktif dengan latensi RPC sub-detik, serta developer tools efisien untuk mempercepat proses pengembangan.",
-    about_capabilities_title: "KEMAMPUAN UTAMA",
-    about_recognition_title: "PENCAPAIAN & PRINSIP KERJA",
+      "Berbasis di Indonesia (UTC+7) dan terbiasa berkolaborasi dengan tim engineering global. Fokus utama saya mencakup rekayasa aplikasi web modern yang tangguh, antarmuka Web3 responsif dengan latensi RPC sub-detik, serta tooling efisien untuk meningkatkan kecepatan pengembangan software.",
+    about_capabilities_title: "KEAHLIAN & KOMPETENSI TEKNIS",
+    about_recognition_title: "STANDAR REKAYASA & PENCAPAIAN",
 
     // Contact
     contact_section_title: "Kontak",
-    contact_cta: "Mari bangun sesuatu yang luar biasa bersama.",
+    contact_cta: "Mari wujudkan produk teknologi luar biasa bersama.",
     contact_subtitle:
-      "Terbuka untuk platform web modern, protokol Web3, developer tooling, dan kolaborasi engineering di 2026.",
-    contact_copied: "Tersalin!",
+      "Terbuka untuk pengembangan platform web modern, protokol Web3, developer tooling, serta posisi engineering terpilih di 2026.",
+    contact_copied: "Email berhasil disalin!",
 
     // Footer
-    footer_status: "SEMUA SISTEM BERJALAN NORMAL",
-    footer_top: "Ke Atas",
+    footer_status: "SELURUH SISTEM BEROPERASI NORMAL",
+    footer_top: "Kembali ke Atas",
   },
 } as const;
 
