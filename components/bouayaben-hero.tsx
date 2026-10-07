@@ -16,23 +16,23 @@ export function BouayabenHero() {
           <div className="flex items-center gap-2 mb-8">
             <span className="font-mono text-xs uppercase tracking-wider text-[#75758a] bg-[#eeece7] px-3 py-1 rounded-[4px] border border-[#d9d9dd] inline-flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1863dc]"></span>
-              <span>THEO DHORE // INDONESIA (UTC+7)</span>
+              <span>THEODHORE // INDONESIA (UTC+7)</span>
             </span>
             <span className="text-xs text-[#93939f] font-mono hidden sm:inline">
-              {"// DISTRIBUTED & EDGE SOFTWARE"}
+              {"// WEB DEV & WEB3 ENTHUSIAST"}
             </span>
           </div>
 
           {/* Monumental Display Headline matching bouayaben rhythm */}
           <div className="max-w-5xl">
             <h1 className="hero-display text-4xl sm:text-6xl md:text-7xl lg:text-[84px] text-[#17171c] font-normal tracking-[-0.035em] leading-[1.02]">
-              I build software used in high-concurrency environments — distributed multi-agent runtimes,
-              edge-first web platforms, and deterministic AI infrastructure.
+              I build high-performance web applications, decentralized protocols,
+              and developer tooling.
             </h1>
 
             <p className="mt-8 text-base sm:text-lg text-[#616161] max-w-2xl font-sans leading-relaxed">
-              Operating across Indonesia and collaborating with teams worldwide. Turning non-deterministic
-              foundation models into fast, observable, production-grade applications on Next.js 16.
+              Operating across Indonesia and collaborating with teams globally. Focused on modern web engineering,
+              reactive Web3 dApps, and high-leverage developer tools built on Next.js 16, TypeScript, and EVM.
             </p>
 
             {/* Actions Bar */}
@@ -58,16 +58,16 @@ export function BouayabenHero() {
           {/* Foot Stats / Invariants Bar */}
           <div className="mt-16 sm:mt-24 pt-8 border-t border-[#e5e7eb] grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
             <div>
-              <div className="text-[#93939f] text-[11px] uppercase mb-1">01 // RELIABILITY INVARIANT</div>
-              <div className="text-[#17171c] font-medium">99.98% tool schema pass rate across 500k turns</div>
+              <div className="text-[#93939f] text-[11px] uppercase mb-1">01 // WEB3 ARCHITECTURE</div>
+              <div className="text-[#17171c] font-medium">Sub-second RPC latency &amp; verified smart contract state</div>
             </div>
             <div>
-              <div className="text-[#93939f] text-[11px] uppercase mb-1">02 // EDGE SPEED</div>
-              <div className="text-[#17171c] font-medium">&lt;25ms global TTFB edge streaming</div>
+              <div className="text-[#93939f] text-[11px] uppercase mb-1">02 // EDGE WEB PERFORMANCE</div>
+              <div className="text-[#17171c] font-medium">&lt;25ms global TTFB edge streaming on Next.js 16</div>
             </div>
             <div>
-              <div className="text-[#93939f] text-[11px] uppercase mb-1">03 // GRAPHICS PERFORMANCE</div>
-              <div className="text-[#17171c] font-medium">500k-vector WebGL 3D rendering at 60 FPS</div>
+              <div className="text-[#93939f] text-[11px] uppercase mb-1">03 // DEV TOOLING RELIABILITY</div>
+              <div className="text-[#17171c] font-medium">Zero-config developer workflows &amp; type-safe toolchains</div>
             </div>
           </div>
         </Reveal>
