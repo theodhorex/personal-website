@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Theodhore — Web Developer & Web3 Enthusiast",
+  title: "Theodhore - Web Developer & Web3 Enthusiast",
   description:
     "Personal website and portfolio of Theodhore. Building high-performance web applications, decentralized protocols, smart contract interfaces, and developer tooling.",
 };
