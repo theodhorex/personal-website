@@ -4,18 +4,19 @@ import { Reveal } from "./reveal";
 
 export function BouayabenAbout() {
   const capabilities = [
-    "Autonomous Multi-Agent Architectures",
-    "Next.js 16 Edge Runtimes & Turbopack",
-    "Vector Retrieval & pgvector",
-    "Hardware-Accelerated WebGL 3D UI",
-    "Systems Reliability & Distributed Tracing",
+    "Next.js 16 & Turbopack Edge Architecture",
+    "Web3 dApp Engineering (Wagmi, Viem, Ethers)",
+    "Smart Contract Protocols & Solidity",
+    "High-Performance Developer Tooling (Rust, WASM)",
+    "Interactive 3D Web & Hardware-Accelerated WebGL",
+    "Type-Safe Full-Stack Systems & API Design",
   ];
 
   const recognition = [
-    "Architected multi-agent execution loops benchmarked across 500,000+ turns with 99.98% tool reliability.",
-    "Engineered ultra-low latency headless web platform delivering sub-25ms global TTFB in 40+ edge regions.",
-    "Open-source core contributor across Next.js, WebAssembly, and modern AI engineering runtimes.",
-    "Based in Indonesia (UTC+7) · Available for select high-impact engineering and advisory roles in 2026.",
+    "Engineered reactive Web3 dApp interfaces achieving 99.9% swap execution reliability and zero-slippage routing.",
+    "Built headless web architectures delivering sub-25ms global TTFB across 40+ edge regions on Next.js 16.",
+    "Crafted client-side developer tooling in Rust and WebAssembly, enabling 100% offline smart contract simulation.",
+    "Based in Indonesia (UTC+7) · Available for high-impact web engineering, Web3 protocols, and advisory roles in 2026.",
   ];
 
   return (
@@ -34,15 +35,15 @@ export function BouayabenAbout() {
             <div className="lg:col-span-9 space-y-10 sm:space-y-12">
               {/* Lede */}
               <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal text-[#17171c] leading-[1.2] tracking-tight">
-                I’m a full-stack engineer and AI systems architect who works on complex systems:
-                autonomous multi-agent pipelines, edge web engines, distributed backends.
+                I’m a web developer and Web3 enthusiast building high-performance web applications,
+                decentralized protocol frontends, and developer tooling.
               </p>
 
               {/* Body */}
               <p className="text-base sm:text-lg text-[#616161] font-sans leading-relaxed max-w-3xl">
                 Operating across Indonesia (UTC+7) and collaborating with engineering teams globally.
-                I focus on the hard boundary where probabilistic AI models interface with deterministic,
-                fault-tolerant production software on Next.js 16.
+                I focus on building resilient modern web applications, reactive Web3 interfaces with sub-second
+                RPC latency, and zero-overhead developer tools that elevate engineering velocity.
               </p>
 
               {/* Capabilities List matching bouayaben.com .about-capabilities */}
