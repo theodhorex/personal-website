@@ -25,7 +25,7 @@ export function Footer() {
             href="https://github.com/theodhorex"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors py-1"
+            className="link-hover-underline text-[#93939f] hover:text-white transition-colors py-1"
           >
             GitHub
           </a>
@@ -33,23 +33,23 @@ export function Footer() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors py-1"
+            className="link-hover-underline text-[#93939f] hover:text-white transition-colors py-1"
           >
             LinkedIn
           </a>
           <a
             href="mailto:theodhore76@gmail.com"
-            className="hover:text-white transition-colors py-1"
+            className="link-hover-underline text-[#93939f] hover:text-white transition-colors py-1"
           >
             Email
           </a>
           <a
             href="#"
-            className="hover:text-white transition-colors flex items-center gap-1 py-1"
+            className="group hover:text-white transition-colors flex items-center gap-1 py-1"
             aria-label="Back to top"
           >
             <span>Top</span>
-            <ArrowUp className="w-3 h-3" />
+            <ArrowUp className="w-3 h-3 group-hover:-translate-y-1 transition-transform duration-200" />
           </a>
         </div>
       </div>
