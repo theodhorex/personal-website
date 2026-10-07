@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Copy, Check, Mail, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle2, Check, Mail } from "lucide-react";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
