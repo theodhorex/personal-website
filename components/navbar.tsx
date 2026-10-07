@@ -8,9 +8,10 @@ export function Navbar() {
 
   const navLinks = [
     { label: "Overview", href: "#overview" },
-    { label: "Selected Work", href: "#work" },
+    { label: "Case Studies", href: "#work" },
     { label: "Architecture", href: "#architecture" },
-    { label: "Research & Notes", href: "#notes" },
+    { label: "Capabilities", href: "#about" },
+    { label: "Research", href: "#notes" },
     { label: "Contact", href: "#contact" },
   ];
 
