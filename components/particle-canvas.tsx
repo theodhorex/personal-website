@@ -21,8 +21,12 @@ export function ParticleCanvas() {
       radius: 120,
     };
 
-    // Initialize particles
-    const particleCount = Math.min(100, Math.floor((width * height) / 9000));
+    // Adjust particle count for mobile screens to ensure silky 60 FPS performance
+    const isMobile = width < 768;
+    const particleCount = isMobile
+      ? Math.min(45, Math.floor((width * height) / 12000))
+      : Math.min(100, Math.floor((width * height) / 9000));
+
     const particles: Array<{
       x: number;
       y: number;
@@ -71,6 +75,19 @@ export function ParticleCanvas() {
       mouse.y = -1000;
     };
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.touches[0].clientX - rect.left;
+        mouse.y = e.touches[0].clientY - rect.top;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
+
     const handleResize = () => {
       if (!canvas || !canvas.parentElement) return;
       width = canvas.width = canvas.parentElement.clientWidth;
@@ -78,8 +95,12 @@ export function ParticleCanvas() {
     };
 
     window.addEventListener("resize", handleResize);
-    canvas.parentElement?.addEventListener("mousemove", handleMouseMove);
-    canvas.parentElement?.addEventListener("mouseleave", handleMouseLeave);
+    const parent = canvas.parentElement;
+    parent?.addEventListener("mousemove", handleMouseMove);
+    parent?.addEventListener("mouseleave", handleMouseLeave);
+    parent?.addEventListener("touchstart", handleTouchMove, { passive: true });
+    parent?.addEventListener("touchmove", handleTouchMove, { passive: true });
+    parent?.addEventListener("touchend", handleTouchEnd, { passive: true });
 
     let t = 0;
     const render = () => {
@@ -144,8 +165,11 @@ export function ParticleCanvas() {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
-      canvas.parentElement?.removeEventListener("mousemove", handleMouseMove);
-      canvas.parentElement?.removeEventListener("mouseleave", handleMouseLeave);
+      parent?.removeEventListener("mousemove", handleMouseMove);
+      parent?.removeEventListener("mouseleave", handleMouseLeave);
+      parent?.removeEventListener("touchstart", handleTouchMove);
+      parent?.removeEventListener("touchmove", handleTouchMove);
+      parent?.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
