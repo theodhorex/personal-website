@@ -7,11 +7,11 @@ export function SiteHeader() {
         {/* Brand Name & Role */}
         <div className="flex items-center gap-3">
           <a href="#" className="font-display font-semibold tracking-tight text-xl text-[#17171c] hover:text-black transition-colors">
-            THEO DHORE
+            THEODHORE
           </a>
           <span className="text-[#93939f] text-xs">/</span>
           <span className="font-mono text-xs text-[#75758a] uppercase tracking-wider hidden sm:inline">
-            Full-Stack Engineer &amp; AI Architect
+            Web Developer &amp; Web3 Enthusiast
           </span>
         </div>
 
