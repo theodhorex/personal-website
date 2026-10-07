@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ShieldCheck, Zap, GitCommit, ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export function DarkFeatureBand() {
   const [selectedPillar, setSelectedPillar] = useState(0);
@@ -74,7 +74,7 @@ export function DarkFeatureBand() {
               >
                 <div className="flex items-center justify-between pb-4 border-b border-white/10">
                   <span className="font-mono text-sm text-[#edfce9] font-medium">
-                    // {pillar.id}
+                    {"// " + pillar.id}
                   </span>
                   {selectedPillar === idx && (
                     <span className="w-2 h-2 rounded-full bg-[#edfce9] animate-ping"></span>
