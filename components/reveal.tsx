@@ -6,19 +6,35 @@ interface RevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  duration?: number;
   threshold?: number;
+  distance?: number;
 }
 
 export function Reveal({
   children,
   className = "",
   delay = 0,
+  duration = 750,
   threshold = 0.1,
+  distance = 24,
 }: RevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRef = ref.current;
+    if (!currentRef) return;
+
+    // Check if already in viewport on mount / page reload
+    const rect = currentRef.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, delay);
+      return () => clearTimeout(timer);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -28,32 +44,30 @@ export function Reveal({
       },
       {
         threshold,
-        rootMargin: "0px 0px -40px 0px",
+        rootMargin: "0px 0px -30px 0px",
       }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(currentRef);
 
     return () => {
-      if (currentRef) observer.unobserve(currentRef);
+      observer.disconnect();
     };
-  }, [threshold]);
+  }, [threshold, delay]);
 
   return (
     <div
       ref={ref}
       style={{
-        transitionDuration: "700ms",
+        transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        transform: isVisible ? "translateY(0)" : `translateY(${distance}px)`,
       }}
       className={`transition-all ${
         isVisible
-          ? "opacity-100 translate-y-0 filter-none"
-          : "opacity-0 translate-y-6 pointer-events-none"
+          ? "opacity-100 blur-0"
+          : "opacity-0 blur-[3px] pointer-events-none"
       } ${className}`}
     >
       {children}
