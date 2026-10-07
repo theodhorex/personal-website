@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Terminal } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { AgentConsole } from "./agent-console";
 import { ProfileCard } from "./profile-card";
 
@@ -13,7 +13,7 @@ export function Hero() {
             <span>SYSTEM PERSPECTIVE // 2026</span>
           </span>
           <span className="text-xs text-[#93939f] font-mono hidden sm:inline">
-            // RESILIENT INFRASTRUCTURE
+            {"// RESILIENT INFRASTRUCTURE"}
           </span>
         </div>
 
