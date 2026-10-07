@@ -23,10 +23,10 @@ export function BouayabenAbout() {
   ];
 
   const recognitionId = [
-    "Mengembangkan antarmuka dApp Web3 reaktif yang mencapai keandalan eksekusi 99.9% dan zero-slippage routing.",
-    "Membangun arsitektur web headless dengan TTFB global <25ms di lebih dari 40 edge region pada Next.js 16.",
-    "Merancang developer tooling sisi klien dengan Rust dan WebAssembly, memungkinkan simulasi smart contract 100% offline.",
-    "Berbasis di Indonesia (UTC+7) · Terbuka untuk rekayasa web berdampak tinggi, protokol Web3, dan peran penasihat di 2026.",
+    "Merancang antarmuka Web3 dApp responsif dengan tingkat keandalan eksekusi 99.9% dan zero-slippage routing.",
+    "Mengembangkan arsitektur headless web dengan latensi global sub-25ms TTFB pada 40+ edge region berbasis Next.js 16.",
+    "Membangun client-side developer tooling menggunakan Rust dan WebAssembly untuk simulasi smart contract secara offline.",
+    "Berbasis di Indonesia (UTC+7) · Terbuka untuk modern web engineering, protokol Web3, dan advisory roles di 2026.",
   ];
 
   const recognition = language === "id" ? recognitionId : recognitionEn;
