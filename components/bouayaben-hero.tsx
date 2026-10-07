@@ -14,8 +14,8 @@ export function BouayabenHero() {
       <ParticleCanvas />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          {/* Eyebrow / Meta */}
+        {/* Eyebrow / Meta */}
+        <Reveal delay={60} distance={14}>
           <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
             <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-[#75758a] dark:text-[#a0a0b2] bg-[#eeece7] dark:bg-[#1a1a24] px-3 py-1 rounded-[4px] border border-[#d9d9dd] dark:border-[#2e2e38] inline-flex items-center gap-1.5 transition-colors">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1863dc] dark:bg-[#3b82f6] flex-shrink-0"></span>
@@ -25,18 +25,24 @@ export function BouayabenHero() {
               {t("hero_eyebrow_tag")}
             </span>
           </div>
+        </Reveal>
 
-          {/* Monumental Display Headline matching bouayaben rhythm */}
-          <div className="max-w-5xl">
+        {/* Monumental Display Headline matching bouayaben rhythm */}
+        <div className="max-w-5xl">
+          <Reveal delay={180} distance={26}>
             <h1 className="hero-display text-3xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] text-[#17171c] dark:text-[#f4f4f7] font-normal tracking-[-0.035em] leading-[1.06] sm:leading-[1.02] break-words transition-colors">
               {t("hero_headline")}
             </h1>
+          </Reveal>
 
+          <Reveal delay={300} distance={20}>
             <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-[#616161] dark:text-[#93939f] max-w-2xl font-sans leading-relaxed transition-colors">
               {t("hero_lede")}
             </p>
+          </Reveal>
 
-            {/* Actions Bar */}
+          {/* Actions Bar */}
+          <Reveal delay={420} distance={18}>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-5">
               <a
                 href="#work"
@@ -54,10 +60,12 @@ export function BouayabenHero() {
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
             </div>
-          </div>
+          </Reveal>
+        </div>
 
-          {/* Foot Stats / Invariants Bar */}
-          <div className="mt-12 sm:mt-20 md:mt-24 pt-6 sm:pt-8 border-t border-[#e5e7eb] dark:border-[#2e2e38] grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 font-mono text-xs transition-colors">
+        {/* Foot Stats / Invariants Bar */}
+        <div className="mt-12 sm:mt-20 md:mt-24 pt-6 sm:pt-8 border-t border-[#e5e7eb] dark:border-[#2e2e38] grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 font-mono text-xs transition-colors">
+          <Reveal delay={540} distance={20}>
             <div className="group p-4 sm:p-4 rounded-[14px] bg-[#fbfbfa] sm:bg-[#fafaf8]/80 dark:bg-[#16161f] hover:bg-white dark:hover:bg-[#1d1d28] border border-[#e5e7eb] dark:border-[#2e2e38] hover:border-[#1863dc]/40 dark:hover:border-[#3b82f6]/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-sm cursor-default">
               <div className="text-[#93939f] dark:text-[#78788a] group-hover:text-[#1863dc] dark:group-hover:text-[#3b82f6] text-[10px] sm:text-[11px] uppercase mb-1 transition-colors">
                 {t("hero_stat_1_title")}
@@ -66,6 +74,8 @@ export function BouayabenHero() {
                 {t("hero_stat_1_desc")}
               </div>
             </div>
+          </Reveal>
+          <Reveal delay={640} distance={20}>
             <div className="group p-4 sm:p-4 rounded-[14px] bg-[#fbfbfa] sm:bg-[#fafaf8]/80 dark:bg-[#16161f] hover:bg-white dark:hover:bg-[#1d1d28] border border-[#e5e7eb] dark:border-[#2e2e38] hover:border-[#1863dc]/40 dark:hover:border-[#3b82f6]/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-sm cursor-default">
               <div className="text-[#93939f] dark:text-[#78788a] group-hover:text-[#1863dc] dark:group-hover:text-[#3b82f6] text-[10px] sm:text-[11px] uppercase mb-1 transition-colors">
                 {t("hero_stat_2_title")}
@@ -74,6 +84,8 @@ export function BouayabenHero() {
                 {t("hero_stat_2_desc")}
               </div>
             </div>
+          </Reveal>
+          <Reveal delay={740} distance={20}>
             <div className="group p-4 sm:p-4 rounded-[14px] bg-[#fbfbfa] sm:bg-[#fafaf8]/80 dark:bg-[#16161f] hover:bg-white dark:hover:bg-[#1d1d28] border border-[#e5e7eb] dark:border-[#2e2e38] hover:border-[#1863dc]/40 dark:hover:border-[#3b82f6]/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-sm cursor-default">
               <div className="text-[#93939f] dark:text-[#78788a] group-hover:text-[#1863dc] dark:group-hover:text-[#3b82f6] text-[10px] sm:text-[11px] uppercase mb-1 transition-colors">
                 {t("hero_stat_3_title")}
@@ -82,8 +94,8 @@ export function BouayabenHero() {
                 {t("hero_stat_3_desc")}
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
