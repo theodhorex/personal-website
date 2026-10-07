@@ -33,7 +33,7 @@ export function BouayabenContact() {
                 Let’s build something extraordinary together.
               </p>
               <p className="mt-4 text-sm sm:text-base text-[#616161] font-sans">
-                Available for high-concurrency systems, multi-agent architectures, and select 2026 roles.
+                Available for modern web platforms, Web3 protocols, developer tooling, and select 2026 engineering roles.
               </p>
             </div>
 
