@@ -20,10 +20,10 @@ export function BouayabenAbout() {
   ];
 
   return (
-    <section id="about" className="bg-white py-20 sm:py-28 border-b border-[#e5e7eb]">
+    <section id="about" className="bg-white py-14 sm:py-20 md:py-28 border-b border-[#e5e7eb]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start">
             {/* Left Column: Sticky Label matching bouayaben.com .about-sticky */}
             <div className="lg:col-span-3 lg:sticky lg:top-28">
               <h2 className="font-mono text-xs uppercase tracking-wider text-[#17171c] font-semibold pb-4 lg:pb-0 border-b lg:border-none border-[#17171c]">
@@ -32,15 +32,15 @@ export function BouayabenAbout() {
             </div>
 
             {/* Right Column: Lede, Body, Capabilities, Recognition */}
-            <div className="lg:col-span-9 space-y-10 sm:space-y-12">
+            <div className="lg:col-span-9 space-y-8 sm:space-y-10 md:space-y-12">
               {/* Lede */}
-              <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal text-[#17171c] leading-[1.2] tracking-tight">
+              <p className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-[#17171c] leading-[1.25] tracking-tight">
                 I’m a web developer and Web3 enthusiast building high-performance web applications,
                 decentralized protocol frontends, and developer tooling.
               </p>
 
               {/* Body */}
-              <p className="text-base sm:text-lg text-[#616161] font-sans leading-relaxed max-w-3xl">
+              <p className="text-sm sm:text-base md:text-lg text-[#616161] font-sans leading-relaxed max-w-3xl">
                 Operating across Indonesia (UTC+7) and collaborating with engineering teams globally.
                 I focus on building resilient modern web applications, reactive Web3 interfaces with sub-second
                 RPC latency, and zero-overhead developer tools that elevate engineering velocity.
@@ -48,14 +48,14 @@ export function BouayabenAbout() {
 
               {/* Capabilities List matching bouayaben.com .about-capabilities */}
               <div className="pt-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] mb-4">
+                <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] mb-3 sm:mb-4">
                   CORE CAPABILITIES
                 </h3>
                 <ul className="flex flex-wrap gap-2">
                   {capabilities.map((cap) => (
                     <li
                       key={cap}
-                      className="font-mono text-xs bg-[#eeece7] text-[#212121] px-3.5 py-1.5 rounded-[30px] border border-[#d9d9dd]"
+                      className="font-mono text-[11px] sm:text-xs bg-[#eeece7] text-[#212121] px-3 py-1.5 rounded-[30px] border border-[#d9d9dd]"
                     >
                       {cap}
                     </li>
@@ -64,17 +64,17 @@ export function BouayabenAbout() {
               </div>
 
               {/* Recognition & Notes matching bouayaben.com .about-notes */}
-              <div className="pt-6 border-t border-[#e5e7eb]">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] mb-4">
+              <div className="pt-5 sm:pt-6 border-t border-[#e5e7eb]">
+                <h3 className="font-mono text-xs uppercase tracking-wider text-[#75758a] mb-3 sm:mb-4">
                   RECOGNITION &amp; INVARIANTS
                 </h3>
-                <ul className="space-y-3.5 text-sm sm:text-base text-[#212121] font-sans">
+                <ul className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm md:text-base text-[#212121] font-sans">
                   {recognition.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="font-mono text-xs text-[#93939f] mt-1 flex-shrink-0">
+                    <li key={idx} className="flex items-start gap-2.5 sm:gap-3">
+                      <span className="font-mono text-[11px] sm:text-xs text-[#93939f] mt-0.5 sm:mt-1 flex-shrink-0">
                         {"// 0" + (idx + 1)}
                       </span>
-                      <span>{item}</span>
+                      <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
