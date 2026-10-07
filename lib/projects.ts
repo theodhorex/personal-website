@@ -23,7 +23,7 @@ export const defaultProjects: CaseStudy[] = [
   {
     id: "solara-dex",
     index: "01",
-    title: "Solara DEX & Yield Aggregator",
+    title: "Solara DEX & Yield Aligator",
     meta: "EVM · Wagmi / Viem · Solidity · Zero-Slippage Routing",
     year: "2026",
     category: "WEB3 & DEFI PROTOCOLS",
@@ -89,7 +89,7 @@ export const defaultProjects: CaseStudy[] = [
   {
     id: "kratos-indexer",
     index: "03",
-    title: "Kratos On-Chain Indexer",
+    title: "Mario Kart Wowkowkwowow On-Chain Indexer",
     meta: "Rust · EVM Event Ingestion · Parquet · GraphQL API",
     year: "2026",
     category: "ENGINEERING TOOLS & WEB3 INFRA",
