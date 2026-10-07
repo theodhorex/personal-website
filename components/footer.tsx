@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Check, Github, Linkedin, Mail, Rss, Terminal } from "lucide-react";
+import { ArrowRight, Check, Github, Mail, Terminal } from "lucide-react";
 
 export function Footer() {
   const [email, setEmail] = useState("");
