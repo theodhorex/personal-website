@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
+import { Reveal } from "./reveal";
 
 export function ResearchTable() {
   const [selectedTag, setSelectedTag] = useState("All Notes");
@@ -90,97 +91,98 @@ export function ResearchTable() {
     <section id="notes" className="bg-white py-20 sm:py-28 border-b border-[#e5e7eb]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="pb-10 border-b border-[#d9d9dd]">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#ff7759] bg-[#ff7759]/10 px-2.5 py-1 rounded-[4px] border border-[#ffad9b] inline-block mb-3 font-medium">
-            PUBLICATIONS &amp; RESEARCH MEMOS
-          </span>
-          <h2 className="section-display text-3xl sm:text-5xl font-normal text-[#17171c]">
-            Writing, Papers &amp; System Notes
-          </h2>
-          <p className="text-base text-[#616161] mt-3 font-sans max-w-2xl">
-            Detailed dissections of distributed systems, AI agent sandboxes, performance engineering, and product interface design.
-          </p>
+        <Reveal>
+          <div className="pb-10 border-b border-[#d9d9dd]">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#ff7759] bg-[#ff7759]/10 px-2.5 py-1 rounded-[4px] border border-[#ffad9b] inline-block mb-3 font-medium">
+              PUBLICATIONS &amp; RESEARCH MEMOS
+            </span>
+            <h2 className="section-display text-3xl sm:text-5xl font-normal text-[#17171c]">
+              Writing, Papers &amp; System Notes
+            </h2>
+            <p className="text-base text-[#616161] mt-3 font-sans max-w-2xl">
+              Detailed dissections of distributed systems, AI agent sandboxes, performance engineering, and product interface design.
+            </p>
 
-          {/* Search & Coral Taxonomy Filter Chips */}
-          <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            {/* Coral Filter Chips */}
-            <div className="flex flex-wrap items-center gap-2">
-              {categories.map((category) => {
-                const isActive = selectedTag === category;
-                return (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedTag(category)}
-                    className={`px-3.5 py-1.5 rounded-[8px] text-xs font-mono transition-all border ${
-                      isActive
-                        ? "bg-[#ff7759] text-white border-[#ff7759] font-medium shadow-sm"
-                        : "bg-transparent text-[#212121] border-[#d9d9dd] hover:border-[#ff7759] hover:text-[#ff7759]"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                );
-              })}
-            </div>
+            {/* Search & Coral Taxonomy Filter Chips */}
+            <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              {/* Coral Filter Chips */}
+              <div className="flex flex-wrap items-center gap-2">
+                {categories.map((category) => {
+                  const isActive = selectedTag === category;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedTag(category)}
+                      className={`px-3.5 py-1.5 rounded-[8px] text-xs font-mono transition-all duration-200 active:scale-95 border ${
+                        isActive
+                          ? "bg-[#ff7759] text-white border-[#ff7759] font-medium shadow-sm"
+                          : "bg-transparent text-[#212121] border-[#d9d9dd] hover:border-[#ff7759] hover:text-[#ff7759]"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+              </div>
 
-            {/* Quick Search Field */}
-            <div className="relative w-full md:w-64">
-              <Search className="w-3.5 h-3.5 text-[#93939f] absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search research topics..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-1.5 rounded-[8px] border border-[#d9d9dd] text-xs font-sans text-[#212121] placeholder-[#93939f] focus:outline-none focus:border-[#9b60aa] bg-white"
-              />
+              {/* Quick Search Field */}
+              <div className="relative w-full md:w-64">
+                <Search className="w-3.5 h-3.5 text-[#93939f] absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search research topics..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-3 py-1.5 rounded-[8px] border border-[#d9d9dd] text-xs font-sans text-[#212121] placeholder-[#93939f] focus:outline-none focus:border-[#9b60aa] bg-white transition-colors"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Rule-Separated Research Table */}
         <div className="divide-y divide-[#d9d9dd]">
-          {filteredPublications.map((pub) => (
-            <div
-              key={pub.id}
-              className="py-7 group hover:bg-[#eeece7]/40 transition-colors px-2 rounded-[8px] flex flex-col lg:flex-row lg:items-center justify-between gap-4 cursor-pointer"
-            >
-              {/* Left Column: Title & Summary */}
-              <div className="max-w-3xl">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="font-mono text-[11px] text-[#ff7759] font-medium uppercase">
-                    {pub.type}
-                  </span>
-                  <span className="text-zinc-300">•</span>
-                  <span className="font-mono text-[11px] text-[#75758a]">
-                    {pub.readTime}
-                  </span>
+          {filteredPublications.map((pub, idx) => (
+            <Reveal key={pub.id} delay={idx * 60}>
+              <div className="py-7 group hover:bg-[#eeece7]/50 transition-colors duration-200 px-3 rounded-[12px] flex flex-col lg:flex-row lg:items-center justify-between gap-4 cursor-pointer">
+                {/* Left Column: Title & Summary */}
+                <div className="max-w-3xl">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="font-mono text-[11px] text-[#ff7759] font-medium uppercase">
+                      {pub.type}
+                    </span>
+                    <span className="text-zinc-300">•</span>
+                    <span className="font-mono text-[11px] text-[#75758a]">
+                      {pub.readTime}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display text-xl sm:text-2xl text-[#17171c] font-normal group-hover:text-[#1863dc] transition-colors">
+                    {pub.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm text-[#616161] font-sans leading-relaxed">
+                    {pub.summary}
+                  </p>
                 </div>
 
-                <h3 className="font-display text-xl sm:text-2xl text-[#17171c] font-normal group-hover:text-[#1863dc] transition-colors">
-                  {pub.title}
-                </h3>
-                <p className="mt-1.5 text-sm text-[#616161] font-sans leading-relaxed">
-                  {pub.summary}
-                </p>
-              </div>
-
-              {/* Center & Right Column: Topic Pill, Date & Action */}
-              <div className="flex items-center justify-between lg:justify-end gap-6 flex-shrink-0 pt-2 lg:pt-0">
-                <span className="font-mono text-xs text-[#212121] px-3 py-1 rounded-[30px] border border-[#d9d9dd] bg-white">
-                  {pub.category}
-                </span>
-
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs text-[#93939f]">
-                    {pub.date}
+                {/* Center & Right Column: Topic Pill, Date & Action */}
+                <div className="flex items-center justify-between lg:justify-end gap-6 flex-shrink-0 pt-2 lg:pt-0">
+                  <span className="font-mono text-xs text-[#212121] px-3 py-1 rounded-[30px] border border-[#d9d9dd] bg-white shadow-2xs group-hover:border-[#17171c]/30 transition-colors">
+                    {pub.category}
                   </span>
 
-                  <div className="w-8 h-8 rounded-full border border-[#d9d9dd] bg-white flex items-center justify-center text-[#212121] group-hover:bg-[#1863dc] group-hover:text-white group-hover:border-[#1863dc] transition-all">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <div className="flex items-center gap-4">
+                    <span className="font-mono text-xs text-[#93939f]">
+                      {pub.date}
+                    </span>
+
+                    <div className="w-8 h-8 rounded-full border border-[#d9d9dd] bg-white flex items-center justify-center text-[#212121] group-hover:bg-[#1863dc] group-hover:text-white group-hover:border-[#1863dc] transition-all duration-200 shadow-2xs">
+                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
 
           {filteredPublications.length === 0 && (
