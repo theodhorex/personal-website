@@ -1,16 +1,5 @@
 import { createClient } from "@sanity/client";
 import { defaultProjects } from "../lib/projects";
-import * as dotenv from "dotenv";
-import * as path from "path";
-import * as fs from "fs";
-
-// Load .env.local if exists
-const envLocalPath = path.resolve(process.cwd(), ".env.local");
-if (fs.existsSync(envLocalPath)) {
-  dotenv.config({ path: envLocalPath });
-} else {
-  dotenv.config();
-}
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
