@@ -41,16 +41,16 @@ export function BouayabenContact() {
             <div className="lg:col-span-4 flex flex-col items-stretch sm:items-start lg:items-end gap-4">
               <button
                 onClick={copyEmail}
-                className="inline-flex items-center justify-center gap-2 bg-[#17171c] hover:bg-black text-white text-xs font-medium px-5 py-3.5 sm:py-3 rounded-[32px] transition-all active:scale-95 shadow-none w-full sm:w-auto"
+                className="btn-pill-interactive inline-flex items-center justify-center gap-2.5 bg-[#17171c] hover:bg-black text-white text-xs font-medium px-5 py-3.5 sm:py-3 rounded-[32px] w-full sm:w-auto select-none group"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>theodhore76@gmail.com (Copied!)</span>
+                    <Check className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
+                    <span className="text-emerald-300">theodhore76@gmail.com (Copied!)</span>
                   </>
                 ) : (
                   <>
-                    <Mail className="w-3.5 h-3.5" />
+                    <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                     <span>theodhore76@gmail.com</span>
                   </>
                 )}
@@ -61,22 +61,22 @@ export function BouayabenContact() {
                   href="https://github.com/theodhorex"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#17171c] transition-colors inline-flex items-center gap-1 py-1"
+                  className="group hover:text-[#17171c] transition-colors inline-flex items-center gap-1.5 py-1 px-1 rounded-md"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                   <span>GitHub</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                  <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                 </a>
 
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#17171c] transition-colors inline-flex items-center gap-1 py-1"
+                  className="group hover:text-[#17171c] transition-colors inline-flex items-center gap-1.5 py-1 px-1 rounded-md"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <LinkedinIcon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                   <span>LinkedIn</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                  <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                 </a>
               </div>
             </div>
