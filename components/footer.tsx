@@ -2,10 +2,10 @@ import { ArrowUp } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#17171c] text-white py-10 border-t border-[#2e2e38]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs text-[#93939f]">
+    <footer className="bg-[#17171c] text-white py-8 sm:py-10 border-t border-[#2e2e38]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 font-mono text-xs text-[#93939f] text-center sm:text-left">
         {/* Left: Identity */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <span className="text-white font-medium">THEODHORE</span>
           <span>•</span>
           <span>© 2026</span>
@@ -20,12 +20,12 @@ export function Footer() {
         </div>
 
         {/* Right: Socials & Top */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4 sm:gap-5 flex-wrap justify-center">
           <a
             href="https://github.com/theodhorex"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="hover:text-white transition-colors py-1"
           >
             GitHub
           </a>
@@ -33,19 +33,19 @@ export function Footer() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="hover:text-white transition-colors py-1"
           >
             LinkedIn
           </a>
           <a
             href="mailto:theodhore76@gmail.com"
-            className="hover:text-white transition-colors"
+            className="hover:text-white transition-colors py-1"
           >
             Email
           </a>
           <a
             href="#"
-            className="hover:text-white transition-colors flex items-center gap-1"
+            className="hover:text-white transition-colors flex items-center gap-1 py-1"
             aria-label="Back to top"
           >
             <span>Top</span>
