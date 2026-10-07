@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={(e) => toggleTheme(e)}
       className="p-1.5 sm:p-2 rounded-full border border-[#d9d9dd] dark:border-[#2e2e38] bg-[#eeece7] dark:bg-[#1c1c24] text-[#17171c] dark:text-[#f4f4f7] hover:bg-[#e5e3de] dark:hover:bg-[#282834] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1863dc] active:scale-95 flex items-center justify-center cursor-pointer"
       aria-label={mounted ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Switch theme"}
       title={mounted ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Switch theme"}
