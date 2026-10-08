@@ -19,13 +19,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Read theme from localStorage or system preference
     const storedTheme = localStorage.getItem("theme") as Theme | null;
-    if (storedTheme === "dark" || storedTheme === "light") {
-      setThemeState(storedTheme);
-      document.documentElement.classList.toggle("dark", storedTheme === "dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setThemeState("dark");
-      document.documentElement.classList.add("dark");
-    }
+    const initialTheme: Theme =
+      storedTheme === "dark" || storedTheme === "light"
+        ? storedTheme
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+
+    setThemeState(initialTheme);
+    document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    document.documentElement.setAttribute("data-theme", initialTheme);
     setMounted(true);
   }, []);
 
@@ -33,6 +36,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setThemeState(newTheme);
     localStorage.setItem("theme", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   const toggleTheme = (e?: React.MouseEvent) => {
