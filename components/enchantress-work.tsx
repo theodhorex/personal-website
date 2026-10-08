@@ -14,7 +14,21 @@ interface EnchantressWorkProps {
 export function EnchantressWork({ projects = defaultProjects }: EnchantressWorkProps) {
   const { t } = useLanguage();
   const [activeProject, setActiveProject] = useState<CaseStudy | null>(null);
-  const displayProjects = projects && projects.length > 0 ? projects : defaultProjects;
+  const rawProjects = projects && projects.length > 0 ? projects : defaultProjects;
+
+  // Clean titles & remove duplicates
+  const displayProjects = rawProjects
+    .map((p) => {
+      let title = p.title;
+      let category = p.category;
+      if (title.includes("Mario Kart") || title.includes("Wowkowkwowow") || title === "Kratos On-Chain Indexer") {
+        title = "Kratos Event Pipeline & Query Engine";
+        category = "SYSTEMS & EVENT PIPELINES";
+      }
+      return { ...p, title, category };
+    })
+    .filter((p, idx, arr) => arr.findIndex((x) => x.title === p.title) === idx)
+    .map((p, idx) => ({ ...p, index: String(idx + 1).padStart(2, "0") }));
 
   // Visual gradients for cards
   const cardGradients = [
@@ -111,8 +125,11 @@ export function EnchantressWork({ projects = defaultProjects }: EnchantressWorkP
                 </div>
 
                 {/* Circular Arrow Badge */}
-                <div className="step-card-arrow relative z-10 mt-6" aria-hidden="true">
-                  ↗
+                <div
+                  className="step-card-arrow relative z-10 mt-4 shrink-0 w-10 h-10 min-w-10 min-h-10 aspect-square rounded-full flex items-center justify-center bg-white shadow-md"
+                  aria-hidden="true"
+                >
+                  <ArrowUpRight className="w-5 h-5 text-zinc-950 stroke-[2.2]" />
                 </div>
               </div>
             </Reveal>
