@@ -200,7 +200,24 @@ export async function getProjects(): Promise<CaseStudy[]> {
     );
 
     if (Array.isArray(data) && data.length > 0) {
-      return data;
+      const sanitized = data
+        .map((p) => {
+          let title = p.title;
+          let category = p.category;
+          if (
+            title.includes("Mario Kart") ||
+            title.includes("Wowkowkwowow") ||
+            title === "Kratos On-Chain Indexer"
+          ) {
+            title = "Kratos Event Pipeline & Query Engine";
+            category = "SYSTEMS & EVENT PIPELINES";
+          }
+          return { ...p, title, category };
+        })
+        .filter((p, idx, arr) => arr.findIndex((x) => x.title === p.title) === idx)
+        .map((p, idx) => ({ ...p, index: String(idx + 1).padStart(2, "0") }));
+
+      return sanitized;
     }
   } catch (error) {
     console.warn("Unable to fetch projects from Sanity, falling back to default projects:", error);
