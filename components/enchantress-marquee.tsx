@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 export function EnchantressMarquee() {
+  const ecosystem = [
     { name: "Next.js 16", icon: Globe, label: "Turbopack Edge" },
     { name: "TypeScript", icon: Code, label: "Strict Typing" },
     { name: "React 19", icon: Layers, label: "Server Components" },
