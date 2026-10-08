@@ -51,10 +51,10 @@ export function EnchantressBento() {
   const [activeStackIndex, setActiveStackIndex] = useState<number | null>(null);
 
   const stackWeights = [
-    { label: "Next.js 16 & React 19", pct: "45%", width: 45, color: "#836ef9" },
-    { label: "TypeScript (Strict)", pct: "30%", width: 30, color: "#3178c6" },
-    { label: "Solidity & EVM", pct: "15%", width: 15, color: "#f59e0b" },
-    { label: "Rust & WASM", pct: "10%", width: 10, color: "#ef4444" },
+    { label: "Modern Frontend (Next.js 16)", pct: "45%", width: 45, color: "#836ef9" },
+    { label: "TypeScript & Systems Tooling", pct: "30%", width: 30, color: "#3178c6" },
+    { label: "APIs & Headless CMS (Sanity)", pct: "15%", width: 15, color: "#10b981" },
+    { label: "Web3 Protocols & EVM", pct: "10%", width: 10, color: "#f59e0b" },
   ];
 
   return (
@@ -73,7 +73,7 @@ export function EnchantressBento() {
 
       {/* Bento Grid (3 Columns) */}
       <div className="bento">
-        {/* Tile 1 (Wide): Cross-Chain Intent & Edge Routing */}
+        {/* Tile 1 (Wide): Edge Request Lifecycle & Data Pipeline */}
         <Reveal delay={120} distance={20} className="col-span-1 md:col-span-2">
           <SpotlightCard className="bento-tile wide">
             <div className="bento-visual">
@@ -87,8 +87,8 @@ export function EnchantressBento() {
                 {/* Source Nodes */}
                 <span>
                   <span className="bento-route-source" style={{ top: 9 }}>
-                    <span className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-xs font-mono font-semibold text-zinc-700 dark:text-zinc-300 shadow-xs">
-                      ETH
+                    <span className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-[10px] font-mono font-semibold text-zinc-700 dark:text-zinc-300 shadow-xs">
+                      HTTP
                     </span>
                   </span>
                   <span
@@ -102,8 +102,8 @@ export function EnchantressBento() {
 
                 <span>
                   <span className="bento-route-source" style={{ top: 59 }}>
-                    <span className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-xs font-mono font-semibold text-blue-500 shadow-xs">
-                      BASE
+                    <span className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-[10px] font-mono font-semibold text-blue-500 shadow-xs">
+                      EDGE
                     </span>
                   </span>
                   <span
@@ -117,8 +117,8 @@ export function EnchantressBento() {
 
                 <span>
                   <span className="bento-route-source" style={{ top: 109 }}>
-                    <span className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-xs font-mono font-semibold text-cyan-500 shadow-xs">
-                      ARB
+                    <span className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-[10px] font-mono font-semibold text-cyan-500 shadow-xs">
+                      RPC
                     </span>
                   </span>
                   <span
@@ -135,7 +135,7 @@ export function EnchantressBento() {
                   <span className="bento-route-hub-logo">
                     <Globe className="w-5 h-5 text-emerald-500" />
                   </span>
-                  <span className="bento-route-hub-label">Edge Ingress</span>
+                  <span className="bento-route-hub-label">Ingress</span>
                 </span>
 
                 {/* Target Execution Settlement Node */}
@@ -150,26 +150,26 @@ export function EnchantressBento() {
           </SpotlightCard>
         </Reveal>
 
-        {/* Tile 2: Routed to the lowest-latency RPC Scanner */}
+        {/* Tile 2: Routed to the lowest-latency Scanner */}
         <Reveal delay={200} distance={20} className="col-span-1">
           <SpotlightCard className="bento-tile">
             <div className="bento-visual">
               <div className="bento-venues">
                 <span className="bento-venue-scan" aria-hidden="true">
-                  <span className="bento-venue-check">Sub-20ms</span>
+                  <span className="bento-venue-check">Sub-25ms</span>
                 </span>
                 <ul>
                   <li>
+                    <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Global Edge CDN (Cloudflare)</span>
+                  </li>
+                  <li>
                     <Cpu className="w-4 h-4 text-purple-400 shrink-0" />
-                    <span>Monad RPC Node</span>
+                    <span>Turbopack App Router (Next.js)</span>
                   </li>
                   <li>
                     <Network className="w-4 h-4 text-blue-400 shrink-0" />
-                    <span>QuickNode Failover</span>
-                  </li>
-                  <li>
-                    <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Alchemy Global Edge</span>
+                    <span>Sanity Headless CMS Sync</span>
                   </li>
                 </ul>
               </div>
