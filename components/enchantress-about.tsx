@@ -7,26 +7,28 @@ export function EnchantressAbout() {
   const { t, language } = useLanguage();
 
   const capabilities = [
-    "Next.js 16 App Router & Turbopack",
-    "Web3 dApp Engineering (Wagmi, Viem, Ethers)",
-    "Solidity Smart Contracts & EVM Optimization",
-    "High-Performance Developer Tooling (Rust, WASM)",
-    "Interactive 3D Web & Hardware-Accelerated Canvas",
-    "Type-Safe Systems Architecture & API Design",
+    "Next.js 16 & React 19 Architecture",
+    "TypeScript & Strict Type Systems",
+    "High-Performance Web Tooling (Rust, WASM)",
+    "Sanity Headless CMS & Content Systems",
+    "Hardware-Accelerated WebGL & Canvas",
+    "REST & GraphQL API Architecture",
+    "Web3 Protocol Interfaces (Viem, Wagmi, EVM)",
+    "Edge Runtime & Server Actions",
   ];
 
   const recognitionEn = [
-    "Engineered reactive Web3 dApp interfaces achieving 99.9% swap execution reliability and zero-slippage routing.",
-    "Built headless web architectures delivering sub-25ms global TTFB across 40+ edge regions on Next.js 16.",
-    "Crafted client-side developer tooling in Rust and WebAssembly, enabling 100% offline smart contract simulation.",
-    "Based in Indonesia (UTC+7) · Available for high-impact web engineering, Web3 protocols, and advisory roles in 2026.",
+    "Architected edge-streamed web systems with sub-25ms global TTFB and 99+ Core Web Vitals on Next.js 16.",
+    "Built client-side developer sandboxes in Rust and WebAssembly, enabling zero-install, 100% offline execution.",
+    "Engineered reactive protocol frontends with optimistic state updates and robust multi-provider failover.",
+    "Based in Indonesia (UTC+7) · Available for high-impact software engineering, web platforms, and technical leadership in 2026.",
   ];
 
   const recognitionId = [
-    "Merancang antarmuka Web3 dApp responsif dengan tingkat keandalan eksekusi 99.9% dan zero-slippage routing.",
-    "Mengembangkan arsitektur headless web dengan latensi global sub-25ms TTFB pada 40+ edge region berbasis Next.js 16.",
-    "Membangun client-side developer tooling menggunakan Rust dan WebAssembly untuk simulasi smart contract secara offline.",
-    "Berbasis di Indonesia (UTC+7) · Terbuka untuk modern web engineering, protokol Web3, dan advisory roles di 2026.",
+    "Merancang arsitektur web edge streaming dengan TTFB sub-25ms dan skor Core Web Vitals 99+ pada Next.js 16.",
+    "Membangun sandbox developer client-side dengan Rust & WebAssembly untuk eksekusi offline tanpa instalasi.",
+    "Mengembangkan antarmuka protokol reaktif dengan pembaruan state optimistik dan penanganan failover multi-provider tangguh.",
+    "Berbasis di Indonesia (UTC+7) · Terbuka untuk rekayasa perangkat lunak, platform web modern, dan peran teknis di 2026.",
   ];
 
   const recognition = language === "id" ? recognitionId : recognitionEn;
