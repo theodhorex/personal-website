@@ -67,7 +67,13 @@ export function EnchantressHero() {
                   <stop offset="75%" stopColor="var(--accent)" stopOpacity="0.8" />
                   <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
                 </linearGradient>
+                <linearGradient id="packet-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#836ef9" stopOpacity="0" />
+                  <stop offset="50%" stopColor="#ffffff" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+                </linearGradient>
               </defs>
+              {/* Underlying Base Glowing Track */}
               <path
                 d="M 50 60 L 650 60"
                 className="beam-glow"
@@ -82,6 +88,23 @@ export function EnchantressHero() {
                 stroke="url(#hero-beam-gradient)"
                 strokeWidth="1.2"
               />
+              {/* Animated Continuous Photon Packet: Left to Center */}
+              <circle r="3.5" fill="#ffffff" filter="url(#hero-glow)">
+                <animateMotion
+                  path="M 50 60 L 350 60"
+                  dur="2.2s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              {/* Animated Continuous Photon Packet: Center to Right */}
+              <circle r="3.5" fill="#f59e0b" filter="url(#hero-glow)">
+                <animateMotion
+                  path="M 350 60 L 650 60"
+                  dur="2.2s"
+                  begin="1.1s"
+                  repeatCount="indefinite"
+                />
+              </circle>
             </svg>
 
             {/* Left Tactile Node (Client / Intent) */}
