@@ -14,17 +14,16 @@ import {
 } from "lucide-react";
 
 export function EnchantressMarquee() {
-  const ecosystem = [
-    { name: "Monad", icon: Zap, label: "10,000 TPS EVM" },
     { name: "Next.js 16", icon: Globe, label: "Turbopack Edge" },
-    { name: "Ethereum", icon: Cpu, label: "Smart Contracts" },
-    { name: "Solidity", icon: Layers, label: "Gas Optimized" },
     { name: "TypeScript", icon: Code, label: "Strict Typing" },
-    { name: "Base", icon: Network, label: "OP Stack L2" },
-    { name: "Arbitrum", icon: Flame, label: "Nitro & Stylus" },
-    { name: "Rust / WASM", icon: Terminal, label: "Offline Sandbox" },
-    { name: "Viem & Wagmi", icon: Database, label: "Reactive RPC" },
+    { name: "React 19", icon: Layers, label: "Server Components" },
+    { name: "Rust / WASM", icon: Terminal, label: "High-Perf Tooling" },
+    { name: "Tailwind CSS", icon: Flame, label: "Design Systems" },
     { name: "Sanity CMS", icon: ShieldCheck, label: "Headless Content" },
+    { name: "Node.js & Bun", icon: Cpu, label: "Fast Runtimes" },
+    { name: "PostgreSQL", icon: Database, label: "Data Architecture" },
+    { name: "Monad & EVM", icon: Zap, label: "Smart Contracts" },
+    { name: "Viem & Wagmi", icon: Network, label: "Reactive RPC" },
   ];
 
   return (
