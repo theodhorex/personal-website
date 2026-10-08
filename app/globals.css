@@ -801,7 +801,8 @@ body {
 }
 
 .step-card {
-  aspect-ratio: 4 / 5.2;
+  min-height: 420px;
+  aspect-ratio: 4 / 5.4;
   border: 1px solid var(--border);
   background: var(--card);
   color: #fff;
@@ -810,8 +811,8 @@ body {
   border-radius: 18px;
   flex-direction: column;
   justify-content: space-between;
-  padding: 28px;
-  transition: transform 0.3s;
+  padding: 26px;
+  transition: transform 0.3s, border-color 0.3s;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -858,19 +859,26 @@ body {
 
 .step-card-arrow {
   color: #0a0a0f;
-  background: #fff;
-  border-radius: 50%;
+  background: #ffffff;
+  border-radius: 9999px;
   align-self: flex-end;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   width: 40px;
+  min-width: 40px;
+  max-width: 40px;
   height: 40px;
-  font-size: 1rem;
-  transition: transform 0.3s;
-  display: grid;
+  min-height: 40px;
+  max-height: 40px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+  display: flex;
 }
 
 .step-card:hover .step-card-arrow {
-  transform: rotate(45deg);
+  transform: rotate(45deg) scale(1.06);
 }
 
 /* ==========================================================================
