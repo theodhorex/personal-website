@@ -12,14 +12,14 @@ export function EnchantressHero() {
   const [pulseLeft, setPulseLeft] = useState(false);
   const [pulseRight, setPulseRight] = useState(false);
 
-  // Cycling tokens & protocols for the tactile pipeline
+  // Cycling engineering competencies for the tactile pipeline
   const protocols = [
-    { name: "Monad", icon: Zap, color: "#836ef9" },
     { name: "Next.js 16", icon: Globe, color: "#ffffff" },
-    { name: "Ethereum", icon: Cpu, color: "#627eea" },
-    { name: "Solidity", icon: Layers, color: "#a5b4fc" },
     { name: "TypeScript", icon: Code2, color: "#3178c6" },
+    { name: "React 19", icon: Layers, color: "#61dafb" },
     { name: "Rust / WASM", icon: Terminal, color: "#f97316" },
+    { name: "Monad & EVM", icon: Zap, color: "#836ef9" },
+    { name: "Systems & Edge", icon: Cpu, color: "#eab308" },
   ];
 
   useEffect(() => {
