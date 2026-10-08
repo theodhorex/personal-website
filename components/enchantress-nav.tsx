@@ -50,20 +50,20 @@ export function EnchantressNav() {
           onClick={(e) => toggleTheme(e)}
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-          className="flex h-8 w-15 shrink-0 cursor-pointer rounded-full p-1 transition-all duration-300 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#14141e] hover:border-zinc-300 dark:hover:border-zinc-700"
+          className="flex h-9 w-16 shrink-0 cursor-pointer rounded-full p-1 transition-all duration-300 border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-[#14141e] hover:border-zinc-300 dark:hover:border-zinc-700 shadow-2xs items-center"
         >
-          <span className="flex w-full items-center justify-between relative">
+          <span className="flex w-full items-center relative">
             <span
-              className={`flex size-6 items-center justify-center rounded-full transition-transform duration-300 ${
+              className={`flex size-7 items-center justify-center rounded-full transition-transform duration-300 shadow-xs ${
                 theme === "dark"
-                  ? "translate-x-7 bg-zinc-800 text-amber-300"
-                  : "translate-x-0 bg-zinc-200 text-zinc-800"
+                  ? "translate-x-7 bg-amber-500/15 text-amber-400 border border-amber-400/30"
+                  : "translate-x-0 bg-white text-zinc-700 border border-zinc-200"
               }`}
             >
               {theme === "dark" ? (
-                <Moon className="size-3.5" />
-              ) : (
                 <Sun className="size-3.5" />
+              ) : (
+                <Moon className="size-3.5" />
               )}
             </span>
           </span>
