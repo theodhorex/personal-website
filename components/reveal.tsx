@@ -31,7 +31,7 @@ export function Reveal({
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       const timer = setTimeout(() => {
         setIsVisible(true);
-      }, delay);
+      }, 40);
       return () => clearTimeout(timer);
     }
 
@@ -43,8 +43,8 @@ export function Reveal({
         }
       },
       {
-        threshold,
-        rootMargin: "0px 0px -30px 0px",
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px",
       }
     );
 
@@ -53,7 +53,7 @@ export function Reveal({
     return () => {
       observer.disconnect();
     };
-  }, [threshold, delay]);
+  }, [threshold]);
 
   return (
     <div
