@@ -318,11 +318,17 @@ body {
   flex-direction: column;
   flex: 1;
   align-items: center;
-  padding: 12px sm:16px;
+  padding: 12px;
   transition: background-color 0.3s, color 0.3s;
   display: flex;
   overflow-x: clip;
   min-height: 100vh;
+}
+
+@media (min-width: 640px) {
+  .landing {
+    padding: 16px;
+  }
 }
 
 .aurora-backdrop {
