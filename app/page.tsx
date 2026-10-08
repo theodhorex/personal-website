@@ -1,3 +1,4 @@
+import { AuroraBackdrop } from "@/components/aurora-backdrop";
 import { EnchantressNav } from "@/components/enchantress-nav";
 import { EnchantressHero } from "@/components/enchantress-hero";
 import { EnchantressMarquee } from "@/components/enchantress-marquee";
@@ -13,8 +14,8 @@ export default async function Home() {
 
   return (
     <div className="landing selection:bg-amber-400 selection:text-black">
-      {/* Ambient Radial Aurora Glow Background */}
-      <div className="aurora-backdrop" aria-hidden="true" />
+      {/* Dynamic WebGL Aurora Canvas Background */}
+      <AuroraBackdrop />
 
       {/* Enchantress Navigation Bar */}
       <EnchantressNav />
