@@ -89,10 +89,10 @@ export const defaultProjects: CaseStudy[] = [
   {
     id: "kratos-indexer",
     index: "03",
-    title: "Mario Kart Wowkowkwowow On-Chain Indexer",
-    meta: "Rust · EVM Event Ingestion · Parquet · GraphQL API",
+    title: "Kratos Event Pipeline & Query Engine",
+    meta: "Rust · Systems Engineering · Parquet · GraphQL API",
     year: "2026",
-    category: "ENGINEERING TOOLS & WEB3 INFRA",
+    category: "SYSTEMS & EVENT PIPELINES",
     client: "Open Source Tooling",
     role: "Systems & Web3 Engineer",
     summary:
