@@ -78,7 +78,7 @@ export function HeroBlock() {
             className="mb-12 flex flex-wrap justify-center gap-4"
           >
             <Button size="lg" asChild>
-              <a href="mailto:theodhore.dev@gmail.com">
+              <a href="#contact">
                 <Mail className="h-4 w-4" />
                 Get in Touch
               </a>
