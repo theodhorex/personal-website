@@ -19,14 +19,16 @@ function ProjectEntry({ p }: { p: CaseStudy }) {
       </p>
 
       {p.outcomes?.length > 0 && (
-        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <ul className="mt-6 grid gap-2 sm:grid-cols-3 sm:gap-3">
           {p.outcomes.slice(0, 3).map((o) => (
             <li
               key={o.label}
-              className="rounded-xl border border-border bg-secondary/50 p-4"
+              className="flex items-baseline gap-3 rounded-xl border border-border bg-secondary/50 px-4 py-3 sm:block sm:p-4"
             >
-              <p className="text-xl font-medium text-foreground">{o.value}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{o.label}</p>
+              <p className="shrink-0 text-lg font-medium text-foreground sm:text-xl">
+                {o.value}
+              </p>
+              <p className="text-xs text-muted-foreground sm:mt-1">{o.label}</p>
             </li>
           ))}
         </ul>

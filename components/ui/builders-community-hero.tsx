@@ -77,17 +77,23 @@ const STAGE_W = 1200;
 const STAGE_H = 490;
 const CENTER = { x: 600, y: 620 };
 const RADIUS: Record<OrbitRing, number> = { outer: 492, inner: 404 };
+// Where the stats row starts, in stage pixels.
+const STATS_TOP = 393;
+const EDGE_FADE =
+  "linear-gradient(to right, transparent, #000 15%, #000 85%, transparent)";
 
 // Floating chips share one surface so they follow the site's light/dark tokens.
 const chip =
   "border border-border bg-background text-muted-foreground shadow-sm";
 
+// Rounded because Node and the browser can disagree on the last digit of
+// Math.cos/Math.sin, which would otherwise cause a hydration mismatch.
 function positionOnRing(ring: OrbitRing, angle: number): CSSProperties {
   const rad = (angle * Math.PI) / 180;
   const r = RADIUS[ring];
   return {
-    left: CENTER.x + r * Math.cos(rad),
-    top: CENTER.y - r * Math.sin(rad),
+    left: Math.round(CENTER.x + r * Math.cos(rad)),
+    top: Math.round(CENTER.y - r * Math.sin(rad)),
   };
 }
 
@@ -256,7 +262,7 @@ export default function CommunityOrbit({
   className,
 }: CommunityOrbitProps) {
   const frameRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
+  const [frameWidth, setFrameWidth] = useState(STAGE_W);
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { amount: 0.3, once: true });
@@ -265,13 +271,17 @@ export default function CommunityOrbit({
   useLayoutEffect(() => {
     const frame = frameRef.current;
     if (!frame) return;
-    const measure = () =>
-      setScale(Math.min(1, Math.max(minScale, frame.clientWidth / STAGE_W)));
+    const measure = () => setFrameWidth(frame.clientWidth);
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(frame);
     return () => ro.disconnect();
-  }, [minScale]);
+  }, []);
+
+  const scale = Math.min(1, Math.max(minScale, frameWidth / STAGE_W));
+  // Below minScale the stage is wider than its frame, so fade the cropped
+  // sides instead of cutting chips off mid-word.
+  const cropped = STAGE_W * scale > frameWidth + 1;
 
   return (
     <section
@@ -299,109 +309,134 @@ export default function CommunityOrbit({
       <div
         ref={frameRef}
         className="relative mx-auto w-full max-w-[1200px] overflow-hidden"
-        style={{ height: STAGE_H * scale }}
+        style={{ minHeight: STAGE_H * scale }}
       >
         <div
-          className="absolute left-1/2 top-0"
-          style={{
-            width: STAGE_W,
-            height: STAGE_H,
-            transform: `translateX(-50%) scale(${scale})`,
-            transformOrigin: "top center",
-          }}
+          className="absolute inset-0"
+          style={
+            cropped
+              ? { maskImage: EDGE_FADE, WebkitMaskImage: EDGE_FADE }
+              : undefined
+          }
         >
-          <svg
-            className="pointer-events-none absolute inset-0"
-            width={STAGE_W}
-            height={STAGE_H}
-            viewBox={`0 0 ${STAGE_W} ${STAGE_H}`}
-            fill="none"
-            aria-hidden="true"
+          <div
+            className="absolute left-1/2 top-0"
             style={{
-              maskImage:
-                "linear-gradient(to bottom, #000 62%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to bottom, #000 62%, transparent 100%)",
+              width: STAGE_W,
+              height: STAGE_H,
+              transform: `translateX(-50%) scale(${scale})`,
+              transformOrigin: "top center",
             }}
           >
-            <motion.path
-              d={arcPath(RADIUS.outer)}
-              className="stroke-border"
-              strokeWidth={2}
-              initial={{ pathLength: reduce ? 1 : 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={viewport}
-              transition={{ duration: 1.4, ease: "easeOut" }}
-            />
-            <motion.path
-              d={arcPath(RADIUS.inner)}
-              className="stroke-muted-foreground/30"
-              strokeWidth={3}
-              initial={{ pathLength: reduce ? 1 : 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={viewport}
-              transition={{ duration: 1.4, ease: "easeOut", delay: 0.1 }}
-            />
-          </svg>
-
-          {items.map((item, i) => (
-            <motion.div
-              key={i}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={positionOnRing(item.ring, item.angle)}
-              initial={{ opacity: 0, scale: 0.7 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={viewport}
-              transition={{
-                duration: 0.5,
-                delay: 0.5 + i * 0.07,
-                ease: [0.22, 1, 0.36, 1],
+            <svg
+              className="pointer-events-none absolute inset-0"
+              width={STAGE_W}
+              height={STAGE_H}
+              viewBox={`0 0 ${STAGE_W} ${STAGE_H}`}
+              fill="none"
+              aria-hidden="true"
+              style={{
+                maskImage:
+                  "linear-gradient(to bottom, #000 62%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, #000 62%, transparent 100%)",
               }}
             >
-              <motion.div
-                animate={reduce ? undefined : { y: [0, -4, 0] }}
-                transition={{
-                  duration: 4 + (i % 4) * 0.6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: (i * 0.4) % 2,
-                }}
-                whileHover={{ scale: 1.06 }}
-              >
-                {renderItem(item)}
-              </motion.div>
-            </motion.div>
-          ))}
+              <motion.path
+                d={arcPath(RADIUS.outer)}
+                className="stroke-border"
+                strokeWidth={2}
+                initial={{ pathLength: reduce ? 1 : 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={viewport}
+                transition={{ duration: 1.4, ease: "easeOut" }}
+              />
+              <motion.path
+                d={arcPath(RADIUS.inner)}
+                className="stroke-muted-foreground/30"
+                strokeWidth={3}
+                initial={{ pathLength: reduce ? 1 : 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={viewport}
+                transition={{ duration: 1.4, ease: "easeOut", delay: 0.1 }}
+              />
+            </svg>
 
-          <div className="absolute left-1/2 top-[393px] grid -translate-x-1/2 auto-cols-fr grid-flow-col gap-7">
-            {stats.map((s, i) => (
+            {items.map((item, i) => (
               <motion.div
-                key={s.label}
-                className="flex flex-col items-center"
-                variants={reveal}
-                initial="hidden"
-                whileInView="show"
+                key={i}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={positionOnRing(item.ring, item.angle)}
+                initial={{ opacity: 0, scale: 0.7 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewport}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.9 + i * 0.12,
+                  duration: 0.5,
+                  delay: 0.5 + i * 0.07,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <span className="text-[48px] font-medium leading-none tracking-[-0.02em] tabular-nums text-foreground">
-                  <CountUp
-                    key={String(inView)}
-                    value={s.value}
-                    delay={0.9 + i * 0.12}
-                    active={inView}
-                  />
-                </span>
-                <span className="mt-[15px] text-[14px] leading-none text-muted-foreground">
-                  {s.label}
-                </span>
+                <motion.div
+                  animate={reduce ? undefined : { y: [0, -4, 0] }}
+                  transition={{
+                    duration: 4 + (i % 4) * 0.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: (i * 0.4) % 2,
+                  }}
+                  whileHover={{ scale: 1.06 }}
+                >
+                  {renderItem(item)}
+                </motion.div>
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* Stats sit outside the scaled stage so they stay readable on phones. */}
+        <div
+          className="relative mx-auto grid w-fit max-w-full auto-cols-fr grid-flow-col"
+          style={{
+            paddingTop: STATS_TOP * scale,
+            columnGap: Math.max(12, 28 * scale),
+          }}
+        >
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              className="flex flex-col items-center"
+              variants={reveal}
+              initial="hidden"
+              whileInView="show"
+              viewport={viewport}
+              transition={{
+                duration: 0.6,
+                delay: 0.9 + i * 0.12,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <span
+                className="font-medium leading-none tracking-[-0.02em] tabular-nums text-foreground"
+                style={{ fontSize: Math.max(30, 48 * scale) }}
+              >
+                <CountUp
+                  key={String(inView)}
+                  value={s.value}
+                  delay={0.9 + i * 0.12}
+                  active={inView}
+                />
+              </span>
+              <span
+                className="text-center leading-tight text-muted-foreground"
+                style={{
+                  marginTop: Math.max(8, 15 * scale),
+                  fontSize: Math.max(12, 14 * scale),
+                }}
+              >
+                {s.label}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </div>
 

@@ -119,7 +119,7 @@ export function LetsWorkTogether({
             }}
           >
             <span
-              className="block h-px w-8 bg-border transition-all duration-500 sm:w-12"
+              className="hidden h-px w-8 bg-border transition-all duration-500 min-[360px]:block sm:w-12"
               style={{
                 transform: isButtonHovered ? "scaleX(0)" : "scaleX(1)",
                 opacity: isButtonHovered ? 0 : 0.5,
@@ -150,7 +150,7 @@ export function LetsWorkTogether({
                 }}
               />
               <span
-                className="text-sm font-medium tracking-wide transition-all duration-500 sm:text-base"
+                className="whitespace-nowrap text-sm font-medium tracking-wide transition-all duration-500 sm:text-base"
                 style={{
                   color: isButtonHovered
                     ? "var(--background)"
@@ -174,7 +174,7 @@ export function LetsWorkTogether({
             </span>
 
             <span
-              className="block h-px w-8 bg-border transition-all duration-500 sm:w-12"
+              className="hidden h-px w-8 bg-border transition-all duration-500 min-[360px]:block sm:w-12"
               style={{
                 transform: isButtonHovered ? "scaleX(0)" : "scaleX(1)",
                 opacity: isButtonHovered ? 0 : 0.5,

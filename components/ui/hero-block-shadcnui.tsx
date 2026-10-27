@@ -33,7 +33,7 @@ const socials: {
 
 export function HeroBlock() {
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-background px-6">
+    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-background px-6 py-24">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
       <div className="relative z-10 mx-auto max-w-5xl text-center">
@@ -55,7 +55,7 @@ export function HeroBlock() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="mb-6 text-5xl font-bold text-foreground md:text-7xl"
+            className="mb-6 text-4xl font-bold text-foreground sm:text-5xl md:text-7xl"
           >
             Web Developer &amp; Web3 Enthusiast
           </motion.h1>
@@ -64,7 +64,7 @@ export function HeroBlock() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mx-auto mb-8 max-w-3xl text-xl text-muted-foreground md:text-2xl"
+            className="mx-auto mb-8 max-w-3xl text-lg text-muted-foreground sm:text-xl md:text-2xl"
           >
             Hi, I&apos;m Theodhore. I build high-performance web applications,
             decentralized protocols, and developer tooling with clean code and
