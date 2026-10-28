@@ -179,21 +179,21 @@ function JourneyPinned() {
       style={{ height: `${TOTAL_HEIGHT}svh` }}
     >
       <div ref={stageRef} className="sticky top-0 h-svh overflow-hidden">
-        <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col px-4 pb-14 pt-8 sm:px-8 sm:pb-12 sm:pt-16">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col px-4 pt-6 pb-[calc(3.5rem_+_env(safe-area-inset-bottom))] sm:px-8 sm:pb-14 xl:pb-12 sm:pt-16">
           <h2 className="sr-only">About — the way I build</h2>
 
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-[62%] select-none"
+            className="pointer-events-none absolute left-0 top-1/2 z-0 hidden -translate-y-[62%] select-none lg:block"
           >
             {CHAPTERS.map((chapter, i) => (
               <ChapterNumber key={chapter.id} index={i} progress={progress} />
             ))}
           </span>
 
-          <div className="relative z-10 grid min-h-0 flex-1 content-start sm:content-center gap-4 grid-cols-1 sm:grid-cols-12 sm:items-center sm:gap-8">
+          <div className="relative z-10 grid min-h-0 flex-1 content-start sm:content-center gap-4 grid-cols-1 lg:grid-cols-12 lg:items-center sm:gap-8">
             {/* Chapter texts share one grid cell and crossfade on progress. */}
-            <div className="grid min-w-0 sm:col-span-5">
+            <div className="grid min-w-0 lg:col-span-5">
               {CHAPTERS.map((chapter, i) => (
                 <ChapterLayer
                   key={chapter.id}
@@ -203,7 +203,7 @@ function JourneyPinned() {
                 />
               ))}
             </div>
-            <div className="relative h-36 min-h-0 sm:col-span-7 sm:h-72 lg:h-[22.5rem] pointer-events-none">
+            <div className="relative pointer-events-none mx-auto h-[clamp(11rem,33svh,16rem)] w-full max-w-[36rem] min-h-0 lg:col-span-7 sm:mx-0 sm:h-[clamp(18rem,34svh,26rem)] sm:w-auto sm:max-w-none lg:h-[22.5rem] xl:pr-16">
               {CHAPTERS.map((chapter, i) => (
                 <FigureLayer key={chapter.id} index={i} progress={progress} active={active === i} />
               ))}
@@ -273,12 +273,12 @@ function ChapterText({
 }) {
   const chapter = CHAPTERS[chapterIndex];
   return (
-    <div className="min-w-0 sm:col-span-5">
+    <div className="min-w-0 lg:col-span-5">
       <ChapterMeta index={chapterIndex} />
       <div className="overflow-hidden">
         <motion.div style={{ y: titleY }}>
           <h3
-            className="mt-4 font-display text-[clamp(2.2rem,7vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.01em] text-ink"
+            className="mt-3 font-display text-[clamp(2rem,8vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.01em] text-ink sm:mt-4"
             style={{
               transform:
                 "translate3d(calc(var(--px, 0) * 3px), calc(var(--py, 0) * 2px), 0)",
@@ -316,7 +316,7 @@ function ShipExtras() {
   return (
     <div className="mt-4 border-t border-line pt-3">
       <div className="space-y-2.5 text-[12px] leading-relaxed text-muted sm:space-y-3 sm:text-[13.5px] sm:leading-[1.65]">
-        <p className="[@media(max-height:720px)]:hidden">{bioP2}</p>
+        <p className="[@media(max-height:900px)]:hidden">{bioP2}</p>
         <p>
           {bioP3}{" "}
           <a
@@ -329,7 +329,7 @@ function ShipExtras() {
         </p>
       </div>
 
-      <div className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] [@media(max-height:720px)]:hidden">
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] [@media(max-height:780px)]:hidden">
         <span className="text-muted">
           Projects <span className="text-accent">{String(PROJECT_COUNT).padStart(2, "0")}</span>
         </span>
@@ -343,7 +343,7 @@ function ShipExtras() {
         ))}
       </div>
 
-      <p className="mt-2.5 text-[12px] leading-relaxed text-muted sm:text-[13px] [@media(max-height:720px)]:hidden">
+      <p className="mt-2.5 text-[12px] leading-relaxed text-muted sm:text-[13px] [@media(max-height:780px)]:hidden">
         {TAGS.map((tag, i) => (
           <span key={tag.label}>
             <a
