@@ -5,6 +5,7 @@ import { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import type { CaseStudy } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/stage/reveal";
 import { usePointerVars } from "@/components/stage/use-pointer";
 import { ProjectDiagram } from "@/components/projects/diagram";
@@ -118,18 +119,19 @@ export function ProjectsSection({ projects }: { projects: CaseStudy[] }) {
       <ProjectsHeader total={projects.length} />
 
       {projects.length > 1 && filterTags.length > 1 && (
-        <ul className="mb-5 flex flex-wrap items-baseline gap-x-5 gap-y-1.5 font-mono text-xs md:mb-8">
+        <ul className="mb-5 flex flex-wrap items-baseline gap-x-5 gap-y-1.5 font-mono text-xs max-sm:mb-6 md:mb-8">
           {filterTags.map(([tag, count]) => (
             <li key={tag}>
               <button
                 type="button"
                 aria-pressed={activeTag === tag}
                 onClick={() => selectTag(activeTag === tag ? null : tag)}
-                className={
+                className={cn(
+                  "cursor-pointer max-sm:inline-flex max-sm:items-center max-sm:min-h-11",
                   activeTag === tag
-                    ? "cursor-pointer text-accent"
-                    : "cursor-pointer text-muted transition-colors duration-300 hover:text-ink"
-                }
+                    ? "text-accent"
+                    : "text-muted transition-colors duration-300 hover:text-ink",
+                )}
               >
                 {tag.toLowerCase()}
                 <span className="ml-1.5 font-mono text-[11px] text-muted">

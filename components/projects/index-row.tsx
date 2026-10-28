@@ -44,7 +44,7 @@ export function ProjectRow({
         onPointerLeave={onLeave}
         onFocus={(e) => onEnter(e.currentTarget, p.id)}
         onBlur={onLeave}
-        className="group grid w-full cursor-pointer grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-5 text-left sm:grid-cols-[2.5rem_1fr_auto_auto] sm:gap-x-5 sm:py-6"
+        className="group grid w-full cursor-pointer grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-6 text-left sm:grid-cols-[2.5rem_1fr_auto_auto] sm:gap-x-5"
       >
         <span
           className={
@@ -55,7 +55,7 @@ export function ProjectRow({
         >
           {p.index || pad(i + 1)}
         </span>
-        <span className="font-display text-[clamp(1.35rem,3vw,2.1rem)] font-bold leading-[1.05] tracking-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [font-variation-settings:'wdth'_95] [@media(hover:hover)]:group-hover:translate-x-2 sm:text-balance">
+        <span className="font-display text-[clamp(1.35rem,3vw,2.1rem)] font-bold leading-[1.05] tracking-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [font-variation-settings:'wdth'_95] [@media(hover:hover)]:group-hover:translate-x-2 max-sm:text-[clamp(1.35rem,6vw,1.75rem)] max-sm:text-balance sm:text-balance">
           {p.title}
         </span>
         <span className="hidden items-center gap-4 sm:flex sm:gap-6">
@@ -72,8 +72,14 @@ export function ProjectRow({
         >
           +
         </motion.span>
-        {/* Touch devices have no hover preview: show a compact one inline. */}
-        <span className="col-span-full hidden items-center gap-4 pt-1 [@media(hover:none)]:flex">
+        {/* Mobile (< sm): meta lives on its own calm line under the title. */}
+        <span className="min-w-0 hidden max-sm:col-span-2 max-sm:col-start-2 max-sm:flex max-sm:items-baseline max-sm:gap-3 max-sm:pt-1">
+          <span className="shrink-0 font-mono text-[11px] text-ink">{p.year}</span>
+          <span className="min-w-0 flex-1 truncate font-mono text-[11px] lowercase text-muted">/ {p.category}</span>
+        </span>
+        {/* Touch devices without hover preview ≥ sm (tablets): compact one inline.
+            Phones get the schematic inside the open panel instead. */}
+        <span className="col-span-full hidden items-center gap-4 pt-1 [@media(hover:none)_and_(min-width:640px)]:flex">
           <span className="h-10 w-20 text-ink">
             <ProjectDiagram project={p} />
           </span>
@@ -96,6 +102,12 @@ export function ProjectRow({
             className="grid gap-8 pb-8 pt-1 md:grid-cols-12 md:gap-10 md:pb-10"
           >
             <div className="md:col-span-7">
+              {/* Phone rows carry no inline thumb: the schematic appears here, when opened. */}
+              <div aria-hidden="true" className="mb-4 hidden max-sm:block">
+                <span className="block h-28 w-42 text-ink">
+                  <ProjectDiagram project={p} />
+                </span>
+              </div>
               <p className="font-mono text-[11px] leading-relaxed text-muted">
                 {p.meta}
               </p>

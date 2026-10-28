@@ -71,7 +71,7 @@ export function ContactTerminal({ className }: { className?: string }) {
       ref={panelRef}
       className={cn("rounded-md border border-line bg-panel", className)}
     >
-      <div className="flex items-center justify-between border-line border-b px-4 py-2">
+      <div className="flex items-center justify-between border-line border-b px-4 py-2 max-sm:px-3">
         <span className="font-mono text-[11px] lowercase tracking-widest text-muted">
           contact.log
         </span>
@@ -79,7 +79,7 @@ export function ContactTerminal({ className }: { className?: string }) {
           fig. 04
         </span>
       </div>
-      <div className="px-4 py-3">
+      <div className="px-4 py-3 max-sm:px-3 max-sm:py-2.5">
         {/* Typed copy is decorative; the static text below is what AT reads. */}
         <div
           aria-hidden="true"

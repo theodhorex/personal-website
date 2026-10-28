@@ -39,7 +39,7 @@ export function SocialLinks({ className }: { className?: string }) {
               href={s.href}
               target={s.external ? "_blank" : undefined}
               rel={s.external ? "noreferrer" : undefined}
-              className="group grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-4 sm:py-5"
+              className="group grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-3.5 sm:py-5"
             >
               <span className="font-mono text-xs text-muted transition-colors duration-300 group-hover:text-accent sm:text-sm">
                 {pad(i + 1)}

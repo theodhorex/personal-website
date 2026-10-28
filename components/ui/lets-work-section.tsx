@@ -30,7 +30,7 @@ export function LetsWorkTogether({
         <ContactTitle line1="Let's work" line2="together" />
       </Reveal>
 
-      <Reveal delay={0.08} className="mt-4 md:mt-6" y={20}>
+      <Reveal delay={0.08} className="mt-4 max-sm:mt-6 md:mt-6" y={20}>
         <div className="grid gap-8 md:mt-2 md:grid-cols-12 md:gap-10">
           <div className="flex flex-col gap-4 md:col-span-7">
             {description && (
