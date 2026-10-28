@@ -1,14 +1,14 @@
 # Theodhore — Personal Website
 
-Portfolio pribadi: full-stack web developer dengan Web3 sebagai salah satu keahlian. Berupa cerita interaktif yang discroll (Hero, Journey, Projects, Contact), tema gelap.
+Personal portfolio: a full-stack web developer with Web3 as one of my areas of expertise. Built as an interactive scroll-driven story (Hero, Journey, Projects, Contact) with a dark theme.
 
 **Live:** https://theodhorex.vercel.app
 
 ## Tech Stack
 
-Next.js (App Router) · React · Tailwind CSS · Framer Motion · Sanity (opsional) · Bun
+Next.js (App Router) · React · Tailwind CSS · Framer Motion · Sanity (optional) · Bun
 
-## Menjalankan
+## Getting Started
 
 ```bash
 git clone https://github.com/theodhorex/personal-website.git
@@ -17,12 +17,12 @@ bun install
 bun dev   # http://localhost:3000
 ```
 
-Navigasi keyboard: `Space` / `→` / `↓` ke bagian berikutnya, `←` / `↑` kembali.
+Keyboard navigation: `Space` / `→` / `↓` to go to the next section, `←` / `↑` to go back.
 
-## Sanity (opsional)
+## Sanity (optional)
 
-Tanpa setup, situs memakai data lokal. Untuk CMS: salin `.env.example` ke `.env.local`, isi `NEXT_PUBLIC_SANITY_PROJECT_ID`, lalu buka `/studio`.
+Without any setup, the site uses local data. To use the CMS: copy `.env.example` to `.env.local`, fill in `NEXT_PUBLIC_SANITY_PROJECT_ID`, then open `/studio`.
 
-## Kontak
+## Contact
 
 [@theodhorex](https://github.com/theodhorex) · theodhore.dev@gmail.com
