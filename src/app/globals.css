@@ -1,8 +1,0 @@
-@import "tailwindcss";
-
-
-.writing-vertical {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-  }
-  

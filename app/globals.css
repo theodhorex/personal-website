@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark editorial tokens (dark only): near-black, bone text, ONE accent */
+  color-scheme: dark;
+  --bg: #0b0c0e;
+  --bg-2: #111215;
+  --panel: #15161a;
+  --paper: #1b1c21;
+  --ink: #ebe8df;          /* bone-white text and strong lines */
+  --muted: #9b9a93;        /* >= 4.5:1 on --bg */
+  --line: #2a2b30;         /* hairlines */
+  --accent: #c8f542;       /* the single signal colour; <= 5% of any screen */
+  --sun: #c8f542;          /* alias: legacy components */
+  --coral: #ff6b4a;        /* errors / rare emphasis only */
+  --mint: #8fd8bd;         /* legacy alias, avoid in new work */
+  --on-accent: #0b0c0e;    /* text on accent fills */
+  --tint-accent: #1a1d10;
+  --tint-sun: #1a1d10;
+  --tint-coral: #2a1612;
+  --tint-mint: #12201b;
+  --dot: transparent;
+  --stroke: 1px;
+  --radius: 6px;
+  --shadow-c: transparent; /* no hard shadows in this design */
+  --shadow-hard: none;
+  --shadow-hard-lg: none;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Compatibility aliases for existing components */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--on-accent);
+  --secondary: var(--bg-2);
+  --secondary-foreground: var(--ink);
+  --card: var(--panel);
+  --card-foreground: var(--ink);
+  --popover: var(--panel);
+  --popover-foreground: var(--ink);
+  --muted-foreground: var(--muted);
+  --border: var(--line);
+  --ring: var(--accent);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-panel: var(--panel);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-on-accent: var(--on-accent);
+  --color-accent: var(--accent);
+  --color-sun: var(--sun);
+  --color-coral: var(--coral);
+  --color-mint: var(--mint);
+  --color-tint-accent: var(--tint-accent);
+  --color-tint-sun: var(--tint-sun);
+  --color-tint-coral: var(--tint-coral);
+  --color-tint-mint: var(--tint-mint);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+/* PrintPitt Design Utilities */
+.bg-dots {
+  background-color: var(--bg);
+}
+
+.card {
+  background-color: var(--panel);
+  border: var(--stroke) solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--ink);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  background-color: var(--tint-accent);
+  color: var(--ink);
+}
+
+.stroke {
+  border: var(--stroke) solid var(--line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover {
+    transform: none;
+  }
+}
