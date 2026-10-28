@@ -1,8 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useEffect, useState } from "react";
-import { useReducedMotion } from "framer-motion";
-import { defaultProjects } from "@/lib/projects";
+
 
 const TECH_ITEMS = [
   "Next.js 16",
@@ -44,14 +44,13 @@ function CountUp({ to }: { to: number }) {
   return <span>{reduce ? to : val}</span>;
 }
 
-export function HeroTicker() {
-  const projectCount = defaultProjects.length;
+export function HeroTicker({ projectCount }: { projectCount: number }) {
   const techCount = TECH_ITEMS.length;
 
   return (
     <aside
       aria-label="Technology and production telemetry"
-      className="w-full border-t border-line bg-bg-2/90 backdrop-blur-xs select-none"
+      className="w-full border-t border-line bg-bg-2 select-none"
     >
       <div className="flex h-9 sm:h-10 items-center justify-between overflow-hidden">
         {/* Real Data Telemetry Badges (Static Anchors) */}
@@ -60,7 +59,7 @@ export function HeroTicker() {
             <span className="font-bold text-accent">
               <CountUp to={projectCount} />
             </span>
-            <span className="hidden xs:inline">CASE STUDIES</span>
+            <span className="hidden sm:inline">CASE STUDIES</span>
           </div>
           <span className="text-line" aria-hidden="true">
             /
@@ -77,7 +76,11 @@ export function HeroTicker() {
         <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20px,black_calc(100%-20px),transparent)]">
           <div className="hero-ticker-track flex w-max items-center gap-6 font-mono text-[11px] uppercase tracking-widest text-muted hover:[animation-play-state:paused]">
             {[...TECH_ITEMS, ...TECH_ITEMS].map((tech, i) => (
-              <span key={`${tech}-${i}`} className="inline-flex items-center gap-6">
+              <span
+                key={`${tech}-${i}`}
+                aria-hidden={i >= TECH_ITEMS.length ? true : undefined}
+                className="inline-flex items-center gap-6"
+              >
                 <span className="hover:text-ink transition-colors">{tech}</span>
                 <span className="text-line" aria-hidden="true">
                   {"//"}

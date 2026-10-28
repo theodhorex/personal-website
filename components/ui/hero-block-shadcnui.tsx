@@ -36,7 +36,7 @@ const socials: {
   { icon: Mail, href: "mailto:theodhore.dev@gmail.com", label: "Email" },
 ];
 
-export function HeroBlock() {
+export function HeroBlock({ projectCount }: { projectCount: number }) {
   const heroRef = useRef<HTMLDivElement>(null);
   usePointerVars(heroRef);
 
@@ -72,7 +72,7 @@ export function HeroBlock() {
             {/* Status Chip: Open to work with single accent signal */}
             <span className="inline-flex items-center gap-1.5 text-muted">
               <span
-                className="size-1.5 rounded-full bg-accent animate-pulse"
+                className="size-1.5 rounded-full bg-accent"
                 aria-hidden="true"
               />
               <span>Open to work</span>
@@ -106,15 +106,15 @@ export function HeroBlock() {
                   Theodhore — Web Developer &amp; Web3 Engineer
                 </span>
 
-                <div
+                <span
                   aria-hidden="true"
-                  className="hero-title-responsive font-display text-[min(12vw,20svh)] sm:text-[min(9.5vw,20svh)] font-black uppercase tracking-tight leading-[0.9] text-ink"
+                  className="hero-title-responsive block font-display text-[min(12vw,20svh)] sm:text-[min(9.5vw,20svh)] font-black uppercase tracking-tight leading-[0.9] text-ink"
                 >
                   <span className="block">THEODHORE</span>
                   <span className="block mt-0.5 sm:mt-1 text-muted/90 text-[0.34em] font-extrabold tracking-normal">
                     <RotatingRole />
                   </span>
-                </div>
+                </span>
               </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center">
@@ -124,8 +124,8 @@ export function HeroBlock() {
               <p className="hero-stagger-3 mb-4 sm:mb-5 max-w-xl font-sans text-xs sm:text-sm md:text-base leading-relaxed text-muted">
                 Hi, I&apos;m <span className="font-semibold text-ink">Theodhore</span>.
                 I build high-performance web applications, decentralized protocols,
-                and developer tooling with clean code and exceptional user
-                experiences.
+                and developer tooling with clean code and interfaces people can
+                actually use.
               </p>
 
               {/* Action Buttons */}
@@ -176,11 +176,11 @@ export function HeroBlock() {
             <span className="tracking-wider uppercase">Scroll to enter the story</span>
             <ArrowDown className="size-3 text-accent hero-scroll-arrow transition-transform group-hover:translate-y-0.5" />
           </a>
-          <span className="hidden sm:inline text-muted/60">SCENE 01 / 04</span>
+          <span className="hidden sm:inline text-muted">SCENE 01 / 04</span>
         </div>
 
         {/* Real Data Marquee Ticker */}
-        <HeroTicker />
+        <HeroTicker projectCount={projectCount} />
       </footer>
 
       {/* Component Styles & Hardware Accelerated Keyframes */}
@@ -194,14 +194,6 @@ export function HeroBlock() {
             opacity: 1;
             transform: translateY(0);
           }
-        }
-        @keyframes heroArrowBounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(3px); }
-        }
-        @keyframes heroWdthPulse {
-          0%, 100% { font-variation-settings: "wdth" 95; }
-          50% { font-variation-settings: "wdth" 125; }
         }
 
         .hero-stagger-1 { animation: heroEntrance 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.04s backwards; }
@@ -221,13 +213,8 @@ export function HeroBlock() {
           will-change: transform;
         }
 
-        .hero-scroll-arrow {
-          animation: heroArrowBounce 1.8s ease-in-out infinite;
-        }
-
         @media (pointer: coarse) {
           .hero-title-responsive {
-            animation: heroWdthPulse 5s ease-in-out infinite;
             transform: none;
           }
         }

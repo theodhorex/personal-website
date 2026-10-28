@@ -15,7 +15,7 @@ export default async function Home() {
       <ScrollProgress />
       <Stage>
         <Scene id="hero" index={1} className="px-0 py-0 justify-start">
-          <HeroBlock />
+          <HeroBlock projectCount={projects.length} />
         </Scene>
         <Scene id="about" index={2} className="px-0 py-0 justify-start">
           <AboutSection />

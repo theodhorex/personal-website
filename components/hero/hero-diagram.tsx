@@ -16,7 +16,7 @@ export function HeroDiagram({ className }: { className?: string }) {
             </span>
             <span>DISTRIBUTED STATE PIPELINE</span>
           </div>
-          <span className="hidden sm:inline text-muted/70">ILLUSTRATIVE</span>
+          <span className="hidden sm:inline text-muted">ILLUSTRATIVE</span>
         </div>
 
         {/* Inline Technical SVG Schematic */}
@@ -104,7 +104,7 @@ export function HeroDiagram({ className }: { className?: string }) {
             VIEM / PERMIT2
           </text>
           <text x="210" y="91" fill="var(--muted)" fontFamily="var(--font-mono)" fontSize="7">
-            SUB-25MS SYNC
+            SYNC
           </text>
 
           {/* Node 03: Consensus & State (Has the Single Accent Indicator) */}
@@ -151,7 +151,7 @@ export function HeroDiagram({ className }: { className?: string }) {
         {/* Technical Footer Telemetry Bar */}
         <div className="mt-2.5 flex items-center justify-between border-t border-line/60 pt-2 font-mono text-[9px] sm:text-[10px] text-muted">
           <span>CLIENT</span>
-          <span className="text-muted/60">RELAY</span>
+          <span className="text-muted">RELAY</span>
           <span className="font-semibold text-accent">CHAIN</span>
         </div>
       </div>
