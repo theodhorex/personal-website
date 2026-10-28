@@ -1,54 +1,73 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --border: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-}
+  /* PrintPitt Design Tokens */
+  --bg: #eef3f6;
+  --bg-2: #e2eaef;
+  --panel: #ffffff;
+  --paper: #f4f2ea;
+  --ink: #1c2430;
+  --muted: #556173;
+  --accent: #836ef9;
+  --sun: #ffd23f;
+  --coral: #ef6a4c;
+  --mint: #5fd3a6;
+  --tint-accent: #e6e0ff;
+  --tint-sun: #fcedc4;
+  --tint-coral: #fbe1d9;
+  --tint-mint: #d6f3e7;
+  --dot: rgba(28, 36, 48, 0.10);
+  --stroke: 4px;
+  --radius: 22px;
+  --shadow-hard: 0 6px 0 var(--ink);
+  --shadow-hard-lg: 0 8px 0 var(--ink);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --border: oklch(1 0 0 / 10%);
-    --ring: oklch(0.556 0 0);
-  }
+  /* Compatibility aliases for existing components */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--bg-2);
+  --secondary-foreground: var(--ink);
+  --card: var(--panel);
+  --card-foreground: var(--ink);
+  --popover: var(--panel);
+  --popover-foreground: var(--ink);
+  --muted-foreground: var(--muted);
+  --border: var(--ink);
+  --ring: var(--accent);
 }
 
 @theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-panel: var(--panel);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-sun: var(--sun);
+  --color-coral: var(--coral);
+  --color-mint: var(--mint);
+  --color-tint-accent: var(--tint-accent);
+  --color-tint-sun: var(--tint-sun);
+  --color-tint-coral: var(--tint-coral);
+  --color-tint-mint: var(--tint-mint);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
 @layer base {
@@ -56,9 +75,72 @@
     @apply border-border;
   }
   html {
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+/* PrintPitt Design Utilities */
+.bg-dots {
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+.card {
+  background-color: var(--panel);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hard-lg);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border: 3px solid var(--ink);
+  border-radius: 9999px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  background-color: var(--tint-accent);
+  color: var(--ink);
+}
+
+.stroke {
+  border: var(--stroke) solid var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover {
+    transform: none;
   }
 }
