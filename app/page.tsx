@@ -3,6 +3,7 @@ import { ContactSection } from "@/components/contact-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { Scene } from "@/components/stage/scene";
 import { ScrollProgress } from "@/components/stage/scroll-progress";
+import { SmoothWheel } from "@/components/stage/smooth-wheel";
 import { Stage } from "@/components/stage/stage";
 import { HeroBlock } from "@/components/ui/hero-block-shadcnui";
 import { getProjects } from "@/lib/projects";
@@ -13,6 +14,7 @@ export default async function Home() {
   return (
     <main>
       <ScrollProgress />
+      <SmoothWheel />
       <Stage>
         <Scene id="hero" index={1} className="px-0 py-0 justify-start">
           <HeroBlock projectCount={projects.length} />
