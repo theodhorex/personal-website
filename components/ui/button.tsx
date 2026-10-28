@@ -10,15 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-sun text-ink border-4 border-ink shadow-[0_6px_0_var(--ink)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--ink)] active:translate-y-1 active:shadow-[0_2px_0_var(--ink)]",
+          "bg-sun text-on-accent border-4 border-ink shadow-[0_6px_0_var(--shadow-c)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--shadow-c)] active:translate-y-1 active:shadow-[0_2px_0_var(--shadow-c)]",
         primary:
-          "bg-sun text-ink border-4 border-ink shadow-[0_6px_0_var(--ink)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--ink)] active:translate-y-1 active:shadow-[0_2px_0_var(--ink)]",
+          "bg-sun text-on-accent border-4 border-ink shadow-[0_6px_0_var(--shadow-c)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--shadow-c)] active:translate-y-1 active:shadow-[0_2px_0_var(--shadow-c)]",
         accent:
-          "bg-accent text-white border-4 border-ink shadow-[0_6px_0_var(--ink)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--ink)] active:translate-y-1 active:shadow-[0_2px_0_var(--ink)]",
+          "bg-accent text-on-accent border-4 border-ink shadow-[0_6px_0_var(--shadow-c)] hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--shadow-c)] active:translate-y-1 active:shadow-[0_2px_0_var(--shadow-c)]",
         outline:
-          "bg-panel text-ink border-4 border-ink shadow-[0_6px_0_var(--ink)] hover:bg-bg-2 hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--ink)] active:translate-y-1 active:shadow-[0_2px_0_var(--ink)]",
+          "bg-panel text-ink border-4 border-ink shadow-[0_6px_0_var(--shadow-c)] hover:bg-bg-2 hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--shadow-c)] active:translate-y-1 active:shadow-[0_2px_0_var(--shadow-c)]",
         secondary:
-          "bg-bg-2 text-ink border-4 border-ink shadow-[0_6px_0_var(--ink)] hover:bg-panel hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--ink)] active:translate-y-1 active:shadow-[0_2px_0_var(--ink)]",
+          "bg-bg-2 text-ink border-4 border-ink shadow-[0_6px_0_var(--shadow-c)] hover:bg-panel hover:-translate-y-0.5 hover:shadow-[0_8px_0_var(--shadow-c)] active:translate-y-1 active:shadow-[0_2px_0_var(--shadow-c)]",
         ghost: "hover:bg-bg-2 hover:text-ink",
         link: "text-ink underline-offset-4 hover:underline",
       },

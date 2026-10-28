@@ -1,33 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  /* PrintPitt Design Tokens */
-  --bg: #eef3f6;
-  --bg-2: #e2eaef;
-  --panel: #ffffff;
-  --paper: #f4f2ea;
-  --ink: #1c2430;
-  --muted: #556173;
+  /* Dark theme tokens (dark only) */
+  color-scheme: dark;
+  --bg: #0a0b10;
+  --bg-2: #10121a;
+  --panel: #151823;
+  --paper: #1a1e2c;
+  --ink: #eef0f8;          /* text and strong lines (light on dark) */
+  --muted: #9aa3b8;
+  --line: #2f3556;         /* subtle borders */
   --accent: #836ef9;
   --sun: #ffd23f;
-  --coral: #ef6a4c;
+  --coral: #ff7a5c;
   --mint: #5fd3a6;
-  --tint-accent: #e6e0ff;
-  --tint-sun: #fcedc4;
-  --tint-coral: #fbe1d9;
-  --tint-mint: #d6f3e7;
-  --dot: rgba(28, 36, 48, 0.10);
-  --stroke: 4px;
+  --on-accent: #0a0b10;    /* text on accent/sun/mint fills */
+  --tint-accent: #1d1a3d;
+  --tint-sun: #332b0f;
+  --tint-coral: #3a1b15;
+  --tint-mint: #0f2e24;
+  --dot: rgba(255, 255, 255, 0.07);
+  --stroke: 3px;
   --radius: 22px;
-  --shadow-hard: 0 6px 0 var(--ink);
-  --shadow-hard-lg: 0 8px 0 var(--ink);
+  --shadow-c: #4b3bc2;     /* hard shadow colour */
+  --shadow-hard: 0 6px 0 var(--shadow-c);
+  --shadow-hard-lg: 0 8px 0 var(--shadow-c);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Compatibility aliases for existing components */
   --background: var(--bg);
   --foreground: var(--ink);
   --primary: var(--ink);
-  --primary-foreground: #ffffff;
+  --primary-foreground: var(--on-accent);
   --secondary: var(--bg-2);
   --secondary-foreground: var(--ink);
   --card: var(--panel);
@@ -35,7 +39,7 @@
   --popover: var(--panel);
   --popover-foreground: var(--ink);
   --muted-foreground: var(--muted);
-  --border: var(--ink);
+  --border: var(--line);
   --ring: var(--accent);
 }
 
@@ -46,6 +50,8 @@
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-on-accent: var(--on-accent);
   --color-accent: var(--accent);
   --color-sun: var(--sun);
   --color-coral: var(--coral);
@@ -98,7 +104,7 @@
 
 .card {
   background-color: var(--panel);
-  border: var(--stroke) solid var(--ink);
+  border: var(--stroke) solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-hard);
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
@@ -114,7 +120,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.25rem 0.75rem;
-  border: 3px solid var(--ink);
+  border: 2px solid var(--line);
   border-radius: 9999px;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
@@ -125,7 +131,7 @@
 }
 
 .stroke {
-  border: var(--stroke) solid var(--ink);
+  border: var(--stroke) solid var(--line);
 }
 
 @media (prefers-reduced-motion: reduce) {
