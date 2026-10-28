@@ -149,7 +149,7 @@ export function Stage({ children, className }: StageProps) {
       {/* Floating Dot Navigation (Right edge, hidden < 640px) */}
       <nav
         aria-label="Scenes"
-        className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3 p-2 rounded-full border-2 border-ink bg-panel/90 shadow-[0_4px_0_var(--ink)] backdrop-blur-xs"
+        className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3 p-2 rounded-full border border-line bg-bg-2"
       >
         {DEFAULT_SCENES.map((scene) => {
           const isActive = activeId === scene.id;
@@ -164,10 +164,10 @@ export function Stage({ children, className }: StageProps) {
                 scrollToScene(scene.id);
               }}
               className={cn(
-                "block w-3.5 h-3.5 rounded-full border-2 border-ink transition-all duration-150 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
+                "block w-2.5 h-2.5 rounded-full border border-muted transition-all duration-150 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
                 isActive
-                  ? "bg-accent scale-125 shadow-[0_2px_0_var(--ink)]"
-                  : "bg-panel hover:bg-tint-accent",
+                  ? "bg-accent border-accent scale-125"
+                  : "bg-transparent hover:border-ink hover:bg-ink",
               )}
             />
           );
@@ -178,7 +178,7 @@ export function Stage({ children, className }: StageProps) {
       <div
         role="region"
         aria-label="Stage mode keyboard shortcuts: use arrow keys or space to navigate scenes"
-        className="fixed bottom-4 right-4 z-40 hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-ink bg-panel/90 text-ink font-mono text-xs font-semibold shadow-[0_3px_0_var(--ink)] backdrop-blur-xs select-none"
+        className="fixed bottom-4 right-4 z-40 hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line bg-bg-2 text-muted font-mono text-[11px] tracking-wide select-none"
       >
         <span>Stage mode: → ← Space</span>
       </div>
