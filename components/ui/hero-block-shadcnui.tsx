@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowDown, Mail } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
@@ -21,6 +19,20 @@ const Linkedin = (props: IconProps) => (
   </svg>
 );
 
+const SparkleIcon = (props: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    stroke="var(--ink)"
+    strokeWidth="2.5"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2Z" />
+  </svg>
+);
+
 const socials: {
   icon: ComponentType<IconProps>;
   href: string;
@@ -33,99 +45,180 @@ const socials: {
 
 export function HeroBlock() {
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-background px-6 py-24">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+    <div className="mx-auto w-full max-w-5xl">
+      <style>{`
+        @keyframes heroEntrance {
+          from {
+            opacity: 0;
+            transform: translateY(12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .hero-anim {
+          animation: heroEntrance 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+        }
+        .hero-anim-1 { animation-delay: 40ms; }
+        .hero-anim-2 { animation-delay: 120ms; }
+        .hero-anim-3 { animation-delay: 200ms; }
+        .hero-anim-4 { animation-delay: 280ms; }
+        .hero-anim-5 { animation-delay: 360ms; }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-anim {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
 
-      <div className="relative z-10 mx-auto max-w-5xl text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mb-6 inline-block"
-          >
-            <div className="mx-auto h-24 w-24 rounded-full border-4 border-background bg-gradient-to-br from-primary to-muted shadow-lg" />
-          </motion.div>
+      <div className="grid grid-cols-1 md:grid-cols-12 md:gap-6 lg:gap-10 items-center">
+        {/* Left Column: Eyebrow, H1, Subtitle, CTAs, Socials */}
+        <div className="md:col-span-7 flex flex-col gap-3.5 sm:gap-4 md:gap-5">
+          {/* Eyebrow & Badges */}
+          <div className="hero-anim hero-anim-1 flex flex-wrap items-center gap-2 sm:gap-2.5">
+            {/* Mobile avatar sticker (compact, hidden on md+) */}
+            <div className="md:hidden size-10 shrink-0 overflow-hidden rounded-xl border-[3px] border-ink bg-tint-sun shadow-[0_3px_0_var(--ink)] -rotate-3">
+              <Image
+                src="https://github.com/theodhorex.png"
+                alt="Theodhore portrait"
+                width={40}
+                height={40}
+                unoptimized
+                className="size-full object-cover"
+              />
+            </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="mb-6 text-4xl font-bold text-foreground sm:text-5xl md:text-7xl"
-          >
-            Web Developer &amp; Web3 Enthusiast
-          </motion.h1>
+            <div className="inline-flex items-center gap-2 rounded-full border-[3px] border-ink bg-panel px-3 py-1 font-mono text-xs font-bold uppercase shadow-[0_3px_0_var(--ink)] -rotate-1">
+              <span
+                className="size-2 rounded-full bg-mint border border-ink animate-pulse"
+                aria-hidden="true"
+              />
+              <span>Open to work</span>
+            </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mx-auto mb-8 max-w-3xl text-lg text-muted-foreground sm:text-xl md:text-2xl"
-          >
-            Hi, I&apos;m Theodhore. I build high-performance web applications,
-            decentralized protocols, and developer tooling with clean code and
-            exceptional user experiences.
-          </motion.p>
+            <div className="inline-flex items-center gap-1.5 rounded-full border-[3px] border-ink bg-tint-sun px-2.5 py-1 font-mono text-xs font-bold text-ink shadow-[0_3px_0_var(--ink)] rotate-2">
+              <SparkleIcon className="size-3.5 text-coral" />
+              <span>Web3 &amp; Frontend</span>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mb-12 flex flex-wrap justify-center gap-4"
-          >
-            <Button size="lg" asChild>
+          {/* Heading 1: Display font Anybody */}
+          <h1 className="hero-anim hero-anim-2 font-display text-3xl font-black uppercase tracking-tight text-ink sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.94]">
+            Web Developer &amp;
+            <span className="block mt-1 sm:mt-1.5">Web3 Enthusiast</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="hero-anim hero-anim-3 font-sans text-sm sm:text-base md:text-lg leading-relaxed text-muted max-w-xl">
+            Hi, I&apos;m <span className="font-semibold text-ink">Theodhore</span>.
+            I build high-performance web applications, decentralized protocols,
+            and developer tooling with clean code and exceptional user
+            experiences.
+          </p>
+
+          {/* Action Row: CTAs & Socials */}
+          <div className="hero-anim hero-anim-4 flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
+            <Button
+              size="lg"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider"
+              asChild
+            >
               <a href="#contact">
-                <Mail className="h-4 w-4" />
+                <Mail className="size-4" />
                 Get in Touch
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider"
+              asChild
+            >
               <a href="#projects">
                 View Projects
-                <ArrowDown className="h-4 w-4" />
+                <ArrowDown className="size-4" />
               </a>
             </Button>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex justify-center gap-4"
-          >
-            {socials.map(({ icon: Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                aria-label={label}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel="noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                <Icon className="h-5 w-5" />
-              </motion.a>
-            ))}
-          </motion.div>
-        </motion.div>
+            <div
+              className="h-8 w-px bg-ink/30 hidden sm:block mx-1"
+              aria-hidden="true"
+            />
+
+            <div className="flex items-center gap-2">
+              {socials.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                  className="flex size-10 sm:size-11 items-center justify-center rounded-xl border-[3px] border-ink bg-panel text-ink shadow-[0_3px_0_var(--ink)] transition-[transform,box-shadow,background-color] hover:-translate-y-0.5 hover:shadow-[0_5px_0_var(--ink)] hover:bg-tint-accent active:translate-y-0.5 active:shadow-none focus-visible:outline-3 focus-visible:outline-accent focus-visible:outline-offset-2"
+                >
+                  <Icon className="size-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Tilted Neo-Brutalist Sticker Showcase Card (Hidden on mobile < md) */}
+        <div className="hero-anim hero-anim-5 hidden md:flex md:col-span-5 justify-center">
+          <div className="relative card -rotate-2 hover:rotate-0 transition-transform duration-300 p-5 lg:p-6 bg-panel border-4 border-ink rounded-[24px] shadow-[0_8px_0_var(--ink)] w-full max-w-[290px] lg:max-w-[330px] select-none">
+            {/* Top-left sticker */}
+            <div className="-top-3.5 -left-3.5 absolute px-3 py-1 bg-sun text-ink border-[3px] border-ink rounded-full font-mono text-[11px] font-black uppercase shadow-[0_3px_0_var(--ink)] -rotate-6">
+              THEODHORE // DEV
+            </div>
+
+            {/* Top-right sparkle stamp */}
+            <div className="-top-3.5 -right-3.5 absolute size-9 rounded-full bg-coral border-[3px] border-ink flex items-center justify-center shadow-[0_3px_0_var(--ink)] rotate-12 text-ink">
+              <SparkleIcon className="size-4 text-sun" />
+            </div>
+
+            {/* Avatar frame */}
+            <div className="relative mx-auto size-28 lg:size-32 rounded-2xl border-[3.5px] border-ink bg-tint-sun overflow-hidden shadow-[0_4px_0_var(--ink)] mb-3.5">
+              <Image
+                src="https://github.com/theodhorex.png"
+                alt="Theodhore portrait"
+                width={128}
+                height={128}
+                unoptimized
+                className="size-full object-cover"
+              />
+            </div>
+
+            {/* Neo-brutalist tech tags */}
+            <div className="flex flex-wrap gap-1.5 justify-center">
+              <span className="chip px-2.5! py-0.5! text-[11px]! bg-tint-accent">
+                Solidity &amp; Viem
+              </span>
+              <span className="chip px-2.5! py-0.5! text-[11px]! bg-tint-sun">
+                Next.js 16
+              </span>
+              <span className="chip px-2.5! py-0.5! text-[11px]! bg-tint-mint">
+                TypeScript
+              </span>
+            </div>
+
+            {/* Card footer divider & meta */}
+            <div className="mt-3.5 pt-3 border-t-2 border-dashed border-ink/20 flex items-center justify-between font-mono text-[11px] text-muted font-medium">
+              <span className="flex items-center gap-1.5">
+                <span className="size-2 rounded-full bg-mint border border-ink" />
+                Ready to build
+              </span>
+              <span className="font-bold text-ink">2026</span>
+            </div>
+
+            {/* Bottom-right overlapping sticker */}
+            <div className="-bottom-3 -right-2 absolute px-2.5 py-0.5 bg-tint-coral text-ink border-2 border-ink rounded-md font-mono text-[10px] font-bold shadow-[0_2px_0_var(--ink)] rotate-3">
+              100% PASSION
+            </div>
+          </div>
+        </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{
-          opacity: { delay: 1, duration: 0.6 },
-          y: { delay: 1.5, duration: 1.5, repeat: Infinity },
-        }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 transform"
-      >
-        <ArrowDown className="h-6 w-6 text-muted-foreground" />
-      </motion.div>
-    </section>
+    </div>
   );
 }
