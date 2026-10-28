@@ -48,17 +48,14 @@ export function Stage({ children, className }: StageProps) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible.length > 0 && visible[0].target.id) {
-          setActiveId(visible[0].target.id);
-        }
+        // A zero-height band at the viewport centre: whichever scene crosses it
+        // is active, regardless of scene height (works for the tall pinned one).
+        const crossing = entries.find((entry) => entry.isIntersecting);
+        if (crossing?.target.id) setActiveId(crossing.target.id);
       },
       {
-        threshold: [0.1, 0.3, 0.6],
-        rootMargin: "-10% 0px -10% 0px",
+        threshold: 0,
+        rootMargin: "-50% 0px -50% 0px",
       },
     );
 
@@ -149,7 +146,7 @@ export function Stage({ children, className }: StageProps) {
       {/* Floating Dot Navigation (Right edge, hidden < 640px) */}
       <nav
         aria-label="Scenes"
-        className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col gap-3 p-2 rounded-full border border-line bg-bg-2"
+        className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col gap-0 p-1 rounded-full border border-line bg-bg-2"
       >
         {DEFAULT_SCENES.map((scene) => {
           const isActive = activeId === scene.id;
@@ -163,13 +160,18 @@ export function Stage({ children, className }: StageProps) {
                 e.preventDefault();
                 scrollToScene(scene.id);
               }}
-              className={cn(
-                "block w-2.5 h-2.5 rounded-full border border-muted transition-all duration-150 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
-                isActive
-                  ? "bg-accent border-accent scale-125"
-                  : "bg-transparent hover:border-ink hover:bg-ink",
-              )}
-            />
+              className="group flex size-6 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            >
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "block size-2.5 rounded-full border transition-all duration-150",
+                  isActive
+                    ? "border-accent bg-accent scale-125"
+                    : "border-muted bg-transparent group-hover:border-ink group-hover:bg-ink",
+                )}
+              />
+            </a>
           );
         })}
       </nav>

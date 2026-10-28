@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+
 import { ArrowUpRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -97,6 +98,7 @@ export function EmailActions({ email, className }: EmailActionsProps) {
 
   const copyEmail = async () => {
     window.clearTimeout(noteTimer.current);
+    const previous = document.activeElement as HTMLElement | null;
     let ok = false;
     try {
       await navigator.clipboard.writeText(email);
@@ -104,9 +106,13 @@ export function EmailActions({ email, className }: EmailActionsProps) {
     } catch {
       ok = copyText(email);
     }
+    previous?.focus?.(); // the execCommand fallback steals focus
     setNote(ok ? "Copied" : "Copy failed");
     setNoteBad(!ok);
-    if (ok) noteTimer.current = window.setTimeout(() => setNote(""), NOTE_MS);
+    noteTimer.current = window.setTimeout(() => {
+      setNote("");
+      setNoteBad(false);
+    }, NOTE_MS);
   };
 
   return (

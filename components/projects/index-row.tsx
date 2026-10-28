@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import type { CaseStudy } from "@/lib/projects";
 import { ProjectDiagram } from "@/components/projects/diagram";

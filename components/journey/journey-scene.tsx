@@ -1,16 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 import { CHAPTERS, PROJECT_COUNT, STACK, TAGS, bioP2, bioP3 } from "./chapters";
 import { JourneyRail } from "./journey-rail";
@@ -29,16 +21,43 @@ const TOTAL_HEIGHT = 500; // 4 chapters x 100svh of scroll + the pinned viewport
  * by scroll progress. Reduced motion shows the same chapters stacked, static.
  */
 export function JourneyScene() {
+  const reduce = useReducedMotion();
+  return reduce ? <JourneyStatic /> : <JourneyPinned />;
+}
+
+/** Reduced motion: the same four chapters stacked, no pinning and no animation. */
+function JourneyStatic() {
+  const full = useMotionValue(1);
+  return (
+    <div className="relative">
+      <h2 className="sr-only">About — the way I build</h2>
+      {CHAPTERS.map((chapter, i) => (
+        <article
+          key={chapter.id}
+          className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-8 sm:py-24"
+        >
+          <ChapterMeta index={i} />
+          <div className="mt-8 grid items-center gap-8 sm:grid-cols-12">
+            <ChapterText chapterIndex={i} />
+            <div className="relative h-56 sm:col-span-7 sm:h-80">
+              <ChapterIllustration index={i} progress={full} pulse={false} />
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function JourneyPinned() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   usePointerVars(stageRef);
-  const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
     offset: ["start start", "end end"],
   });
   const [active, setActive] = useState(0);
-  const full = useMotionValue(1);
 
   useMotionValueEvent(scrollYProgress, "change", (value) => {
     const chapter = Math.min(
@@ -60,28 +79,6 @@ export function JourneyScene() {
     });
   };
 
-  if (reduce) {
-    return (
-      <div className="relative">
-        <h2 className="sr-only">About — the way I build</h2>
-        {CHAPTERS.map((chapter, i) => (
-          <article
-            key={chapter.id}
-            className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-8 sm:py-24"
-          >
-            <ChapterMeta index={i} />
-            <div className="mt-8 grid items-center gap-8 sm:grid-cols-12">
-              <ChapterText chapterIndex={i} />
-              <div className="relative h-56 sm:col-span-7 sm:h-80">
-                <ChapterIllustration index={i} progress={full} pulse={false} />
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    );
-  }
-
   return (
     <div ref={wrapperRef} className="relative" style={{ height: `${TOTAL_HEIGHT}svh` }}>
       <div ref={stageRef} className="sticky top-0 h-svh overflow-hidden">
@@ -101,7 +98,7 @@ export function JourneyScene() {
                 transition={{ duration: 0.45, ease: EASE }}
                 className="block font-display font-medium leading-none text-transparent"
                 style={{
-                  WebkitTextStroke: "1px rgba(235, 232, 223, 0.15)",
+                  WebkitTextStroke: "1px color-mix(in srgb, var(--ink) 15%, transparent)",
                   fontVariationSettings: '"wdth" 140',
                   fontSize: "clamp(8rem, 24vw, 20rem)",
                   transform:
@@ -117,7 +114,7 @@ export function JourneyScene() {
             <ChapterText chapterIndex={active} animated />
             <div className="relative h-36 min-h-0 sm:col-span-7 sm:h-72 lg:h-[22.5rem] pointer-events-none">
               {CHAPTERS.map((chapter, i) => (
-                <FigureLayer key={chapter.id} index={i} progress={scrollYProgress} />
+                <FigureLayer key={chapter.id} index={i} progress={scrollYProgress} active={active === i} />
               ))}
             </div>
           </div>
@@ -218,7 +215,7 @@ function ShipExtras() {
   return (
     <motion.div variants={fadeVariants} className="mt-4 border-t border-line pt-3">
       <div className="space-y-2.5 text-[12px] leading-relaxed text-muted sm:space-y-3 sm:text-[13.5px] sm:leading-[1.65]">
-        <p>{bioP2}</p>
+        <p className="[@media(max-height:720px)]:hidden">{bioP2}</p>
         <p>
           {bioP3}{" "}
           <a
@@ -231,7 +228,7 @@ function ShipExtras() {
         </p>
       </div>
 
-      <div className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em]">
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] [@media(max-height:720px)]:hidden">
         <span className="text-muted">
           Projects <span className="text-accent">{String(PROJECT_COUNT).padStart(2, "0")}</span>
         </span>
@@ -245,7 +242,7 @@ function ShipExtras() {
         ))}
       </div>
 
-      <p className="mt-2.5 text-[12px] leading-relaxed text-muted sm:text-[13px]">
+      <p className="mt-2.5 text-[12px] leading-relaxed text-muted sm:text-[13px] [@media(max-height:720px)]:hidden">
         {TAGS.map((tag, i) => (
           <span key={tag.label}>
             <a
@@ -273,7 +270,7 @@ function ShipExtras() {
  * One of the four illustration layers. Handles the cross-fade/scale between
  * chapters and hands the chapter's own draw progress (0..1) to the SVG below.
  */
-function FigureLayer({ index, progress }: { index: number; progress: MotionValue<number> }) {
+function FigureLayer({ index, progress, active }: { index: number; progress: MotionValue<number>; active: boolean }) {
   const start = index / CHAPTER_COUNT;
   const end = (index + 1) / CHAPTER_COUNT;
   const isFirst = index === 0;
@@ -305,7 +302,7 @@ function FigureLayer({ index, progress }: { index: number; progress: MotionValue
 
   return (
     <motion.div className="absolute inset-0 pointer-events-none" style={{ opacity, scale }}>
-      <ChapterIllustration index={index} progress={draw} pulse />
+      <ChapterIllustration index={index} progress={draw} pulse={active} />
     </motion.div>
   );
 }

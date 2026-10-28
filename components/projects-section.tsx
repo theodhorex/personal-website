@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useCallback, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import type { CaseStudy } from "@/lib/projects";
 import { Reveal } from "@/components/stage/reveal";
@@ -178,6 +179,7 @@ export function ProjectsSection({ projects }: { projects: CaseStudy[] }) {
 
         {/* Floating hover preview: rides the pointer, clamped inside the list.
             Only exists on hover-capable, fine pointers. */}
+        <li aria-hidden="true" className="contents">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute z-10 hidden [@media(hover:hover)_and_(pointer:fine)]:block"
@@ -219,6 +221,7 @@ export function ProjectsSection({ projects }: { projects: CaseStudy[] }) {
             )}
           </AnimatePresence>
         </div>
+        </li>
       </ul>
     </div>
   );

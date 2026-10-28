@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ROLES = [
   "Web Developer",

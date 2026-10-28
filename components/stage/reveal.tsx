@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import * as React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface RevealProps {
   children: React.ReactNode;

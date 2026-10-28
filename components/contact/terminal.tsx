@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+
 
 import { cn } from "@/lib/utils";
 
@@ -61,6 +62,7 @@ export function ContactTerminal({ className }: { className?: string }) {
     return () => {
       io.disconnect();
       window.clearTimeout(timer);
+      startedRef.current = false; // let the effect restart if the preference flips mid-typing
     };
   }, [reduce]);
 
