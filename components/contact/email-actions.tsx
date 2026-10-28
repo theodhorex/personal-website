@@ -116,24 +116,29 @@ export function EmailActions({ email, className }: EmailActionsProps) {
   };
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-3", className)}>
+    <div
+      className={cn(
+        "flex w-full flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center",
+        className,
+      )}
+    >
       {/* Oversized hit zone (-m/p) so the magnet engages before hover. */}
-      <div ref={zoneRef} className="relative -m-2 p-2 sm:-m-3 sm:p-3">
+      <div ref={zoneRef} className="relative w-full sm:w-auto -m-2 p-2 sm:-m-3 sm:p-3">
         <a
           ref={linkRef}
           href={`mailto:${email}`}
-          className="inline-flex items-center gap-3 rounded-md bg-accent px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-on-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform motion-reduce:transition-none"
+          className="inline-flex w-full items-center justify-center gap-3 rounded-md bg-accent px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-on-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform motion-reduce:transition-none sm:w-auto"
         >
           email me
           <ArrowUpRight aria-hidden="true" strokeWidth={2} className="size-4" />
         </a>
       </div>
 
-      <div className="relative">
+      <div className="relative w-full sm:w-auto">
         <button
           type="button"
           onClick={copyEmail}
-          className="cursor-pointer rounded-md border border-line px-4 py-3 font-mono text-xs uppercase tracking-wider text-muted transition-[border-color,color] duration-300 hover:border-ink hover:text-ink"
+          className="w-full cursor-pointer rounded-md border border-line px-4 py-3 font-mono text-xs uppercase tracking-wider text-muted transition-[border-color,color] duration-300 hover:border-ink hover:text-ink sm:w-auto"
         >
           Copy email
         </button>

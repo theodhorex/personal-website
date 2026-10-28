@@ -44,7 +44,7 @@ export function SocialLinks({ className }: { className?: string }) {
               <span className="font-mono text-xs text-muted transition-colors duration-300 group-hover:text-accent sm:text-sm">
                 {pad(i + 1)}
               </span>
-              <span className="font-display text-xl font-bold tracking-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [font-variation-settings:'wdth'_95] group-hover:translate-x-2 sm:text-2xl">
+              <span className="font-display text-xl font-bold tracking-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [font-variation-settings:'wdth'_95] [@media(hover:hover)]:group-hover:translate-x-2 sm:text-2xl">
                 {s.label}
               </span>
               <span className="flex items-center gap-3">

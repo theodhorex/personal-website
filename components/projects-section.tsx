@@ -25,7 +25,7 @@ function ProjectsHeader({ total }: { total: number }) {
           works
         </h2>
       </div>
-      <p className="max-w-[46ch] font-mono text-xs leading-relaxed text-muted md:col-span-3 md:justify-self-end md:pb-2 md:text-right">
+      <p className="max-w-[46ch] font-mono text-xs leading-relaxed text-muted lg:col-span-3 lg:justify-self-end lg:pb-2 lg:text-right">
         DeFi routing, edge streaming, event indexing, Solidity tooling, and a
         WebGL particle canvas.
       </p>

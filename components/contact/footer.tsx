@@ -18,13 +18,13 @@ export function ContactFooter({ name = "Theodhore" }: { name?: string }) {
   }, []);
 
   return (
-    <footer className="border-line mt-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t pt-4 md:mt-12">
+    <footer className="border-line mt-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t pb-[env(safe-area-inset-bottom)] pt-4 md:mt-12">
       <p className="font-mono text-[11px] lowercase tracking-widest text-muted">
         {name.toLowerCase()} © {year}
       </p>
       <a
         href="#hero"
-        className="group inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-muted transition-colors duration-300 hover:text-ink"
+        className="group inline-flex cursor-pointer items-center gap-2 py-3 -my-3 font-mono text-[11px] uppercase tracking-widest text-muted transition-colors duration-300 hover:text-ink"
       >
         back to top
         <ArrowUp

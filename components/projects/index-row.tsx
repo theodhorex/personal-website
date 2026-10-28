@@ -55,7 +55,7 @@ export function ProjectRow({
         >
           {p.index || pad(i + 1)}
         </span>
-        <span className="font-display text-[clamp(1.35rem,3vw,2.1rem)] font-bold leading-[1.05] tracking-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [font-variation-settings:'wdth'_95] group-hover:translate-x-2 sm:text-balance">
+        <span className="font-display text-[clamp(1.35rem,3vw,2.1rem)] font-bold leading-[1.05] tracking-tight transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [font-variation-settings:'wdth'_95] [@media(hover:hover)]:group-hover:translate-x-2 sm:text-balance">
           {p.title}
         </span>
         <span className="hidden items-center gap-4 sm:flex sm:gap-6">
@@ -66,7 +66,7 @@ export function ProjectRow({
         </span>
         <motion.span
           aria-hidden="true"
-          className="sr-only font-mono text-muted sm:not-sr-only sm:text-sm"
+          className="font-mono text-xs text-muted sm:text-sm"
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: reduce ? 0 : 0.3, ease: EASE }}
         >

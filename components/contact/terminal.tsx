@@ -83,7 +83,7 @@ export function ContactTerminal({ className }: { className?: string }) {
         {/* Typed copy is decorative; the static text below is what AT reads. */}
         <div
           aria-hidden="true"
-          className="min-h-[13rem] whitespace-pre-wrap font-mono text-xs leading-relaxed text-muted"
+          className="min-h-[13rem] whitespace-pre-wrap font-mono text-xs leading-relaxed text-muted [@media(max-height:720px)]:min-h-[9rem]"
         >
           {typed}
           {!reduce && typed.length < FULL_TEXT.length && (
