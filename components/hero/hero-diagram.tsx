@@ -6,9 +6,9 @@ export function HeroDiagram({ className }: { className?: string }) {
       aria-label="Figure 01: Distributed State Pipeline technical schematic"
       className={`hero-diagram-wrap relative w-full select-none ${className ?? ""}`}
     >
-      <div className="hero-diagram-parallax rounded-xs border border-line bg-panel p-3 sm:p-4 lg:p-5 [@media(max-height:720px)]:p-3 [@media(max-height:720px)]:pb-2.5">
+      <div className="hero-diagram-parallax w-full min-w-0 rounded-xs border border-line bg-panel p-3 min-[400px]:p-3.5 sm:p-4 lg:p-5 [@media(max-height:740px)]:p-2.5 [@media(max-height:720px)]:p-2 [@media(max-height:720px)]:pb-1.5 flex flex-col justify-between">
         {/* Technical Header / Figure Metadata */}
-        <div className="mb-2.5 [@media(max-height:720px)]:mb-2 flex items-center justify-between border-b border-line/60 pb-2 [@media(max-height:720px)]:pb-1.5 font-mono text-[9.5px] sm:text-[10.5px] uppercase tracking-wider text-muted overflow-hidden">
+        <div className="mb-2 min-[400px]:mb-2.5 [@media(max-height:740px)]:mb-1.5 [@media(max-height:720px)]:mb-1 flex items-center justify-between border-b border-line/60 pb-1.5 min-[400px]:pb-2 [@media(max-height:740px)]:pb-1 [@media(max-height:720px)]:pb-1 font-mono text-[9.5px] sm:text-[10.5px] uppercase tracking-wider text-muted overflow-hidden">
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
             <span className="font-bold text-ink shrink-0">FIG. 01</span>
             <span className="text-line shrink-0" aria-hidden="true">
@@ -24,7 +24,7 @@ export function HeroDiagram({ className }: { className?: string }) {
           viewBox="0 0 520 230"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto text-ink"
+          className="w-full h-auto text-ink max-h-[220px] [@media(max-height:740px)]:max-h-[135px] [@media(max-height:680px)]:max-h-[105px]"
           aria-hidden="true"
         >
           {/* Subtle Background Guide Grid Lines (Hairline) */}
@@ -149,7 +149,7 @@ export function HeroDiagram({ className }: { className?: string }) {
         </svg>
 
         {/* Technical Footer Telemetry Bar */}
-        <div className="mt-2.5 [@media(max-height:720px)]:mt-1.5 flex items-center justify-between border-t border-line/60 pt-2 [@media(max-height:720px)]:pt-1.5 font-mono text-[9px] sm:text-[10px] text-muted">
+        <div className="mt-2 min-[400px]:mt-2.5 [@media(max-height:740px)]:mt-1.5 [@media(max-height:720px)]:mt-1 flex items-center justify-between border-t border-line/60 pt-1.5 min-[400px]:pt-2 [@media(max-height:740px)]:pt-1 [@media(max-height:720px)]:pt-1 font-mono text-[9px] sm:text-[10px] text-muted">
           <span>CLIENT</span>
           <span className="text-muted">RELAY</span>
           <span className="font-semibold text-accent">CHAIN</span>
@@ -180,6 +180,11 @@ export function HeroDiagram({ className }: { className?: string }) {
           );
           transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
           will-change: transform;
+        }
+        @media (max-width: 639px) {
+          .hero-diagram-parallax {
+            transform: none !important;
+          }
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-data-flow,
