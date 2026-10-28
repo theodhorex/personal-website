@@ -5,24 +5,34 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] text-sm font-bold transition-[transform,box-shadow,background-color,color] duration-150 ease-[var(--ease)] outline-none focus-visible:outline-3 focus-visible:outline-accent focus-visible:outline-offset-3 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "bg-accent text-on-accent border border-accent hover:bg-ink hover:border-ink hover:-translate-y-px active:translate-y-px",
+        primary:
+          "bg-accent text-on-accent border border-accent hover:bg-ink hover:border-ink hover:-translate-y-px active:translate-y-px",
+        accent:
+          "bg-accent text-on-accent border border-accent hover:bg-ink hover:border-ink hover:-translate-y-px active:translate-y-px",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+          "bg-transparent text-ink border border-line hover:border-ink hover:bg-bg-2 active:translate-y-px",
+        secondary:
+          "bg-bg-2 text-ink border border-line hover:bg-panel hover:border-ink active:translate-y-px",
+        ghost: "hover:bg-bg-2 hover:text-ink",
+        link: "text-ink underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 px-3",
-        lg: "h-11 px-6",
-        icon: "size-9",
+        default: "h-10 px-4 py-2",
+        sm: "h-8 px-3 text-xs rounded-[5px]",
+        lg: "h-12 px-6 text-base",
+        icon: "size-10",
       },
     },
-    defaultVariants: { variant: "default", size: "default" },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   },
 );
 

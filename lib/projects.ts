@@ -212,7 +212,8 @@ export async function getProjects(): Promise<CaseStudy[]> {
             title = "Kratos Event Pipeline & Query Engine";
             category = "SYSTEMS & EVENT PIPELINES";
           }
-          return { ...p, title, category };
+          // CMS documents are not validated: keep list fields iterable.
+          return { ...p, title, category, tech: p.tech ?? [], decisions: p.decisions ?? [] };
         })
         .filter((p, idx, arr) => arr.findIndex((x) => x.title === p.title) === idx)
         .map((p, idx) => ({ ...p, index: String(idx + 1).padStart(2, "0") }));

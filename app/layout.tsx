@@ -1,12 +1,27 @@
-import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Anybody, Archivo, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const anybody = Anybody({
+  variable: "--font-display",
+  subsets: ["latin"],
+  axes: ["wdth"],
+});
+
+const archivo = Archivo({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
+
+const dmMono = DM_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+export const viewport: Viewport = {
+  themeColor: "#0a0b10",
+};
 
 export const metadata: Metadata = {
   title: "Theodhore - Web Developer & Web3 Enthusiast",
@@ -20,7 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${anybody.variable} ${archivo.variable} ${dmMono.variable} antialiased`}
+    >
       <body className="min-h-screen">{children}</body>
     </html>
   );
