@@ -81,7 +81,6 @@
     @apply border-border;
   }
   html {
-    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
   }
   body {

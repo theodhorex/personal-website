@@ -25,7 +25,7 @@ export function Scene({
       data-scene-index={index}
       aria-labelledby={kicker ? kickerId : undefined}
       className={cn(
-        "relative min-h-[100svh] w-full snap-start bg-bg bg-dots px-4 py-8 sm:px-6 sm:py-12 md:px-8 flex flex-col justify-center",
+        "relative min-h-[100svh] w-full bg-bg bg-dots px-4 py-8 sm:px-6 sm:py-12 md:px-8 flex flex-col justify-center",
         className,
       )}
     >
