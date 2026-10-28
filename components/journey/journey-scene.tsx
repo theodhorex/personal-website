@@ -2,7 +2,7 @@
 
 import { useReducedMotion } from "@/components/stage/use-reduced-motion";
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
+import { animate, motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 
 import { CHAPTERS, PROJECT_COUNT, STACK, TAGS, bioP2, bioP3 } from "./chapters";
 import { JourneyRail } from "./journey-rail";
@@ -375,12 +375,17 @@ function FigureLayer({ index, progress, active }: { index: number; progress: Mot
   const start = index / CHAPTER_COUNT;
   const { opacity } = usePresence(progress, index, "figure");
   const scale = useTransform(opacity, [0, 1], [0.97, 1]);
-  // Draws during the first ~70% of the chapter, then holds fully drawn.
-  const draw = useTransform(
-    progress,
-    [start + 0.015, start + 0.11],
-    [0, 1],
-  );
+  // The drawing plays on a slow timer once its chapter becomes active (so it
+  // also completes after a reload or a key jump) instead of being tied to the
+  // scroll distance. It resets when the reader is back before the chapter.
+  const draw = useMotionValue(0);
+  useEffect(() => {
+    if (active) {
+      const controls = animate(draw, 1, { duration: 2.6, ease: [0.22, 0.61, 0.36, 1], delay: 0.15 });
+      return () => controls.stop();
+    }
+    if (progress.get() < start) draw.set(0);
+  }, [active, draw, progress, start]);
 
   return (
     <motion.div className="absolute inset-0 pointer-events-none" style={{ opacity, scale }}>
