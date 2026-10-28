@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 
 import { usePointerVars } from "@/components/stage/use-pointer";
 
-const BASE_WDTH = 80; // resting font-variation wdth
-const WDTH_SPREAD = 70; // extra wdth at the pointer (80 → 150)
-const TINY_OFFSET = 4; // px a letter may lift at the pointer
+const WDTH = 110; // fixed font-variation wdth (animating the font axis forces re-shaping)
+const TINY_OFFSET = 8; // px a letter may lift at the pointer
+const REST_OPACITY = 0.68; // letters brighten to 1 near the pointer
 const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
 interface ContactTitleProps {
@@ -15,11 +15,11 @@ interface ContactTitleProps {
 }
 
 /**
- * Giant display title whose letters sharpen (wdth 80 → 150) and lift toward
- * the cursor. Coordinates come from usePointerVars (--mx/--my on this same
+ * Giant display title whose letters brighten and lift toward the cursor
+ * (transform and opacity only). Coordinates come from usePointerVars (--mx/--my on this same
  * element), so the update runs through one rAF-throttled writer. Letters are
  * decorative; the h2 exposes the full text to assistive tech. With reduced
- * motion or a coarse pointer the letters stay at their resting width.
+ * motion or a coarse pointer the letters stay at rest.
  */
 export function ContactTitle({ line1, line2 }: ContactTitleProps) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -54,11 +54,11 @@ export function ContactTitle({ line1, line2 }: ContactTitleProps) {
       letters.forEach((el, i) => {
         if (!el) return;
         const t = Math.max(0, 1 - Math.abs(mx - centers[i]) / reach);
-        const wdth = Math.round(BASE_WDTH + t * WDTH_SPREAD);
-        if (Math.abs(last[i] - wdth) > 1) {
-          last[i] = wdth;
-          el.style.fontVariationSettings = `"wdth" ${wdth}`;
+        const step = Math.round(t * 20); // quantised so we only write on visible change
+        if (last[i] !== step) {
+          last[i] = step;
           el.style.transform = `translateY(${(-t * TINY_OFFSET).toFixed(1)}px)`;
+          el.style.opacity = (REST_OPACITY + t * (1 - REST_OPACITY)).toFixed(2);
         }
       });
     };
@@ -74,8 +74,8 @@ export function ContactTitle({ line1, line2 }: ContactTitleProps) {
       letters.forEach((el, i) => {
         last[i] = -1;
         if (!el) return;
-        el.style.fontVariationSettings = `"wdth" ${BASE_WDTH}`;
         el.style.transform = "translateY(0px)";
+        el.style.opacity = String(REST_OPACITY);
       });
     };
 
@@ -103,9 +103,10 @@ export function ContactTitle({ line1, line2 }: ContactTitleProps) {
             ref={(el) => {
               lettersRef.current[k] = el;
             }}
-            className="inline-block transition-[font-variation-settings,transform] duration-500 will-change-[font-variation-settings,transform]"
+            className="inline-block transition-[transform,opacity] duration-500"
             style={{
-              fontVariationSettings: `"wdth" ${BASE_WDTH}`,
+              fontVariationSettings: `"wdth" ${WDTH}`,
+              opacity: REST_OPACITY,
               transitionTimingFunction: EASE,
             }}
           >
