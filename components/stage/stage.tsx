@@ -175,7 +175,7 @@ export function Stage({ children, className }: StageProps) {
       {/* Floating Dot Navigation (Right edge, hidden < 640px) */}
       <nav
         aria-label="Scenes"
-        className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col gap-0 p-1 rounded-full border border-line bg-bg-2"
+        className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-0.5 p-1 rounded-full border border-line bg-bg-2"
       >
         {DEFAULT_SCENES.map((scene) => {
           const isActive = activeId === scene.id;
@@ -189,7 +189,7 @@ export function Stage({ children, className }: StageProps) {
                 e.preventDefault();
                 scrollToScene(scene.id);
               }}
-              className="group flex size-6 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="group relative flex size-7 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 after:absolute after:-inset-1.5 touch-manipulation"
             >
               <span
                 aria-hidden="true"
@@ -205,11 +205,11 @@ export function Stage({ children, className }: StageProps) {
         })}
       </nav>
 
-      {/* Floating Helper Button (Bottom right, hidden < 640px) */}
+      {/* Floating Helper Button (Bottom right, hidden < 640px and hidden on touch devices) */}
       <div
         role="region"
         aria-label="Stage mode keyboard shortcuts: use arrow keys or space to navigate scenes"
-        className="fixed bottom-4 right-4 z-40 hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line bg-bg-2 text-muted font-mono text-[11px] tracking-wide select-none"
+        className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] right-4 z-40 hidden sm:[@media(hover:hover)_and_(pointer:fine)]:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line bg-bg-2 text-muted font-mono text-[11px] tracking-wide select-none [@media(hover:none)]:hidden [@media(pointer:coarse)]:hidden"
       >
         <span>Stage mode: → ← Space</span>
       </div>

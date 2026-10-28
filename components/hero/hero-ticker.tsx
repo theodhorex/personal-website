@@ -52,9 +52,9 @@ export function HeroTicker({ projectCount }: { projectCount: number }) {
       aria-label="Technology and production telemetry"
       className="w-full border-t border-line bg-bg-2 select-none"
     >
-      <div className="flex h-9 sm:h-10 items-center justify-between overflow-hidden">
+      <div className="flex h-9 sm:h-10 [@media(max-height:720px)]:h-8 items-center justify-between overflow-hidden">
         {/* Real Data Telemetry Badges (Static Anchors) */}
-        <div className="z-10 flex shrink-0 items-center gap-3 border-r border-line bg-bg-2 px-3 sm:px-4 font-mono text-[11px] uppercase tracking-wider">
+        <div className="z-10 flex shrink-0 items-center gap-3 border-r border-line bg-bg-2 px-3 sm:px-4 font-mono text-[11px] [@media(max-height:720px)]:text-[10px] uppercase tracking-wider">
           <div className="flex items-center gap-1.5 text-muted">
             <span className="font-bold text-accent">
               <CountUp to={projectCount} />

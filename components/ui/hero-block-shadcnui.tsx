@@ -50,8 +50,8 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
       <HeroCursor />
 
       {/* Top Identity & Telemetry Bar */}
-      <header className="hero-stagger-1 z-10 flex shrink-0 items-center justify-between border-b border-line/70 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 bg-bg">
-        <div className="flex items-center gap-3 sm:gap-4">
+      <header className="hero-stagger-1 z-10 flex shrink-0 items-center justify-between border-b border-line/70 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 [@media(max-height:720px)]:py-1.5 bg-bg pt-[calc(0.625rem+env(safe-area-inset-top,0px))]">
+        <div className="flex items-center gap-2.5 sm:gap-4 min-w-0">
           {/* Portrait Photo in Precision Hairline Frame */}
           <div className="relative size-8 sm:size-9 shrink-0 overflow-hidden rounded-xs border border-line bg-bg-2">
             <Image
@@ -64,13 +64,13 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
             />
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs">
-            <span className="font-semibold text-ink tracking-wider">THEODHORE</span>
-            <span className="text-line" aria-hidden="true">
+          <div className="flex items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-xs min-w-0 truncate">
+            <span className="font-semibold text-ink tracking-wider shrink-0">THEODHORE</span>
+            <span className="text-line shrink-0" aria-hidden="true">
               /
             </span>
             {/* Status Chip: Open to work with single accent signal */}
-            <span className="inline-flex items-center gap-1.5 text-muted">
+            <span className="inline-flex items-center gap-1.5 text-muted shrink-0">
               <span
                 className="size-1.5 rounded-full bg-accent"
                 aria-hidden="true"
@@ -81,7 +81,7 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
         </div>
 
         {/* Social Navigation */}
-        <nav aria-label="Social profiles and contact" className="flex items-center gap-1.5 sm:gap-2">
+        <nav aria-label="Social profiles and contact" className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {socials.map(({ icon: Icon, href, label }) => (
             <a
               key={label}
@@ -89,7 +89,7 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
               aria-label={label}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noreferrer" : undefined}
-              className="flex size-7 sm:size-8 items-center justify-center rounded-xs border border-line bg-panel text-muted transition-[border-color,color,transform] hover:border-ink hover:text-ink hover:-translate-y-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-accent"
+              className="relative flex size-8 sm:size-8 items-center justify-center rounded-xs border border-line bg-panel text-muted transition-[border-color,color,transform] hover:border-ink hover:text-ink hover:-translate-y-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-accent after:absolute after:-inset-1.5 sm:after:hidden touch-manipulation"
             >
               <Icon className="size-3.5 sm:size-4" />
             </a>
@@ -98,30 +98,30 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
       </header>
 
       {/* Main Pitch Stage (Asymmetric, Single Axis) */}
-      <div className="z-10 flex flex-1 flex-col justify-center px-4 sm:px-6 md:px-8 py-2 sm:py-4">
+      <div className="z-10 flex flex-1 flex-col justify-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 [@media(max-height:720px)]:py-1.5">
         <div className="mx-auto w-full max-w-6xl">
-              {/* Single Semantic H1 with Screen Reader Announcement */}
-              <h1 className="hero-stagger-2 mb-3 sm:mb-5">
-                <span className="sr-only">
-                  Theodhore — Web Developer &amp; Web3 Engineer
-                </span>
+          {/* Single Semantic H1 with Screen Reader Announcement */}
+          <h1 className="hero-stagger-2 mb-2.5 sm:mb-4 [@media(max-height:720px)]:mb-2">
+            <span className="sr-only">
+              Theodhore — Web Developer &amp; Web3 Engineer
+            </span>
 
-                <span
-                  aria-hidden="true"
-                  className="hero-title-responsive block font-display text-[min(12vw,20svh)] sm:text-[min(9.5vw,20svh)] font-black uppercase tracking-tight leading-[0.9] text-ink"
-                >
-                  <span className="block">THEODHORE</span>
-                  <span className="block mt-0.5 sm:mt-1 text-muted/90 text-[0.34em] font-extrabold tracking-normal">
-                    <RotatingRole />
-                  </span>
-                </span>
-              </h1>
+            <span
+              aria-hidden="true"
+              className="hero-title-responsive block font-display text-[clamp(2.15rem,10vw,3.5rem)] sm:text-[clamp(2.75rem,8vw,5.25rem)] lg:text-[clamp(3.5rem,7.5vw,6.5rem)] [@media(max-height:720px)]:text-[clamp(2rem,5vw,3.6rem)] [@media(max-height:640px)]:text-[clamp(1.85rem,4.5vw,3.15rem)] font-black uppercase tracking-tight leading-[0.9] text-ink"
+            >
+              <span className="block">THEODHORE</span>
+              <span className="block mt-0.5 sm:mt-1 text-muted/90 text-[0.34em] font-extrabold tracking-normal">
+                <RotatingRole />
+              </span>
+            </span>
+          </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 items-center [@media(max-height:720px)]:gap-3">
             {/* Left Column: Heading, Subtitle, CTAs */}
-            <div className="md:col-span-7 flex flex-col justify-center">
+            <div className="lg:col-span-7 flex flex-col justify-center">
               {/* Subtitle / Intro Description (Exact preserved copy) */}
-              <p className="hero-stagger-3 mb-4 sm:mb-5 max-w-xl font-sans text-xs sm:text-sm md:text-base leading-relaxed text-muted">
+              <p className="hero-stagger-3 mb-3.5 sm:mb-4 [@media(max-height:720px)]:mb-2.5 max-w-xl font-sans text-xs sm:text-sm md:text-base [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:leading-relaxed leading-relaxed text-muted">
                 Hi, I&apos;m <span className="font-semibold text-ink">Theodhore</span>.
                 I build high-performance web applications, decentralized protocols,
                 and developer tooling with clean code and interfaces people can
@@ -129,13 +129,13 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
               </p>
 
               {/* Action Buttons */}
-              <div className="hero-stagger-4 flex flex-wrap items-center gap-2.5 sm:gap-3.5">
+              <div className="hero-stagger-4 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3.5">
                 <Button
                   size="default"
-                  className="font-mono text-xs uppercase tracking-wider h-9 sm:h-10 px-4 sm:px-5"
+                  className="w-full sm:w-auto font-mono text-xs uppercase tracking-wider h-10 px-4 sm:px-5 touch-manipulation [@media(max-height:720px)]:h-9"
                   asChild
                 >
-                  <a href="#contact">
+                  <a href="#contact" className="min-h-[40px] [@media(max-height:720px)]:min-h-[36px] flex items-center justify-center">
                     <Mail className="size-3.5 sm:size-4" />
                     Get in Touch
                   </a>
@@ -143,10 +143,10 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
                 <Button
                   size="default"
                   variant="outline"
-                  className="font-mono text-xs uppercase tracking-wider h-9 sm:h-10 px-4 sm:px-5"
+                  className="w-full sm:w-auto font-mono text-xs uppercase tracking-wider h-10 px-4 sm:px-5 touch-manipulation [@media(max-height:720px)]:h-9"
                   asChild
                 >
-                  <a href="#projects">
+                  <a href="#projects" className="min-h-[40px] [@media(max-height:720px)]:min-h-[36px] flex items-center justify-center">
                     View Projects
                     <ArrowUpRight className="size-3.5 sm:size-4" />
                   </a>
@@ -155,20 +155,20 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
             </div>
 
             {/* Right Column: FIG. 01 Technical SVG Illustration */}
-            <div className="hero-stagger-5 md:col-span-5 flex items-center justify-center">
-              <HeroDiagram className="max-w-[420px] md:max-w-none" />
+            <div className="hero-stagger-5 lg:col-span-5 flex items-center justify-center">
+              <HeroDiagram className="w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-none [@media(max-height:720px)]:max-w-[340px] lg:[@media(max-height:720px)]:max-w-[380px]" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Deck: Story Scroll Prompt + Telemetry Ticker */}
-      <footer className="z-10 flex shrink-0 flex-col">
+      <footer className="z-10 flex shrink-0 flex-col pb-[env(safe-area-inset-bottom,0px)]">
         {/* Story Scroll Prompt */}
-        <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 py-1.5 font-mono text-[10px] sm:text-[11px] text-muted">
+        <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 py-1.5 [@media(max-height:720px)]:py-1 font-mono text-[10px] sm:text-[11px] text-muted">
           <a
             href="#about"
-            className="group inline-flex items-center gap-2 hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-accent"
+            className="group inline-flex min-h-[36px] sm:min-h-0 items-center gap-2 hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-accent"
           >
             <span className="text-accent" aria-hidden="true">
               [ 02 / JOURNEY ]

@@ -6,17 +6,17 @@ export function HeroDiagram({ className }: { className?: string }) {
       aria-label="Figure 01: Distributed State Pipeline technical schematic"
       className={`hero-diagram-wrap relative w-full select-none ${className ?? ""}`}
     >
-      <div className="hero-diagram-parallax rounded-xs border border-line bg-panel p-3 sm:p-4 md:p-5">
+      <div className="hero-diagram-parallax rounded-xs border border-line bg-panel p-3 sm:p-4 lg:p-5 [@media(max-height:720px)]:p-3 [@media(max-height:720px)]:pb-2.5">
         {/* Technical Header / Figure Metadata */}
-        <div className="mb-2.5 flex items-center justify-between border-b border-line/60 pb-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-muted">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-ink">FIG. 01</span>
-            <span className="text-line" aria-hidden="true">
+        <div className="mb-2.5 [@media(max-height:720px)]:mb-2 flex items-center justify-between border-b border-line/60 pb-2 [@media(max-height:720px)]:pb-1.5 font-mono text-[9.5px] sm:text-[10.5px] uppercase tracking-wider text-muted overflow-hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+            <span className="font-bold text-ink shrink-0">FIG. 01</span>
+            <span className="text-line shrink-0" aria-hidden="true">
               /
             </span>
-            <span>DISTRIBUTED STATE PIPELINE</span>
+            <span className="truncate whitespace-nowrap">DISTRIBUTED STATE PIPELINE</span>
           </div>
-          <span className="hidden sm:inline text-muted">ILLUSTRATIVE</span>
+          <span className="hidden lg:inline text-muted shrink-0 text-[10px] pl-2">ILLUSTRATIVE</span>
         </div>
 
         {/* Inline Technical SVG Schematic */}
@@ -149,7 +149,7 @@ export function HeroDiagram({ className }: { className?: string }) {
         </svg>
 
         {/* Technical Footer Telemetry Bar */}
-        <div className="mt-2.5 flex items-center justify-between border-t border-line/60 pt-2 font-mono text-[9px] sm:text-[10px] text-muted">
+        <div className="mt-2.5 [@media(max-height:720px)]:mt-1.5 flex items-center justify-between border-t border-line/60 pt-2 [@media(max-height:720px)]:pt-1.5 font-mono text-[9px] sm:text-[10px] text-muted">
           <span>CLIENT</span>
           <span className="text-muted">RELAY</span>
           <span className="font-semibold text-accent">CHAIN</span>
