@@ -204,7 +204,7 @@ function JourneyPinned() {
                 />
               ))}
             </div>
-            <div className="relative pointer-events-none aspect-[4/3] w-full min-h-0 lg:col-span-7 sm:aspect-auto sm:mx-0 sm:h-[clamp(18rem,34svh,26rem)] sm:w-auto sm:max-w-none lg:h-[22.5rem] xl:pr-16">
+            <div className={cn("relative pointer-events-none w-full min-h-0 lg:col-span-7 sm:aspect-auto sm:mx-0 sm:h-[clamp(18rem,34svh,26rem)] sm:w-auto sm:max-w-none lg:h-[22.5rem] xl:pr-16", active === CHAPTER_COUNT - 1 ? "aspect-[16/9]" : "aspect-[4/3]")}>
               {CHAPTERS.map((chapter, i) => (
                 <FigureLayer key={chapter.id} index={i} progress={progress} active={active === i} />
               ))}
@@ -255,7 +255,7 @@ function ChapterLayer({
     <motion.div
       // On phones only the active chapter takes space, so the figure sits right
       // under its text instead of below the tallest chapter's height.
-      className={cn("min-w-0", !active && "max-sm:absolute max-sm:inset-x-0 max-sm:top-0")}
+      className={cn("min-w-0", !active && "max-lg:absolute max-lg:inset-x-0 max-lg:top-0")}
       style={{ gridArea: "1 / 1", opacity }}
       inert={hasLinks && !active ? true : undefined}
     >
@@ -281,7 +281,7 @@ function ChapterText({
       <div className="overflow-hidden">
         <motion.div style={{ y: titleY }}>
           <h3
-            className="mt-3 font-display text-[clamp(2.2rem,10.5vw,3.5rem)] sm:text-[clamp(2rem,8vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.01em] text-ink sm:mt-4"
+            className="mt-3 font-display text-[clamp(2.2rem,10.5vw,3.5rem)] sm:text-[clamp(2rem,8vw,4.5rem)] lg:text-[clamp(2rem,5.3vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.01em] text-ink sm:mt-4"
             style={{
               transform:
                 "translate3d(calc(var(--px, 0) * 3px), calc(var(--py, 0) * 2px), 0)",

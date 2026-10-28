@@ -51,7 +51,13 @@ export function Stage({ children, className }: StageProps) {
         // A zero-height band at the viewport centre: whichever scene crosses it
         // is active, regardless of scene height (works for the tall pinned one).
         const crossing = entries.find((entry) => entry.isIntersecting);
-        if (crossing?.target.id) setActiveId(crossing.target.id);
+        if (crossing?.target.id) {
+          const id = crossing.target.id;
+          setActiveId(id);
+          // Keep the URL hash in step with the scene being read.
+          const url = id === "hero" ? window.location.pathname + window.location.search : `#${id}`;
+          window.history.replaceState(null, "", url);
+        }
       },
       {
         threshold: 0,
