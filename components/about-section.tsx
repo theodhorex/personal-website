@@ -54,7 +54,7 @@ const tags: OrbitTag[] = [
 
 export function AboutSection() {
   return (
-    <div id="about">
+    <>
       <CommunityOrbit
         eyebrow="About me"
         items={items}
@@ -68,9 +68,9 @@ export function AboutSection() {
         description="I'm Theodhore, a web developer and Web3 enthusiast. I turn complex ideas into fast, accessible products, from polished interfaces to the smart contracts behind them."
         tags={tags}
       >
-        <div className="mx-auto max-w-[680px] space-y-5 border-t border-border pt-10 text-left text-base leading-relaxed text-muted-foreground">
+        <div className="card mx-auto max-w-[680px] space-y-5 px-7 py-7 text-left text-base leading-relaxed text-muted sm:px-9 sm:py-9 sm:text-lg">
           <p>
-            <span className="font-medium text-foreground">
+            <span className="font-semibold text-ink">
               I&apos;m Theodhore, a web developer who likes building things that
               feel fast, look intentional, and hold up under real use.
             </span>{" "}
@@ -89,7 +89,7 @@ export function AboutSection() {
             product, or a protocol that needs a careful pair of hands,{" "}
             <a
               href="mailto:theodhore.dev@gmail.com"
-              className="font-medium text-foreground underline underline-offset-4 hover:text-muted-foreground"
+              className="font-semibold text-accent underline underline-offset-4 hover:text-coral"
             >
               let&apos;s talk
             </a>
@@ -97,6 +97,6 @@ export function AboutSection() {
           </p>
         </div>
       </CommunityOrbit>
-    </div>
+    </>
   );
 }

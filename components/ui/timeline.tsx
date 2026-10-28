@@ -58,18 +58,18 @@ export const Timeline = ({
 
   return (
     <div
-      className={cn("w-full bg-background font-sans md:px-10", className)}
+      className={cn("w-full font-sans text-ink md:px-10", className)}
       ref={containerRef}
     >
       {(heading || description) && (
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 lg:px-10">
           {heading && (
-            <h2 className="mb-4 max-w-4xl text-3xl font-medium tracking-tight text-foreground md:text-5xl">
+            <h2 className="mb-4 max-w-4xl font-display text-3xl font-extrabold uppercase tracking-tight text-ink md:text-5xl">
               {heading}
             </h2>
           )}
           {description && (
-            <p className="max-w-md text-sm text-muted-foreground md:text-base">
+            <p className="max-w-md text-sm text-muted md:text-base">
               {description}
             </p>
           )}
@@ -83,10 +83,10 @@ export const Timeline = ({
             className="flex justify-start pt-10 lg:gap-10 lg:pt-40"
           >
             <div className="sticky top-40 z-40 flex max-w-xs flex-col items-center self-start lg:w-full lg:max-w-sm lg:flex-row">
-              <div className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-background md:left-3">
-                <div className="h-4 w-4 rounded-full border border-border bg-secondary" />
+              <div className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-bg md:left-3">
+                <div className="h-4 w-4 rounded-full border-[3px] border-ink bg-tint-sun" />
               </div>
-              <h3 className="hidden text-5xl font-bold text-muted-foreground lg:block lg:pl-20">
+              <h3 className="hidden font-display text-5xl font-extrabold uppercase text-muted lg:block lg:pl-20">
                 {item.title}
               </h3>
             </div>
@@ -98,7 +98,7 @@ export const Timeline = ({
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h3 className="mb-4 block text-left text-2xl font-bold text-muted-foreground md:text-3xl lg:hidden">
+              <h3 className="mb-4 block text-left font-display text-2xl font-extrabold uppercase text-muted md:text-3xl lg:hidden">
                 {item.title}
               </h3>
               {item.content}
@@ -111,7 +111,7 @@ export const Timeline = ({
         >
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
-            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-b from-transparent via-foreground to-foreground"
+            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-b from-transparent via-ink to-ink"
           />
         </div>
       </div>

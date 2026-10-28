@@ -82,9 +82,9 @@ const STATS_TOP = 393;
 const EDGE_FADE =
   "linear-gradient(to right, transparent, #000 15%, #000 85%, transparent)";
 
-// Floating chips share one surface so they follow the site's light/dark tokens.
+// Floating chips share one surface so they follow the site's PrintPitt tokens.
 const chip =
-  "border border-border bg-background text-muted-foreground shadow-sm";
+  "border-[3px] border-ink bg-panel font-sans shadow-[0_3px_0_var(--ink)]";
 
 // Rounded because Node and the browser can disagree on the last digit of
 // Math.cos/Math.sin, which would otherwise cause a hydration mismatch.
@@ -107,7 +107,7 @@ function arcPath(r: number) {
 function OrbitAvatar({ src, alt, size = 72 }: OrbitAvatarItem) {
   return (
     <div
-      className={cn("rounded-full p-[3px] ring-4 ring-background", chip)}
+      className={cn("rounded-full p-[3px] ring-4 ring-bg", chip)}
       style={{ width: size, height: size }}
     >
       <div className="h-full w-full overflow-hidden rounded-full bg-secondary">
@@ -127,7 +127,7 @@ function OrbitPill({ icon, label }: OrbitPillItem) {
   return (
     <div
       className={cn(
-        "flex min-h-[27px] items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-[5px] text-[12.5px] font-medium",
+        "flex min-h-[27px] items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-[5px] text-[12.5px] font-semibold text-ink",
         chip,
       )}
     >
@@ -143,7 +143,7 @@ function OrbitCard({ emoji, badge }: OrbitCardItem) {
   return (
     <div
       className={cn(
-        "relative flex h-[52px] w-[52px] items-center justify-center rounded-xl bg-secondary text-[22px] leading-none",
+        "relative flex h-[52px] w-[52px] items-center justify-center rounded-xl bg-tint-sun text-[22px] leading-none",
         chip,
       )}
     >
@@ -165,10 +165,10 @@ function OrbitCard({ emoji, badge }: OrbitCardItem) {
 
 function OrbitStatus({ label }: OrbitStatusItem) {
   return (
-    <div className="flex h-[30px] items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 text-[13.5px] font-medium text-emerald-700 shadow-sm dark:text-emerald-300">
+    <div className="flex h-[30px] items-center gap-1.5 whitespace-nowrap rounded-full border-[3px] border-ink bg-tint-mint px-2.5 text-[13.5px] font-semibold text-ink shadow-[0_3px_0_var(--ink)]">
       <span className="relative flex size-2">
-        <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/60 motion-reduce:animate-none" />
-        <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+        <span className="absolute inline-flex size-full animate-ping rounded-full bg-mint/60 motion-reduce:animate-none" />
+        <span className="relative inline-flex size-2 rounded-full bg-mint" />
       </span>
       {label}
     </div>
@@ -177,7 +177,7 @@ function OrbitStatus({ label }: OrbitStatusItem) {
 
 function OrbitCheck() {
   return (
-    <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 shadow-sm dark:text-emerald-300">
+    <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full border-[3px] border-ink bg-tint-mint text-ink shadow-[0_3px_0_var(--ink)]">
       <CircleCheck size={20} strokeWidth={2} />
     </div>
   );
@@ -287,11 +287,10 @@ export default function CommunityOrbit({
     <section
       ref={sectionRef}
       className={cn(
-        "relative w-full overflow-hidden bg-background px-4 pb-20 pt-24 text-foreground",
+        "relative w-full overflow-hidden px-4 pb-20 pt-24 text-ink",
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,#000_30%,transparent_75%)]" />
 
       {eyebrow && (
         <motion.p
@@ -344,7 +343,7 @@ export default function CommunityOrbit({
             >
               <motion.path
                 d={arcPath(RADIUS.outer)}
-                className="stroke-border"
+                className="stroke-ink/40"
                 strokeWidth={2}
                 initial={{ pathLength: reduce ? 1 : 0 }}
                 whileInView={{ pathLength: 1 }}
@@ -353,7 +352,7 @@ export default function CommunityOrbit({
               />
               <motion.path
                 d={arcPath(RADIUS.inner)}
-                className="stroke-muted-foreground/30"
+                className="stroke-ink/25"
                 strokeWidth={3}
                 initial={{ pathLength: reduce ? 1 : 0 }}
                 whileInView={{ pathLength: 1 }}
@@ -416,7 +415,7 @@ export default function CommunityOrbit({
               }}
             >
               <span
-                className="font-medium leading-none tracking-[-0.02em] tabular-nums text-foreground"
+                className="font-display font-extrabold leading-none tracking-[-0.02em] tabular-nums text-ink"
                 style={{ fontSize: Math.max(30, 48 * scale) }}
               >
                 <CountUp
@@ -427,7 +426,7 @@ export default function CommunityOrbit({
                 />
               </span>
               <span
-                className="text-center leading-tight text-muted-foreground"
+                className="text-center font-mono uppercase tracking-wide text-muted"
                 style={{
                   marginTop: Math.max(8, 15 * scale),
                   fontSize: Math.max(12, 14 * scale),
@@ -441,7 +440,7 @@ export default function CommunityOrbit({
       </div>
 
       <motion.h2
-        className="relative mx-auto mt-2 max-w-[600px] text-center text-[26px] font-[450] leading-[1.18] tracking-[-0.01em] sm:text-[34px]"
+        className="relative mx-auto mt-2 max-w-[600px] text-center font-display text-[28px] font-extrabold uppercase leading-[1.15] tracking-[-0.01em] text-ink sm:text-[38px]"
         variants={reveal}
         initial="hidden"
         whileInView="show"
@@ -453,7 +452,7 @@ export default function CommunityOrbit({
 
       {description && (
         <motion.p
-          className="relative mx-auto mt-5 max-w-[560px] text-center text-base leading-relaxed text-muted-foreground"
+          className="relative mx-auto mt-5 max-w-[560px] text-center text-base leading-relaxed text-muted"
           variants={reveal}
           initial="hidden"
           whileInView="show"
@@ -482,11 +481,11 @@ export default function CommunityOrbit({
                   delay: 1.6 + i * 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-                className="group flex h-10 items-center gap-2.5 rounded-full border border-border bg-background pl-1.5 pr-4 text-[14px] font-medium text-foreground/80 shadow-sm transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                whileHover={{ y: -3 }}
+                whileTap={{ y: 1 }}
+                className="group flex h-10 items-center gap-2.5 rounded-full border-[3px] border-ink bg-panel pl-1.5 pr-4 text-[14px] font-semibold text-ink shadow-[0_4px_0_var(--ink)] transition-shadow hover:shadow-[0_6px_0_var(--ink)] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-accent"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground [&>svg]:h-[15px] [&>svg]:w-[15px]">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tint-accent text-ink transition-colors group-hover:bg-accent group-hover:text-white [&>svg]:h-[15px] [&>svg]:w-[15px]">
                   {t.icon}
                 </span>
                 {t.label}
