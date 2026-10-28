@@ -29,16 +29,24 @@ export function Stage({ children, className }: StageProps) {
     activeIdRef.current = activeId;
   }, [activeId]);
 
-  const scrollToScene = (id: string) => {
+  const scrollToScene = (id: string, from: "above" | "below" = "above") => {
     const el = document.getElementById(id);
     if (!el) return;
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    el.scrollIntoView({
-      behavior: prefersReduced ? "auto" : "smooth",
-      block: "start",
-    });
+    const behavior = prefersReduced ? "auto" : "smooth";
+    // A scene with rest points opens on one of them (first when entered from
+    // above, last when entered from below) so the next key press moves on.
+    const stopsEl = el.querySelector<HTMLElement>("[data-stops]");
+    const stops = (stopsEl?.dataset.stops ?? "").split(",").map(Number).filter((v) => !Number.isNaN(v));
+    if (stopsEl && stops.length > 0) {
+      const stop = from === "above" ? stops[0] : stops[stops.length - 1];
+      const top = stopsEl.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top + (stopsEl.offsetHeight - window.innerHeight) * stop, behavior });
+    } else {
+      el.scrollIntoView({ behavior, block: "start" });
+    }
     if (window.history.pushState) {
       window.history.pushState(null, "", `#${id}`);
     }
@@ -159,7 +167,7 @@ export function Stage({ children, className }: StageProps) {
         if (e.key === "ArrowUp" && moreAbove && !stopsEl) return;
         if (safeIdx > 0) {
           e.preventDefault();
-          scrollToScene(DEFAULT_SCENES[safeIdx - 1].id);
+          scrollToScene(DEFAULT_SCENES[safeIdx - 1].id, "below");
         }
       } else if (e.key === "Home") {
         e.preventDefault();
@@ -193,7 +201,13 @@ export function Stage({ children, className }: StageProps) {
               aria-current={isActive ? "true" : undefined}
               onClick={(e) => {
                 e.preventDefault();
-                scrollToScene(scene.id);
+                scrollToScene(
+                  scene.id,
+                  DEFAULT_SCENES.findIndex((d) => d.id === scene.id) <
+                    DEFAULT_SCENES.findIndex((d) => d.id === activeId)
+                    ? "below"
+                    : "above",
+                );
               }}
               className="group relative flex size-7 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 after:absolute after:-inset-1.5 touch-manipulation"
             >
