@@ -1,6 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "@/components/stage/use-reduced-motion";
+import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 
@@ -191,9 +192,9 @@ function JourneyPinned() {
             ))}
           </span>
 
-          <div className="relative z-10 grid min-h-0 flex-1 content-start sm:content-center gap-4 grid-cols-1 lg:grid-cols-12 lg:items-center sm:gap-8">
+          <div className="relative z-10 grid min-h-0 flex-1 content-center gap-6 sm:content-center grid-cols-1 lg:grid-cols-12 lg:items-center sm:gap-8">
             {/* Chapter texts share one grid cell and crossfade on progress. */}
-            <div className="grid min-w-0 lg:col-span-5">
+            <div className="relative grid min-w-0 lg:col-span-5">
               {CHAPTERS.map((chapter, i) => (
                 <ChapterLayer
                   key={chapter.id}
@@ -203,7 +204,7 @@ function JourneyPinned() {
                 />
               ))}
             </div>
-            <div className="relative pointer-events-none mx-auto h-[clamp(11rem,33svh,16rem)] w-full max-w-[36rem] min-h-0 lg:col-span-7 sm:mx-0 sm:h-[clamp(18rem,34svh,26rem)] sm:w-auto sm:max-w-none lg:h-[22.5rem] xl:pr-16">
+            <div className="relative pointer-events-none aspect-[4/3] w-full min-h-0 lg:col-span-7 sm:aspect-auto sm:mx-0 sm:h-[clamp(18rem,34svh,26rem)] sm:w-auto sm:max-w-none lg:h-[22.5rem] xl:pr-16">
               {CHAPTERS.map((chapter, i) => (
                 <FigureLayer key={chapter.id} index={i} progress={progress} active={active === i} />
               ))}
@@ -252,7 +253,9 @@ function ChapterLayer({
   const hasLinks = index === CHAPTER_COUNT - 1;
   return (
     <motion.div
-      className="min-w-0"
+      // On phones only the active chapter takes space, so the figure sits right
+      // under its text instead of below the tallest chapter's height.
+      className={cn("min-w-0", !active && "max-sm:absolute max-sm:inset-x-0 max-sm:top-0")}
       style={{ gridArea: "1 / 1", opacity }}
       inert={hasLinks && !active ? true : undefined}
     >
@@ -278,7 +281,7 @@ function ChapterText({
       <div className="overflow-hidden">
         <motion.div style={{ y: titleY }}>
           <h3
-            className="mt-3 font-display text-[clamp(2rem,8vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.01em] text-ink sm:mt-4"
+            className="mt-3 font-display text-[clamp(2.2rem,10.5vw,3.5rem)] sm:text-[clamp(2rem,8vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.01em] text-ink sm:mt-4"
             style={{
               transform:
                 "translate3d(calc(var(--px, 0) * 3px), calc(var(--py, 0) * 2px), 0)",
@@ -289,7 +292,7 @@ function ChapterText({
         </motion.div>
       </div>
       <motion.div style={{ y: bodyY }}>
-        <p className="mt-3 max-w-[46ch] text-[13px] leading-relaxed text-muted sm:mt-4 sm:text-[15px] sm:leading-[1.7]">
+        <p className="mt-4 max-w-[46ch] text-[15px] leading-[1.65] text-muted sm:mt-4 sm:text-[15px] sm:leading-[1.7]">
           {chapter.text}
         </p>
         {chapterIndex === CHAPTER_COUNT - 1 && <ShipExtras />}
