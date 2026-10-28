@@ -109,19 +109,48 @@ export function Stage({ children, className }: StageProps) {
       const moreBelow = !!rect && rect.bottom > window.innerHeight + EDGE;
       const moreAbove = !!rect && rect.top < -EDGE;
 
+      // Scenes with data-stops (the Journey) step through rest points first.
+      const stopsEl = document
+        .getElementById(DEFAULT_SCENES[safeIdx].id)
+        ?.querySelector<HTMLElement>("[data-stops]");
+      const isNext = e.key === "ArrowDown" || e.key === " " || e.key === "Spacebar" || e.key === "PageDown";
+      const isPrev = e.key === "ArrowUp" || e.key === "PageUp";
+      if (stopsEl && (isNext || isPrev)) {
+        const stops = (stopsEl.dataset.stops ?? "").split(",").map(Number);
+        const wr = stopsEl.getBoundingClientRect();
+        const distance = stopsEl.offsetHeight - window.innerHeight;
+        const progress = -wr.top / distance;
+        const inside = wr.top <= EDGE && wr.bottom >= window.innerHeight - EDGE;
+        const eps = 0.02;
+        const stop = inside || (wr.top < 0 && wr.bottom > 0)
+          ? isNext
+            ? stops.find((v) => v > progress + eps)
+            : [...stops].reverse().find((v) => v < progress - eps)
+          : undefined;
+        if (stop !== undefined) {
+          e.preventDefault();
+          window.scrollTo({
+            top: stopsEl.getBoundingClientRect().top + window.scrollY + distance * stop,
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          });
+          return;
+        }
+      }
+
       if (
         e.key === "ArrowRight" ||
         e.key === "ArrowDown" ||
         e.key === " " ||
-        e.key === "Spacebar"
+        e.key === "Spacebar" ||
+        e.key === "PageDown"
       ) {
-        if (e.key !== "ArrowRight" && moreBelow) return;
+        if (e.key !== "ArrowRight" && moreBelow && !stopsEl) return;
         if (safeIdx < DEFAULT_SCENES.length - 1) {
           e.preventDefault();
           scrollToScene(DEFAULT_SCENES[safeIdx + 1].id);
         }
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-        if (e.key === "ArrowUp" && moreAbove) return;
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "PageUp") {
+        if (e.key === "ArrowUp" && moreAbove && !stopsEl) return;
         if (safeIdx > 0) {
           e.preventDefault();
           scrollToScene(DEFAULT_SCENES[safeIdx - 1].id);

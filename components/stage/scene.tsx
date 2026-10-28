@@ -7,6 +7,8 @@ export interface SceneProps {
   kicker?: string;
   children: React.ReactNode;
   className?: string;
+  /** Drop the default padding (hero / pinned scenes size themselves). */
+  bare?: boolean;
 }
 
 export function Scene({
@@ -15,6 +17,7 @@ export function Scene({
   kicker,
   children,
   className,
+  bare,
 }: SceneProps) {
   const kickerId = `${id}-kicker`;
 
@@ -25,7 +28,8 @@ export function Scene({
       data-scene-index={index}
       aria-labelledby={kicker ? kickerId : undefined}
       className={cn(
-        "relative min-h-[100svh] w-full bg-bg bg-dots px-4 py-8 sm:px-6 sm:py-12 md:px-8 flex flex-col justify-center",
+        "relative min-h-[100svh] w-full bg-bg bg-dots flex flex-col justify-center",
+        !bare && "px-4 py-8 sm:px-6 sm:py-12 md:px-8",
         className,
       )}
     >

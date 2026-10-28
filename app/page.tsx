@@ -16,10 +16,10 @@ export default async function Home() {
       <ScrollProgress />
       <SmoothWheel />
       <Stage>
-        <Scene id="hero" index={1} className="px-0 py-0 justify-start">
+        <Scene id="hero" index={1} bare className="justify-start">
           <HeroBlock projectCount={projects.length} />
         </Scene>
-        <Scene id="about" index={2} className="px-0 py-0 justify-start">
+        <Scene id="about" index={2} bare className="justify-start">
           <AboutSection />
         </Scene>
         <Scene id="projects" index={3} kicker="03 / PROJECTS">

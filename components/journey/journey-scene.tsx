@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "@/components/stage/use-reduced-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 
 import { CHAPTERS, PROJECT_COUNT, STACK, TAGS, bioP2, bioP3 } from "./chapters";
@@ -13,6 +13,9 @@ import { InterfaceWireframe } from "./interface-wireframe";
 import { usePointerVars } from "@/components/stage/use-pointer";
 
 const CHAPTER_COUNT = CHAPTERS.length;
+// Keyboard/rail rest point inside each chapter: text is in and the drawing is
+// finished (draw ends at +0.11, text leaves at +0.205).
+const STOP_OFFSET = 0.16;
 const TOTAL_HEIGHT = 700; // ~150svh of scroll per chapter + the pinned viewport
 
 /**
@@ -122,12 +125,46 @@ function JourneyPinned() {
     setActive((current) => (current === chapter ? current : chapter));
   });
 
+  // Scroll-settle: if the reader stops inside a handover gap (text mostly
+  // faded), ease to the nearest rest point in the direction they were going.
+  useEffect(() => {
+    let timer: number | undefined;
+    let lastY = window.scrollY;
+    let dir = 1;
+    const settle = () => {
+      const wrap = wrapperRef.current;
+      if (!wrap) return;
+      const distance = wrap.offsetHeight - window.innerHeight;
+      const rect = wrap.getBoundingClientRect();
+      const p = -rect.top / distance;
+      if (p <= 0.005 || p >= 0.93) return;
+      const local = (p * CHAPTER_COUNT) % 1;
+      if (local > 0.2 && local < 0.8) return;
+      const stops = Array.from({ length: CHAPTER_COUNT }, (_, i) => (i + STOP_OFFSET * CHAPTER_COUNT) / CHAPTER_COUNT);
+      const target = dir > 0 ? stops.find((v) => v > p) : [...stops].reverse().find((v) => v < p);
+      if (target === undefined) return;
+      window.scrollTo({ top: rect.top + window.scrollY + distance * target, behavior: "smooth" });
+    };
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y !== lastY) dir = y > lastY ? 1 : -1;
+      lastY = y;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(settle, 220);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   const jumpTo = (index: number) => {
     const wrap = wrapperRef.current;
     if (!wrap) return;
     const top = wrap.getBoundingClientRect().top + window.scrollY;
     const distance = wrap.offsetHeight - window.innerHeight;
-    const targetProgress = (index + 0.3) / CHAPTER_COUNT;
+    const targetProgress = (index + STOP_OFFSET * CHAPTER_COUNT) / CHAPTER_COUNT;
     window.scrollTo({
       top: top + distance * targetProgress,
       behavior: "smooth",
@@ -135,7 +172,12 @@ function JourneyPinned() {
   };
 
   return (
-    <div ref={wrapperRef} className="relative" style={{ height: `${TOTAL_HEIGHT}svh` }}>
+    <div
+      ref={wrapperRef}
+      data-stops={Array.from({ length: CHAPTER_COUNT }, (_, i) => (i / CHAPTER_COUNT + STOP_OFFSET).toFixed(4)).join(",")}
+      className="relative"
+      style={{ height: `${TOTAL_HEIGHT}svh` }}
+    >
       <div ref={stageRef} className="sticky top-0 h-svh overflow-hidden">
         <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col px-4 pb-14 pt-8 sm:px-8 sm:pb-12 sm:pt-16">
           <h2 className="sr-only">About — the way I build</h2>
@@ -331,14 +373,12 @@ function ShipExtras() {
  */
 function FigureLayer({ index, progress, active }: { index: number; progress: MotionValue<number>; active: boolean }) {
   const start = index / CHAPTER_COUNT;
-  const end = (index + 1) / CHAPTER_COUNT;
-  const isLast = index === CHAPTER_COUNT - 1;
   const { opacity } = usePresence(progress, index, "figure");
   const scale = useTransform(opacity, [0, 1], [0.97, 1]);
   // Draws during the first ~70% of the chapter, then holds fully drawn.
   const draw = useTransform(
     progress,
-    [start + 0.01, isLast ? end - 0.05 : start + 0.19],
+    [start + 0.015, start + 0.11],
     [0, 1],
   );
 
