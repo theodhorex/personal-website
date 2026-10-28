@@ -192,7 +192,7 @@ function JourneyPinned() {
             ))}
           </span>
 
-          <div className="relative z-10 grid min-h-0 flex-1 content-center gap-6 sm:content-center grid-cols-1 lg:grid-cols-12 lg:items-center sm:gap-8">
+          <div className={cn("relative z-10 grid min-h-0 flex-1 content-start gap-6 sm:content-center grid-cols-1 lg:grid-cols-12 lg:items-center sm:gap-8", active < CHAPTER_COUNT - 1 && "max-sm:pt-[7svh]")}>
             {/* Chapter texts share one grid cell and crossfade on progress. */}
             <div className="relative grid min-w-0 lg:col-span-5">
               {CHAPTERS.map((chapter, i) => (
