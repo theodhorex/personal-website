@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark theme tokens (dark only) */
+  /* Dark editorial tokens (dark only): near-black, bone text, ONE accent */
   color-scheme: dark;
-  --bg: #0a0b10;
-  --bg-2: #10121a;
-  --panel: #151823;
-  --paper: #1a1e2c;
-  --ink: #eef0f8;          /* text and strong lines (light on dark) */
-  --muted: #9aa3b8;
-  --line: #2f3556;         /* subtle borders */
-  --accent: #836ef9;
-  --sun: #ffd23f;
-  --coral: #ff7a5c;
-  --mint: #5fd3a6;
-  --on-accent: #0a0b10;    /* text on accent/sun/mint fills */
-  --tint-accent: #1d1a3d;
-  --tint-sun: #332b0f;
-  --tint-coral: #3a1b15;
-  --tint-mint: #0f2e24;
-  --dot: rgba(255, 255, 255, 0.07);
-  --stroke: 3px;
-  --radius: 22px;
-  --shadow-c: #4b3bc2;     /* hard shadow colour */
-  --shadow-hard: 0 6px 0 var(--shadow-c);
-  --shadow-hard-lg: 0 8px 0 var(--shadow-c);
+  --bg: #0b0c0e;
+  --bg-2: #111215;
+  --panel: #15161a;
+  --paper: #1b1c21;
+  --ink: #ebe8df;          /* bone-white text and strong lines */
+  --muted: #9b9a93;        /* >= 4.5:1 on --bg */
+  --line: #2a2b30;         /* hairlines */
+  --accent: #c8f542;       /* the single signal colour; <= 5% of any screen */
+  --sun: #c8f542;          /* alias: legacy components */
+  --coral: #ff6b4a;        /* errors / rare emphasis only */
+  --mint: #8fd8bd;         /* legacy alias, avoid in new work */
+  --on-accent: #0b0c0e;    /* text on accent fills */
+  --tint-accent: #1a1d10;
+  --tint-sun: #1a1d10;
+  --tint-coral: #2a1612;
+  --tint-mint: #12201b;
+  --dot: transparent;
+  --stroke: 1px;
+  --radius: 6px;
+  --shadow-c: transparent; /* no hard shadows in this design */
+  --shadow-hard: none;
+  --shadow-hard-lg: none;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Compatibility aliases for existing components */
@@ -98,8 +98,6 @@
 /* PrintPitt Design Utilities */
 .bg-dots {
   background-color: var(--bg);
-  background-image: radial-gradient(var(--dot) 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
 }
 
 .card {
@@ -111,8 +109,7 @@
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hard-lg);
+  border-color: var(--ink);
 }
 
 .chip {
@@ -120,8 +117,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.25rem 0.75rem;
-  border: 2px solid var(--line);
-  border-radius: 9999px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   line-height: 1rem;
