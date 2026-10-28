@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const ROLES = [
-  "Web Developer",
-  "Web3 Engineer",
-  "UI Systems Builder",
+  "Full-Stack Developer",
+  "Frontend Engineer",
+  "Web3 Developer",
 ];
 
 export function RotatingRole() {
@@ -25,7 +25,7 @@ export function RotatingRole() {
   if (shouldReduceMotion) {
     return (
       <span className="inline-block text-ink">
-        Web Developer &amp; Web3 Engineer
+        Full-Stack Web Developer
       </span>
     );
   }

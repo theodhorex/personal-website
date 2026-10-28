@@ -6,10 +6,10 @@ import { DrawnPath, FadeRange, rrect, type Progress } from "./drawn-path";
 
 // Four Solidity blocks that drop into a stack and lock, one per scroll step.
 const BLOCKS: { y: number; code: string; rule?: [number, number, number] }[] = [
-  { y: 64, code: "contract Vault {", rule: [166, 106, 300] },
-  { y: 146, code: "  mapping(address => uint) bal;", rule: [166, 188, 286] },
+  { y: 64, code: "GET /api/orders -> Order[]", rule: [166, 106, 300] },
+  { y: 146, code: "type Order = { id: string }", rule: [166, 188, 286] },
   { y: 228, code: "  event Deposit(address a, uint v);", rule: [166, 270, 340] },
-  { y: 310, code: "}" },
+  { y: 310, code: "// one shape, every layer" },
 ];
 
 const LOCK_X = 436;
@@ -49,10 +49,10 @@ export function ContractBlocks({ progress }: { progress: Progress }) {
 
         <FadeRange progress={progress} from={0.88} to={0.96}>
           <text x={34} y={396} fontSize={10} className="fill-muted font-mono" style={{ letterSpacing: "0.08em" }}>
-            typed calls via wagmi / viem
+            typed from API to chain
           </text>
           <text x={524} y={396} textAnchor="end" fontSize={10} className="fill-muted font-mono" style={{ letterSpacing: "0.08em" }}>
-            fig. 2: solidity before ui
+            fig. 2: contracts before ui
           </text>
         </FadeRange>
       </g>

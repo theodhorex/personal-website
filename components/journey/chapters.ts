@@ -14,10 +14,10 @@ const bioP1 =
   "I'm Theodhore, a web developer who likes building things that feel fast, look intentional, and hold up under real use. I work across the stack, from interfaces in React and Next.js to the data and APIs behind them.";
 
 const bioP2 =
-  "Lately I've been spending most of my time in Web3: wiring wallets and contracts into the frontend with Wagmi and Viem, writing Solidity, and designing flows that make on-chain actions less confusing for people who just want things to work.";
+  "Day to day that means React and Next.js interfaces, typed APIs, and performance work. I also spend part of my time in Web3, wiring wallets and contracts into the frontend with Wagmi and Viem and writing Solidity, so on-chain actions make sense to people who just want things to work.";
 
 const bioP3 =
-  "I care about clean, typed code, accessible and responsive UI, and shipping in small steps that I can verify. If you have an idea, a product, or a protocol that needs a careful pair of hands,";
+  "I care about clean, typed code, accessible and responsive UI, and shipping in small steps that I can verify. If you have an idea, a product, or a platform that needs a careful pair of hands,";
 
 export const CHAPTERS: JourneyChapter[] = [
   {
@@ -32,9 +32,9 @@ export const CHAPTERS: JourneyChapter[] = [
     id: "contract",
     label: "Contract",
     index: "02",
-    fig: "FIG. 2 / SOLIDITY",
+    fig: "FIG. 2 / CONTRACTS",
     title: "The contract",
-    text: "When a feature touches the chain, the Solidity comes before the UI: small contracts with one job each, called from the frontend through Wagmi and Viem so the interface and the chain can't disagree about state.",
+    text: "The contract comes before the UI: typed APIs and schemas for the web, and when a feature touches the chain, small Solidity contracts with one job each, so the interface and the data can't disagree about state.",
   },
   {
     id: "interface",
@@ -64,6 +64,7 @@ export const STACK: string[] = [
   "Next.js 16",
   "TypeScript",
   "React",
+  "Tailwind v4",
   "Wagmi / Viem",
   "Solidity",
 ];
@@ -73,5 +74,5 @@ export const TAGS: { label: string; href: string }[] = [
   { label: "Clean code", href: "#projects" },
   { label: "Performance first", href: "#projects" },
   { label: "Secure by default", href: "#projects" },
-  { label: "Smart contracts", href: "#projects" },
+  { label: "Web & Web3", href: "#projects" },
 ];

@@ -103,7 +103,7 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
           {/* Single Semantic H1 with Screen Reader Announcement */}
           <h1 className="hero-stagger-2 mb-3 min-[400px]:mb-4 sm:mb-4 [@media(max-height:740px)]:mb-2 [@media(max-height:720px)]:mb-2 shrink-0">
             <span className="sr-only">
-              Theodhore — Web Developer &amp; Web3 Engineer
+              Theodhore — Full-Stack Web Developer
             </span>
 
             <span
@@ -123,9 +123,9 @@ export function HeroBlock({ projectCount }: { projectCount: number }) {
               {/* Subtitle / Intro Description (Exact preserved copy) */}
               <p className="hero-stagger-3 mb-3.5 min-[400px]:mb-4 sm:mb-4 [@media(max-height:740px)]:mb-2 [@media(max-height:720px)]:mb-2.5 max-w-xl font-sans text-[15px] min-[390px]:text-base sm:text-sm md:text-base [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:leading-relaxed leading-relaxed text-muted">
                 Hi, I&apos;m <span className="font-semibold text-ink">Theodhore</span>.
-                I build high-performance web applications, decentralized protocols,
-                and developer tooling with clean code and interfaces people can
-                actually use.
+                I build fast, accessible web applications and developer tooling, and
+                bring the same care to Web3 interfaces when a project needs it,
+                with clean code and interfaces people can actually use.
               </p>
 
               {/* Action Buttons */}

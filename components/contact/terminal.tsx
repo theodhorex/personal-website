@@ -8,14 +8,14 @@ import { cn } from "@/lib/utils";
 
 const LINES = [
   "$ whoami",
-  "theodhore — web developer /",
-  "web3 engineer",
+  "theodhore — full-stack",
+  "web developer",
   "$ cat contact.log",
-  "built: defi routing, edge",
-  "streaming, event indexing,",
-  "solidity tooling. stack:",
+  "built: web apps, edge",
+  "streaming, dev tooling,",
+  "defi interfaces. stack:",
   "next.js, typescript,",
-  "wagmi / viem, solidity.",
+  "tailwind, wagmi / viem.",
   "$ open mailto:theodhore.dev@gmail.com",
 ] as const;
 

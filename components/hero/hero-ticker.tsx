@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 
 const TECH_ITEMS = [
   "Next.js 16",
+  "React",
   "TypeScript",
+  "Tailwind v4",
+  "Edge runtime",
+  "WebSockets",
   "Wagmi / Viem",
   "Solidity",
-  "Web3",
-  "Tailwind v4",
-  "EVM Architecture",
-  "Rust Tooling",
 ];
 
 function CountUp({ to }: { to: number }) {

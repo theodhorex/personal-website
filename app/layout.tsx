@@ -24,9 +24,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Theodhore - Web Developer & Web3 Enthusiast",
+  title: "Theodhore - Full-Stack Web Developer",
   description:
-    "Personal website and portfolio of Theodhore. Building high-performance web applications, decentralized protocols, smart contract interfaces, and developer tooling.",
+    "Personal website and portfolio of Theodhore. Building fast web applications, APIs, and developer tooling, plus Web3 interfaces and smart contracts.",
 };
 
 export default function RootLayout({

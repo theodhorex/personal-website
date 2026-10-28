@@ -98,10 +98,10 @@ export function HeroDiagram({ className }: { className?: string }) {
             fill="var(--bg-2)"
           />
           <text x="210" y="57" fill="var(--ink)" fontFamily="var(--font-mono)" fontSize="9" fontWeight="600" letterSpacing="0.08em">
-            ROUTING_RELAY
+            EDGE_API
           </text>
           <text x="210" y="75" fill="var(--muted)" fontFamily="var(--font-mono)" fontSize="8" letterSpacing="0.05em">
-            VIEM / PERMIT2
+            CACHE / ROUTES
           </text>
           <text x="210" y="91" fill="var(--muted)" fontFamily="var(--font-mono)" fontSize="7">
             SYNC
@@ -119,13 +119,13 @@ export function HeroDiagram({ className }: { className?: string }) {
             fill="var(--bg-2)"
           />
           <text x="410" y="102" fill="var(--ink)" fontFamily="var(--font-mono)" fontSize="9" fontWeight="600" letterSpacing="0.08em">
-            STATE_EVM
+            DATA_STORE
           </text>
           <text x="410" y="120" fill="var(--muted)" fontFamily="var(--font-mono)" fontSize="8" letterSpacing="0.05em">
-            ON-CHAIN LOGS
+            PERSISTED STATE
           </text>
           <text x="410" y="136" fill="var(--accent)" fontFamily="var(--font-mono)" fontSize="7" fontWeight="600">
-            FINALIZED
+            COMMITTED
           </text>
 
           {/* The ONE Accent Point (Pulsing telemetry beacon) */}
@@ -144,15 +144,15 @@ export function HeroDiagram({ className }: { className?: string }) {
             fill="var(--bg)"
           />
           <text x="370" y="165" fill="var(--muted)" fontFamily="var(--font-mono)" fontSize="8" letterSpacing="0.05em">
-            RUST_INDEXER
+            CHAIN_INDEXER
           </text>
         </svg>
 
         {/* Technical Footer Telemetry Bar */}
         <div className="mt-2 min-[400px]:mt-2.5 [@media(max-height:740px)]:mt-1.5 [@media(max-height:720px)]:mt-1 flex items-center justify-between border-t border-line/60 pt-1.5 min-[400px]:pt-2 [@media(max-height:740px)]:pt-1 [@media(max-height:720px)]:pt-1 font-mono text-[9px] sm:text-[10px] text-muted">
           <span>CLIENT</span>
-          <span className="text-muted">RELAY</span>
-          <span className="font-semibold text-accent">CHAIN</span>
+          <span className="text-muted">EDGE</span>
+          <span className="font-semibold text-accent">DATA</span>
         </div>
       </div>
 
