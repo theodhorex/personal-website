@@ -1,57 +1,28 @@
 # Theodhore — Personal Website
 
-Project personal sederhana yang dibuat untuk website portfolio pribadi. Tujuannya hanya sebagai personal website biasa untuk menampilkan profil, ketertarikan seputar web development & Web3, serta beberapa project yang pernah dikerjakan.
+Portfolio pribadi: full-stack web developer dengan Web3 sebagai salah satu keahlian. Berupa cerita interaktif yang discroll (Hero, Journey, Projects, Contact), tema gelap.
 
----
+**Live:** https://theodhorex.vercel.app
 
 ## Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
-- **Library**: [React](https://react.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Runtime / Package Manager**: [Bun](https://bun.sh/) / [Node.js](https://nodejs.org/)
+Next.js (App Router) · React · Tailwind CSS · Framer Motion · Sanity (opsional) · Bun
 
----
+## Menjalankan
 
-## Cara Menjalankan Project
+```bash
+git clone https://github.com/theodhorex/personal-website.git
+cd personal-website
+bun install
+bun dev   # http://localhost:3000
+```
 
-1. **Clone repository**:
-   ```bash
-   git clone https://github.com/theodhorex/personal_website.git
-   cd personal_website
-   ```
+Navigasi keyboard: `Space` / `→` / `↓` ke bagian berikutnya, `←` / `↑` kembali.
 
-2. **Install dependencies**:
-   ```bash
-   bun install
-   # atau menggunakan npm:
-   # npm install
-   ```
+## Sanity (opsional)
 
-3. **Jalankan development server**:
-   ```bash
-   bun dev
-   # atau menggunakan npm:
-   # npm run dev
-   ```
+Tanpa setup, situs memakai data lokal. Untuk CMS: salin `.env.example` ke `.env.local`, isi `NEXT_PUBLIC_SANITY_PROJECT_ID`, lalu buka `/studio`.
 
-4. Buka [http://localhost:3000](http://localhost:3000) di browser.
+## Kontak
 
----
-
-## CMS (Sanity.io - Opsional)
-
-Website ini sudah mendukung **Sanity.io**:
-- **Default (Tanpa CMS)**: Tetap berjalan normal menggunakan data lokal bawaan tanpa perlu setup apapun.
-- **Jika ingin menggunakan CMS**:
-  1. Buat project di [sanity.io](https://sanity.io)
-  2. Buat file `.env.local` dan isi `NEXT_PUBLIC_SANITY_PROJECT_ID=project_id_kamu`
-  3. Buka dashboard Sanity Studio langsung di browser di [http://localhost:3000/studio](http://localhost:3000/studio)
-
----
-
-## Author
-
-- **Theodhore**
-- GitHub: [@theodhorex](https://github.com/theodhorex)
-- Email: [theodhore.dev@gmail.com](mailto:theodhore.dev@gmail.com)
+[@theodhorex](https://github.com/theodhorex) · theodhore.dev@gmail.com
